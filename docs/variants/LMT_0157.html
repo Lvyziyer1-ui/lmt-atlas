@@ -94,13 +94,49 @@
       <h2>Structure Viewer</h2>
       
     <div class="placeholder-section">
-      No structure currently linked. Structure readiness: Sequence available (modelable). Predicted model exports and module overlays are deferred.
+      No structure currently linked. Structure readiness: Sequence available (modelable). Predicted model exports and module overlays are not part of v1.
     </div>
     
     </section>
     <section class="section">
       <h2>Download This Entry</h2>
-      <div class="placeholder-section">Per-entry filtered download packages are deferred. Use the full CSV bundle for now.</div>
+      
+    <div class="content-card entry-download-card">
+      <button id="download-entry-csv" class="button">Download this entry (measurements CSV)</button>
+      <p class="card-note">Exports this construct's measurement-level rows; identical to the matching rows in the full measurement.csv bundle.</p>
+    </div>
+    <script>
+    window.LMT_ENTRY_ROWS = [{"canonical_enzyme_id": "LMT_0157", "construct_display_name": "UM-1 Q0S mutant", "source_type": "literature", "doi_or_patent_number": "", "methanol_conc_percent": "50", "incubation_time_h": "3", "incubation_temp_C": "37", "activity_assay_method": "titrimetric olive-oil hydrolysis assay with 0.05 M NaOH endpoint", "assay_substrate": "olive oil emulsion", "residual_activity_percent": "92", "LTS_ref": "0.91", "LTS_ref_ci_low": "-1.544", "LTS_ref_ci_high": "3.281", "confidence_LTS": "0.0224", "fit_status": "insufficient_evidence", "evidence_confidence_tier": "downweighted_train", "provenance_anchor": "thesis pages 40 and 47; Section 3.3.5.3 and Figure 3-5/results text"}, {"canonical_enzyme_id": "LMT_0157", "construct_display_name": "UM-1 Q0S mutant", "source_type": "literature", "doi_or_patent_number": "", "methanol_conc_percent": "50", "incubation_time_h": "12", "incubation_temp_C": "37", "activity_assay_method": "titrimetric olive-oil hydrolysis assay with 0.05 M NaOH endpoint", "assay_substrate": "olive oil emulsion", "residual_activity_percent": "62", "LTS_ref": "0.91", "LTS_ref_ci_low": "-1.544", "LTS_ref_ci_high": "3.281", "confidence_LTS": "0.0224", "fit_status": "insufficient_evidence", "evidence_confidence_tier": "downweighted_train", "provenance_anchor": "thesis pages 40 and 47; Figure 3-5/results text"}, {"canonical_enzyme_id": "LMT_0157", "construct_display_name": "UM-1 Q0S mutant", "source_type": "literature", "doi_or_patent_number": "", "methanol_conc_percent": "50", "incubation_time_h": "36", "incubation_temp_C": "37", "activity_assay_method": "titrimetric olive-oil hydrolysis assay with 0.05 M NaOH endpoint", "assay_substrate": "olive oil emulsion", "residual_activity_percent": "18", "LTS_ref": "0.91", "LTS_ref_ci_low": "-1.544", "LTS_ref_ci_high": "3.281", "confidence_LTS": "0.0224", "fit_status": "insufficient_evidence", "evidence_confidence_tier": "holdout_only", "provenance_anchor": "thesis page 47; Figure 3-5 plotted 36 h endpoint"}];
+    (function() {
+      const columns = ["canonical_enzyme_id", "construct_display_name", "source_type", "doi_or_patent_number", "methanol_conc_percent", "incubation_time_h", "incubation_temp_C", "activity_assay_method", "assay_substrate", "residual_activity_percent", "LTS_ref", "LTS_ref_ci_low", "LTS_ref_ci_high", "confidence_LTS", "fit_status", "evidence_confidence_tier", "provenance_anchor"];
+      const canonicalId = "LMT_0157";
+      const filename = "lmt_atlas_LMT_0157.csv";
+      const rows = window.LMT_ENTRY_ROWS || [];
+      const button = document.getElementById('download-entry-csv');
+      function csvEscape(value) {
+        const text = String(value || '');
+        if (/[",\n]/.test(text)) return '"' + text.replace(/"/g, '""') + '"';
+        return text;
+      }
+      function downloadEntryCsv() {
+        if (!rows.length) return;
+        const csvRows = rows.map((row) => columns.map((column) => csvEscape(row[column])).join(','));
+        const csv = [columns.join(',')].concat(csvRows).join('\n');
+        const blob = new Blob([csv], { type: 'text/csv;charset=utf-8' });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        URL.revokeObjectURL(link.href);
+      }
+      if (button && rows.length) {
+        button.addEventListener('click', downloadEntryCsv);
+      }
+    }());
+    </script>
+    
     </section>
     
     <footer class="site-footer">

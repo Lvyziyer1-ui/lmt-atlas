@@ -148,7 +148,43 @@
     </section>
     <section class="section">
       <h2>Download This Entry</h2>
-      <div class="placeholder-section">Per-entry filtered download packages are deferred. Use the full CSV bundle for now.</div>
+      
+    <div class="content-card entry-download-card">
+      <button id="download-entry-csv" class="button">Download this entry (measurements CSV)</button>
+      <p class="card-note">Exports this construct's measurement-level rows; identical to the matching rows in the full measurement.csv bundle.</p>
+    </div>
+    <script>
+    window.LMT_ENTRY_ROWS = [{"canonical_enzyme_id": "LMT_0225", "construct_display_name": "Photobacterium lipolyticum M37 soluble recombinant lipase", "source_type": "literature", "doi_or_patent_number": "10.4014/jmb.1106.06048", "methanol_conc_percent": "10", "incubation_time_h": "0.5", "incubation_temp_C": "30", "activity_assay_method": "p-nitrophenyl caprylate residual activity assay after solvent incubation", "assay_substrate": "p-nitrophenyl caprylate", "residual_activity_percent": "98", "LTS_ref": "1.029", "LTS_ref_ci_low": "-0.733", "LTS_ref_ci_high": "2.801", "confidence_LTS": "0.0535", "fit_status": "partial_pooled_low_n", "evidence_confidence_tier": "downweighted_train", "provenance_anchor": "PDF p. 1163; Methods Effects of Various Organic Solvents and Figure 4A"}, {"canonical_enzyme_id": "LMT_0225", "construct_display_name": "Photobacterium lipolyticum M37 soluble recombinant lipase", "source_type": "literature", "doi_or_patent_number": "10.4014/jmb.1106.06048", "methanol_conc_percent": "20", "incubation_time_h": "0.5", "incubation_temp_C": "30", "activity_assay_method": "p-nitrophenyl caprylate residual activity assay after solvent incubation", "assay_substrate": "p-nitrophenyl caprylate", "residual_activity_percent": "72", "LTS_ref": "1.066", "LTS_ref_ci_low": "-0.689", "LTS_ref_ci_high": "2.794", "confidence_LTS": "0.0549", "fit_status": "partial_pooled_low_n", "evidence_confidence_tier": "downweighted_train", "provenance_anchor": "PDF p. 1163; Methods Effects of Various Organic Solvents and Figure 4A"}, {"canonical_enzyme_id": "LMT_0225", "construct_display_name": "Photobacterium lipolyticum M37 soluble recombinant lipase", "source_type": "literature", "doi_or_patent_number": "10.4014/jmb.1106.06048", "methanol_conc_percent": "30", "incubation_time_h": "0.5", "incubation_temp_C": "30", "activity_assay_method": "p-nitrophenyl caprylate residual activity assay after solvent incubation", "assay_substrate": "p-nitrophenyl caprylate", "residual_activity_percent": "73", "LTS_ref": "0.99", "LTS_ref_ci_low": "-0.84", "LTS_ref_ci_high": "2.768", "confidence_LTS": "0.0516", "fit_status": "partial_pooled_low_n", "evidence_confidence_tier": "downweighted_train", "provenance_anchor": "PDF p. 1163; Methods Effects of Various Organic Solvents and Figure 4A"}, {"canonical_enzyme_id": "LMT_0225", "construct_display_name": "Photobacterium lipolyticum M37 soluble recombinant lipase", "source_type": "literature", "doi_or_patent_number": "10.4014/jmb.1106.06048", "methanol_conc_percent": "40", "incubation_time_h": "0.5", "incubation_temp_C": "30", "activity_assay_method": "p-nitrophenyl caprylate residual activity assay after solvent incubation", "assay_substrate": "p-nitrophenyl caprylate", "residual_activity_percent": "54", "LTS_ref": "0.989", "LTS_ref_ci_low": "-0.786", "LTS_ref_ci_high": "2.813", "confidence_LTS": "0.0518", "fit_status": "partial_pooled_low_n", "evidence_confidence_tier": "downweighted_train", "provenance_anchor": "PDF p. 1163; Methods Effects of Various Organic Solvents and Figure 4A"}, {"canonical_enzyme_id": "LMT_0225", "construct_display_name": "Photobacterium lipolyticum M37 soluble recombinant lipase", "source_type": "literature", "doi_or_patent_number": "10.4014/jmb.1106.06048", "methanol_conc_percent": "50", "incubation_time_h": "0.5", "incubation_temp_C": "30", "activity_assay_method": "p-nitrophenyl caprylate residual activity assay after solvent incubation", "assay_substrate": "p-nitrophenyl caprylate", "residual_activity_percent": "47", "LTS_ref": "0.975", "LTS_ref_ci_low": "-0.814", "LTS_ref_ci_high": "2.748", "confidence_LTS": "0.0527", "fit_status": "partial_pooled_low_n", "evidence_confidence_tier": "downweighted_train", "provenance_anchor": "PDF p. 1163; Methods Effects of Various Organic Solvents and Figure 4A"}, {"canonical_enzyme_id": "LMT_0225", "construct_display_name": "Photobacterium lipolyticum M37 soluble recombinant lipase", "source_type": "literature", "doi_or_patent_number": "10.4014/jmb.1106.06048", "methanol_conc_percent": "60", "incubation_time_h": "0.5", "incubation_temp_C": "30", "activity_assay_method": "p-nitrophenyl caprylate residual activity assay after solvent incubation", "assay_substrate": "p-nitrophenyl caprylate", "residual_activity_percent": "1", "LTS_ref": "1.635", "LTS_ref_ci_low": "-0.157", "LTS_ref_ci_high": "3.402", "confidence_LTS": "0.0528", "fit_status": "partial_pooled_low_n", "evidence_confidence_tier": "downweighted_train", "provenance_anchor": "PDF p. 1163; Methods Effects of Various Organic Solvents and Figure 4A"}];
+    (function() {
+      const columns = ["canonical_enzyme_id", "construct_display_name", "source_type", "doi_or_patent_number", "methanol_conc_percent", "incubation_time_h", "incubation_temp_C", "activity_assay_method", "assay_substrate", "residual_activity_percent", "LTS_ref", "LTS_ref_ci_low", "LTS_ref_ci_high", "confidence_LTS", "fit_status", "evidence_confidence_tier", "provenance_anchor"];
+      const canonicalId = "LMT_0225";
+      const filename = "lmt_atlas_LMT_0225.csv";
+      const rows = window.LMT_ENTRY_ROWS || [];
+      const button = document.getElementById('download-entry-csv');
+      function csvEscape(value) {
+        const text = String(value || '');
+        if (/[",\n]/.test(text)) return '"' + text.replace(/"/g, '""') + '"';
+        return text;
+      }
+      function downloadEntryCsv() {
+        if (!rows.length) return;
+        const csvRows = rows.map((row) => columns.map((column) => csvEscape(row[column])).join(','));
+        const csv = [columns.join(',')].concat(csvRows).join('\n');
+        const blob = new Blob([csv], { type: 'text/csv;charset=utf-8' });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        URL.revokeObjectURL(link.href);
+      }
+      if (button && rows.length) {
+        button.addEventListener('click', downloadEntryCsv);
+      }
+    }());
+    </script>
+    
     </section>
     
     <footer class="site-footer">

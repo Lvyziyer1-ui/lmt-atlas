@@ -16,7 +16,7 @@
         <p class="lede">Rhizopus niveus · identity-only entry</p>
         <p>
           <span class="badge">identity only</span>
-          <span class="badge">Experimental structure available</span>
+          <span class="badge">Not assessed</span>
         </p>
       </div>
       <nav class='hero-links main-nav'><a href="../index.html">Home</a><a href="../browse_enzymes.html" aria-current='page'>Browse Enzymes</a><a href="../organisms.html">Browse by Organism</a><a href="../search.html">Search</a><a href="../analysis.html">Analysis</a><a href="../documentation.html">Documentation</a><a href="../glossary.html">Glossary</a><a href="../about.html">About</a></nav>
@@ -32,7 +32,7 @@
     
     <section class="section">
       <h2>Identifiers</h2>
-      <div class='table-wrap'><table><thead><tr><th>Field</th><th>Value</th></tr></thead><tbody><tr><td>Stable accession</td><td>LMT_0415</td></tr><tr><td>Canonical name</td><td>Rhizopus niveus lipase wild type and P18H/A36T/E218V mutant</td></tr><tr><td>Display name</td><td>Rhizopus niveus lipase wild type and P18H/A36T/E218V mutant</td></tr><tr><td>Source organism</td><td>Rhizopus niveus</td></tr><tr><td>EC</td><td>Not reported</td></tr><tr><td>Role</td><td>Wild-type / canonical enzyme</td></tr><tr><td>Parent construct</td><td>Not reported</td></tr><tr><td>Structure readiness</td><td>Experimental structure available</td></tr></tbody></table></div><details class='identifier-details'><summary>Identifiers</summary><div class='table-wrap'><table><thead><tr><th>Field</th><th>Value</th></tr></thead><tbody><tr><td>UniProt (exact)</td><td>Not reported</td></tr><tr><td>UniProt (parent/reference)</td><td>Not reported</td></tr><tr><td>UniProt (historical)</td><td>Not reported</td></tr><tr><td>UniProt (active IDs)</td><td>Not reported</td></tr><tr><td>Source UniProt field</td><td>Source not reported (missing DOI)</td></tr><tr><td>PDB</td><td>Not reported</td></tr><tr><td>DOI / patent number</td><td>Not reported</td></tr><tr><td>Identifier caveat</td><td>no uniprot reported:1</td></tr></tbody></table></div><h3>External links</h3><p class='empty'>No exact external identifier links available.</p></details>
+      <div class='table-wrap'><table><thead><tr><th>Field</th><th>Value</th></tr></thead><tbody><tr><td>Stable accession</td><td>LMT_0415</td></tr><tr><td>Canonical name</td><td>Rhizopus niveus lipase wild type and P18H/A36T/E218V mutant</td></tr><tr><td>Display name</td><td>Rhizopus niveus lipase wild type and P18H/A36T/E218V mutant</td></tr><tr><td>Source organism</td><td>Rhizopus niveus</td></tr><tr><td>EC</td><td>Not reported</td></tr><tr><td>Role</td><td>Wild-type / canonical enzyme</td></tr><tr><td>Parent construct</td><td>Not reported</td></tr><tr><td>Structure readiness</td><td>Not assessed</td></tr></tbody></table></div><details class='identifier-details'><summary>Identifiers</summary><div class='table-wrap'><table><thead><tr><th>Field</th><th>Value</th></tr></thead><tbody><tr><td>UniProt (exact)</td><td>Not reported</td></tr><tr><td>UniProt (parent/reference)</td><td>Not reported</td></tr><tr><td>UniProt (historical)</td><td>Not reported</td></tr><tr><td>UniProt (active IDs)</td><td>Not reported</td></tr><tr><td>Source UniProt field</td><td>Source not reported (missing DOI)</td></tr><tr><td>PDB</td><td>Not reported</td></tr><tr><td>DOI / patent number</td><td>Not reported</td></tr><tr><td>Identifier caveat</td><td>no uniprot reported:1</td></tr></tbody></table></div><h3>External links</h3><p class='empty'>No exact external identifier links available.</p></details>
     </section>
     <section class="section">
       <h2>Tolerance</h2>
@@ -56,13 +56,49 @@
       <h2>Structure Viewer</h2>
       
     <div class="placeholder-section">
-      No structure currently linked. Structure readiness: Experimental structure available. Predicted model exports and module overlays are deferred.
+      No structure currently linked. Structure readiness: Not assessed. Predicted model exports and module overlays are not part of v1.
     </div>
     
     </section>
     <section class="section">
       <h2>Download This Entry</h2>
-      <div class="placeholder-section">Identity-only entry; use the full CSV bundle for reproducible downloads.</div>
+      
+    <div class="content-card entry-download-card">
+      <button id="download-entry-csv" class="button" disabled>Download this entry (measurements CSV)</button>
+      <p class="card-note">No measurement rows to export for this entry.</p>
+    </div>
+    <script>
+    window.LMT_ENTRY_ROWS = [];
+    (function() {
+      const columns = ["canonical_enzyme_id", "construct_display_name", "source_type", "doi_or_patent_number", "methanol_conc_percent", "incubation_time_h", "incubation_temp_C", "activity_assay_method", "assay_substrate", "residual_activity_percent", "LTS_ref", "LTS_ref_ci_low", "LTS_ref_ci_high", "confidence_LTS", "fit_status", "evidence_confidence_tier", "provenance_anchor"];
+      const canonicalId = "LMT_0415";
+      const filename = "lmt_atlas_LMT_0415.csv";
+      const rows = window.LMT_ENTRY_ROWS || [];
+      const button = document.getElementById('download-entry-csv');
+      function csvEscape(value) {
+        const text = String(value || '');
+        if (/[",\n]/.test(text)) return '"' + text.replace(/"/g, '""') + '"';
+        return text;
+      }
+      function downloadEntryCsv() {
+        if (!rows.length) return;
+        const csvRows = rows.map((row) => columns.map((column) => csvEscape(row[column])).join(','));
+        const csv = [columns.join(',')].concat(csvRows).join('\n');
+        const blob = new Blob([csv], { type: 'text/csv;charset=utf-8' });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        URL.revokeObjectURL(link.href);
+      }
+      if (button && rows.length) {
+        button.addEventListener('click', downloadEntryCsv);
+      }
+    }());
+    </script>
+    
     </section>
     
     <footer class="site-footer">

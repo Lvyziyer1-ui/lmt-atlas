@@ -112,7 +112,43 @@
     </section>
     <section class="section">
       <h2>Download This Entry</h2>
-      <div class="placeholder-section">Per-entry filtered download packages are deferred. Use the full CSV bundle for now.</div>
+      
+    <div class="content-card entry-download-card">
+      <button id="download-entry-csv" class="button">Download this entry (measurements CSV)</button>
+      <p class="card-note">Exports this construct's measurement-level rows; identical to the matching rows in the full measurement.csv bundle.</p>
+    </div>
+    <script>
+    window.LMT_ENTRY_ROWS = [{"canonical_enzyme_id": "LMT_0065", "construct_display_name": "Candida antarctica lipase B", "source_type": "literature", "doi_or_patent_number": "10.1016/j.molcatb.2014.03.002", "methanol_conc_percent": "1.2 mol/L", "incubation_time_h": "0", "incubation_temp_C": "20", "activity_assay_method": "tributyrin hydrolysis assay in aqueous phase with methanol concentration series", "assay_substrate": "tributyrin", "residual_activity_percent": "102", "LTS_ref": "0.888", "LTS_ref_ci_low": "-1.651", "LTS_ref_ci_high": "3.413", "confidence_LTS": "0.0199", "fit_status": "insufficient_evidence", "evidence_confidence_tier": "holdout_only", "provenance_anchor": "pp. 2-5; Sections 2.2 and 3.1-3.2; Fig. 1; cited assay reference [19]"}, {"canonical_enzyme_id": "LMT_0065", "construct_display_name": "Candida antarctica lipase B", "source_type": "literature", "doi_or_patent_number": "10.1016/j.molcatb.2014.03.002", "methanol_conc_percent": "6.0 mol/L", "incubation_time_h": "0", "incubation_temp_C": "20", "activity_assay_method": "tributyrin hydrolysis assay in aqueous phase with methanol concentration series", "assay_substrate": "tributyrin", "residual_activity_percent": "85", "LTS_ref": "0.888", "LTS_ref_ci_low": "-1.651", "LTS_ref_ci_high": "3.413", "confidence_LTS": "0.0199", "fit_status": "insufficient_evidence", "evidence_confidence_tier": "holdout_only", "provenance_anchor": "pp. 2-5; Sections 2.2 and 3.1-3.2; Fig. 1; cited assay reference [19]"}, {"canonical_enzyme_id": "LMT_0065", "construct_display_name": "Candida antarctica lipase B", "source_type": "literature", "doi_or_patent_number": "10.1016/j.molcatb.2014.03.002", "methanol_conc_percent": "100", "incubation_time_h": "2", "incubation_temp_C": "20", "activity_assay_method": "tributyrin hydrolysis assay after neat-methanol pretreatment and dialysis", "assay_substrate": "tributyrin", "residual_activity_percent": "63", "LTS_ref": "0.909", "LTS_ref_ci_low": "-1.797", "LTS_ref_ci_high": "3.481", "confidence_LTS": "0.0179", "fit_status": "insufficient_evidence", "evidence_confidence_tier": "holdout_only", "provenance_anchor": "pp. 3-4; Table 1; Section 3.2"}];
+    (function() {
+      const columns = ["canonical_enzyme_id", "construct_display_name", "source_type", "doi_or_patent_number", "methanol_conc_percent", "incubation_time_h", "incubation_temp_C", "activity_assay_method", "assay_substrate", "residual_activity_percent", "LTS_ref", "LTS_ref_ci_low", "LTS_ref_ci_high", "confidence_LTS", "fit_status", "evidence_confidence_tier", "provenance_anchor"];
+      const canonicalId = "LMT_0065";
+      const filename = "lmt_atlas_LMT_0065.csv";
+      const rows = window.LMT_ENTRY_ROWS || [];
+      const button = document.getElementById('download-entry-csv');
+      function csvEscape(value) {
+        const text = String(value || '');
+        if (/[",\n]/.test(text)) return '"' + text.replace(/"/g, '""') + '"';
+        return text;
+      }
+      function downloadEntryCsv() {
+        if (!rows.length) return;
+        const csvRows = rows.map((row) => columns.map((column) => csvEscape(row[column])).join(','));
+        const csv = [columns.join(',')].concat(csvRows).join('\n');
+        const blob = new Blob([csv], { type: 'text/csv;charset=utf-8' });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        URL.revokeObjectURL(link.href);
+      }
+      if (button && rows.length) {
+        button.addEventListener('click', downloadEntryCsv);
+      }
+    }());
+    </script>
+    
     </section>
     
     <footer class="site-footer">

@@ -33,7 +33,7 @@ This bundle was generated from:
 - `registry_literature_breadth=283`
 - `direct_intrinsic_source_count=162`
 - `patent_family_count=20`
-- `structure_ready_count=144`
+- `structure_ready_count=137`
 
 ## Run with Datasette
 

@@ -148,7 +148,43 @@
     </section>
     <section class="section">
       <h2>Download This Entry</h2>
-      <div class="placeholder-section">Per-entry filtered download packages are deferred. Use the full CSV bundle for now.</div>
+      
+    <div class="content-card entry-download-card">
+      <button id="download-entry-csv" class="button">Download this entry (measurements CSV)</button>
+      <p class="card-note">Exports this construct's measurement-level rows; identical to the matching rows in the full measurement.csv bundle.</p>
+    </div>
+    <script>
+    window.LMT_ENTRY_ROWS = [{"canonical_enzyme_id": "LMT_0218", "construct_display_name": "Bacillus sp. strain 42 recombinant Lip 42", "source_type": "literature", "doi_or_patent_number": "10.1007/s10930-010-9251-7", "methanol_conc_percent": "15", "incubation_time_h": "0.5", "incubation_temp_C": "40", "activity_assay_method": "Kwon and Rhee lipase assay after solvent preincubation; exact substrate not restated in current PDF", "assay_substrate": "not_reported", "residual_activity_percent": "84", "LTS_ref": "1.195", "LTS_ref_ci_low": "-0.473", "LTS_ref_ci_high": "2.938", "confidence_LTS": "0.0601", "fit_status": "partial_pooled_low_n", "evidence_confidence_tier": "downweighted_train", "provenance_anchor": "PDF p. 292; Methods 2.2 and Figure 1"}, {"canonical_enzyme_id": "LMT_0218", "construct_display_name": "Bacillus sp. strain 42 recombinant Lip 42", "source_type": "literature", "doi_or_patent_number": "10.1007/s10930-010-9251-7", "methanol_conc_percent": "30", "incubation_time_h": "0.5", "incubation_temp_C": "40", "activity_assay_method": "Kwon and Rhee lipase assay after solvent preincubation; exact substrate not restated in current PDF", "assay_substrate": "not_reported", "residual_activity_percent": "78", "LTS_ref": "1.068", "LTS_ref_ci_low": "-0.698", "LTS_ref_ci_high": "2.812", "confidence_LTS": "0.0572", "fit_status": "partial_pooled_low_n", "evidence_confidence_tier": "downweighted_train", "provenance_anchor": "PDF p. 292; Methods 2.2 and Figure 1"}, {"canonical_enzyme_id": "LMT_0218", "construct_display_name": "Bacillus sp. strain 42 recombinant Lip 42", "source_type": "literature", "doi_or_patent_number": "10.1007/s10930-010-9251-7", "methanol_conc_percent": "45", "incubation_time_h": "0.5", "incubation_temp_C": "40", "activity_assay_method": "Kwon and Rhee lipase assay after solvent preincubation; exact substrate not restated in current PDF", "assay_substrate": "not_reported", "residual_activity_percent": "86", "LTS_ref": "0.939", "LTS_ref_ci_low": "-0.824", "LTS_ref_ci_high": "2.708", "confidence_LTS": "0.0566", "fit_status": "partial_pooled_low_n", "evidence_confidence_tier": "downweighted_train", "provenance_anchor": "PDF p. 292; Methods 2.2 and Figure 1"}, {"canonical_enzyme_id": "LMT_0218", "construct_display_name": "Bacillus sp. strain 42 recombinant Lip 42", "source_type": "literature", "doi_or_patent_number": "10.1007/s10930-010-9251-7", "methanol_conc_percent": "60", "incubation_time_h": "0.5", "incubation_temp_C": "40", "activity_assay_method": "Kwon and Rhee lipase assay after solvent preincubation; exact substrate not restated in current PDF", "assay_substrate": "not_reported", "residual_activity_percent": "3", "LTS_ref": "1.608", "LTS_ref_ci_low": "-0.132", "LTS_ref_ci_high": "3.323", "confidence_LTS": "0.0588", "fit_status": "partial_pooled_low_n", "evidence_confidence_tier": "downweighted_train", "provenance_anchor": "PDF p. 292; Methods 2.2 and Figure 1"}, {"canonical_enzyme_id": "LMT_0218", "construct_display_name": "Bacillus sp. strain 42 recombinant Lip 42", "source_type": "literature", "doi_or_patent_number": "10.1007/s10930-010-9251-7", "methanol_conc_percent": "75", "incubation_time_h": "0.5", "incubation_temp_C": "40", "activity_assay_method": "Kwon and Rhee lipase assay after solvent preincubation; exact substrate not restated in current PDF", "assay_substrate": "not_reported", "residual_activity_percent": "1", "LTS_ref": "1.788", "LTS_ref_ci_low": "0.021", "LTS_ref_ci_high": "3.557", "confidence_LTS": "0.0565", "fit_status": "partial_pooled_low_n", "evidence_confidence_tier": "downweighted_train", "provenance_anchor": "PDF p. 292; Methods 2.2 and Figure 1"}, {"canonical_enzyme_id": "LMT_0218", "construct_display_name": "Bacillus sp. strain 42 recombinant Lip 42", "source_type": "literature", "doi_or_patent_number": "10.1007/s10930-010-9251-7", "methanol_conc_percent": "90", "incubation_time_h": "0.5", "incubation_temp_C": "40", "activity_assay_method": "Kwon and Rhee lipase assay after solvent preincubation; exact substrate not restated in current PDF", "assay_substrate": "not_reported", "residual_activity_percent": "3", "LTS_ref": "1.412", "LTS_ref_ci_low": "-0.33", "LTS_ref_ci_high": "3.118", "confidence_LTS": "0.059", "fit_status": "partial_pooled_low_n", "evidence_confidence_tier": "downweighted_train", "provenance_anchor": "PDF p. 292; Methods 2.2 and Figure 1"}];
+    (function() {
+      const columns = ["canonical_enzyme_id", "construct_display_name", "source_type", "doi_or_patent_number", "methanol_conc_percent", "incubation_time_h", "incubation_temp_C", "activity_assay_method", "assay_substrate", "residual_activity_percent", "LTS_ref", "LTS_ref_ci_low", "LTS_ref_ci_high", "confidence_LTS", "fit_status", "evidence_confidence_tier", "provenance_anchor"];
+      const canonicalId = "LMT_0218";
+      const filename = "lmt_atlas_LMT_0218.csv";
+      const rows = window.LMT_ENTRY_ROWS || [];
+      const button = document.getElementById('download-entry-csv');
+      function csvEscape(value) {
+        const text = String(value || '');
+        if (/[",\n]/.test(text)) return '"' + text.replace(/"/g, '""') + '"';
+        return text;
+      }
+      function downloadEntryCsv() {
+        if (!rows.length) return;
+        const csvRows = rows.map((row) => columns.map((column) => csvEscape(row[column])).join(','));
+        const csv = [columns.join(',')].concat(csvRows).join('\n');
+        const blob = new Blob([csv], { type: 'text/csv;charset=utf-8' });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        URL.revokeObjectURL(link.href);
+      }
+      if (button && rows.length) {
+        button.addEventListener('click', downloadEntryCsv);
+      }
+    }());
+    </script>
+    
     </section>
     
     <footer class="site-footer">

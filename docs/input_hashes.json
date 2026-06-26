@@ -37,15 +37,15 @@
   },
   {
     "path": "atlas_workspace/canonical_layer/canonical_enzymes_v1.csv",
-    "sha256": "2d8cb429a89cd7ae44b55be68e70b206f5e915883b26e507eeecec958f8142e2"
+    "sha256": "7d053634cc18c7f3e746304884f2796ddb4dbb8d505e487c5198ca0404509dad"
   },
   {
     "path": "atlas_workspace/evidence_layer/phase1A_registry_staged.csv",
-    "sha256": "118f5f70f0e7627bbd14b0f63a0970e0543795328f330fb5ca28c363dc8d568b"
+    "sha256": "37c2fefff25188c8f1330265200b88d8780a349f29f0e9aee71787b4f33943fa"
   },
   {
     "path": "atlas_workspace/evidence_layer/phase1A_direct_staged.csv",
-    "sha256": "a0cf3c1a17182095801b652cd7adf04298ffc5952ef8cbceb100188377df7684"
+    "sha256": "cb88da7a77e4e1dd59de1f6d6a8ac90b4e2a3efbed85ab3998ad66f0567ab240"
   },
   {
     "path": "atlas_workspace/evidence_layer/patent_evidence_layer.csv",
