@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LMT-Atlas Evidence Filter</title>
+  <link rel="stylesheet" href="../static/styles.css">
+</head>
+<body>
+  <div class="shell">
+    
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Evidence Layer</p>
+        <h1>Filterable Evidence Table</h1>
+        <p class="lede">Offline client-side filter for the Phase 1.5 measurement-level table. CSV and SQLite downloads keep the full reproducibility schema.</p>
+      </div>
+      <nav class='hero-links main-nav'><a href="../index.html">Home</a><a href="../browse_enzymes.html">Browse Enzymes</a><a href="../organisms.html">Browse by Organism</a><a href="../search.html">Search</a><a href="../analysis.html">Analysis</a><a href="../documentation.html">Documentation</a><a href="../glossary.html">Glossary</a><a href="../about.html">About</a></nav>
+    </header>
+    <section class="section">
+      <div class="content-card">
+        <div class="filter-panel">
+          <label>Free text
+            <input id="filter-q" type="search" placeholder="entry / construct / DOI / patent / source anchor">
+          </label>
+          <label>Source type
+            <select id="filter-source">
+              <option value="">All</option>
+              <option value="literature">Literature</option>
+              <option value="patent">Patent</option>
+            </select>
+          </label>
+          <label>Evidence tier
+            <select id="filter-confidence">
+              <option value="">All</option>
+              <option value="core_train">Core training</option>
+              <option value="downweighted_train">Downweighted training</option>
+              <option value="holdout_only">Holdout only</option>
+            </select>
+          </label>
+          <label>Methanol concentration (%) min
+            <input id="filter-min-methanol" type="number" min="0" step="0.1" placeholder="0">
+          </label>
+          <label>Incubation time (h) min
+            <input id="filter-min-time" type="number" min="0" step="0.1" placeholder="0">
+          </label>
+          <label>Incubation time (h) max
+            <input id="filter-max-time" type="number" min="0" step="0.1" placeholder="24">
+          </label>
+        </div>
+        <p id="evidence-count" class="footer-note"></p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Entry</th>
+                <th>Construct</th>
+                <th>Source type</th>
+                <th>Source</th>
+                <th>Methanol concentration (%)</th>
+                <th>Incubation time (h)</th>
+                <th>Incubation temperature (°C)</th>
+                <th>Residual activity (%)</th>
+                <th>Evidence tier</th>
+                <th>Rule class</th>
+                <th>Source location</th>
+              </tr>
+            </thead>
+            <tbody id="evidence-tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <script src="../static/evidence_rows.js"></script>
+    <script>
+    (function () {
+      const rows = window.LMT_EVIDENCE_ROWS || [];
+      const tbody = document.getElementById('evidence-tbody');
+      const countEl = document.getElementById('evidence-count');
+      const controls = {
+        q: document.getElementById('filter-q'),
+        source: document.getElementById('filter-source'),
+        confidence: document.getElementById('filter-confidence'),
+        minMethanol: document.getElementById('filter-min-methanol'),
+        minTime: document.getElementById('filter-min-time'),
+        maxTime: document.getElementById('filter-max-time'),
+      };
+
+      function numberOrNull(value) {
+        if (value === '' || value === null || value === undefined) return null;
+        const parsed = Number(value);
+        return Number.isFinite(parsed) ? parsed : null;
+      }
+
+      function passes(row) {
+        const query = controls.q.value.trim().toLowerCase();
+        if (query) {
+          const haystack = [row.display_canonical_id, row.construct_display_name, row.source_key, row.page_or_figure_anchor]
+            .join(' ').toLowerCase();
+          if (!haystack.includes(query)) return false;
+        }
+        if (controls.source.value && row.source_type !== controls.source.value) return false;
+        if (controls.confidence.value && row.evidence_confidence_tier !== controls.confidence.value) return false;
+        const minMethanol = numberOrNull(controls.minMethanol.value);
+        const minTime = numberOrNull(controls.minTime.value);
+        const maxTime = numberOrNull(controls.maxTime.value);
+        if (minMethanol !== null && Number(row.methanol_conc_percent || 0) < minMethanol) return false;
+        if (minTime !== null && Number(row.incubation_time_h || 0) < minTime) return false;
+        if (maxTime !== null && Number(row.incubation_time_h || 0) > maxTime) return false;
+        return true;
+      }
+
+      function escapeHtml(value) {
+        return String(value || '')
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#39;');
+      }
+
+      function formatSourceLink(row) {
+        const patent = String(row.patent_publication_number || row.source_key || '');
+        if (row.doi && !String(row.doi).startsWith('not_')) {
+          const doi = escapeHtml(row.doi);
+          return `<a href="https://doi.org/${doi}" target="_blank" rel="noopener noreferrer">${doi}</a>`;
+        }
+        if (/^(CN|WO|US|EP|JP|KR|AU|CA|DE|GB|IN|TW)\d+[A-Z]\d?$/i.test(patent)) {
+          const label = escapeHtml(patent);
+          return `<a href="https://patents.google.com/patent/${label}/en" target="_blank" rel="noopener noreferrer">${label}</a>`;
+        }
+        if (row.source_url) {
+          const href = escapeHtml(row.source_url);
+          const label = escapeHtml(row.patent_publication_number || row.source_key || row.source_url);
+          return `<a href="${href}" target="_blank" rel="noopener noreferrer">${label}</a>`;
+        }
+        return escapeHtml(row.source_key || '');
+      }
+
+      function render() {
+        const filtered = rows.filter(passes);
+        countEl.textContent = `${filtered.length} matching rows shown (render cap 200)`;
+        tbody.innerHTML = filtered.slice(0, 200).map((row) => `
+          <tr>
+            <td>${escapeHtml(row.display_canonical_id || '')}</td>
+            <td>${escapeHtml(row.construct_display_name || '')}</td>
+            <td>${escapeHtml(row.source_type === 'patent' ? 'Patent' : row.source_type === 'literature' ? 'Literature' : row.source_type || '')}</td>
+            <td>${formatSourceLink(row)}</td>
+            <td>${escapeHtml(row.methanol_conc_percent || '')}</td>
+            <td>${escapeHtml(row.incubation_time_h || '')}</td>
+            <td>${escapeHtml(row.incubation_temp_C || '')}</td>
+            <td>${escapeHtml(row.residual_activity_percent || '')}</td>
+            <td>${escapeHtml(row.evidence_confidence_tier === 'core_train' ? 'Core training' : row.evidence_confidence_tier === 'downweighted_train' ? 'Downweighted training' : row.evidence_confidence_tier === 'holdout_only' ? 'Holdout only' : row.evidence_confidence_tier || '')}</td>
+            <td>${escapeHtml(row.rule_class_v0 || '')}</td>
+            <td>${escapeHtml(row.page_or_figure_anchor || row.source_figure_table_id || '')}</td>
+          </tr>
+        `).join('');
+      }
+
+      Object.values(controls).forEach((control) => control.addEventListener('input', render));
+      render();
+    }());
+    </script>
+    
+    <footer class="site-footer">
+      <a href="../documentation.html">Documentation</a>
+      <a href="../glossary.html">Glossary</a>
+      <a href="../downloads/lmt_atlas_downloads_v1_0.zip">Downloads</a>
+      <a href="../about.html">Suggested citation and license</a>
+      <span>v1.0 released 2026-06-25</span>
+      <span>Contact: maintainer@example.org</span>
+    </footer>
+    
+    
+  </div>
+</body>
+</html>

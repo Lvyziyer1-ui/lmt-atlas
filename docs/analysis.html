@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Analysis - LMT-Atlas</title>
+  <link rel="stylesheet" href="./static/styles.css">
+</head>
+<body>
+  <div class="shell">
+    
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Analysis / Statistics</p>
+        <h1>Analysis</h1>
+        <p class="lede">Static analysis panels connected to the frozen Phase 1.5 tolerance release. Click any figure to inspect the high-resolution PNG.</p>
+      </div>
+      <nav class='hero-links main-nav'><a href="index.html">Home</a><a href="browse_enzymes.html">Browse Enzymes</a><a href="organisms.html">Browse by Organism</a><a href="search.html">Search</a><a href="analysis.html" aria-current='page'>Analysis</a><a href="documentation.html">Documentation</a><a href="glossary.html">Glossary</a><a href="about.html">About</a></nav>
+    </header>
+    <section class="section">
+      <h2>Analysis Figures</h2>
+      <div class="figure-grid">
+            <article class="figure-card">
+              <h3>UC2 Engineering Gain</h3>
+              <a class="figure-zoom" href="static/analysis_figures/wt_vs_variant_tolerance_gain.png" target="_blank" rel="noopener noreferrer">
+                <img src="static/analysis_figures/wt_vs_variant_tolerance_gain.png" alt="UC2 Engineering Gain">
+              </a>
+              <p>WT-versus-engineered comparisons within the same parent background show whether engineering produced reproducible methanol-tolerance gains.</p>
+              <p class="figure-download">Download figure (PNG/PDF):
+                <a href="static/analysis_figures/wt_vs_variant_tolerance_gain.png" download>PNG</a>
+                <a href="static/analysis_figures/wt_vs_variant_tolerance_gain.pdf" download>PDF</a>
+              </p>
+            </article>
+            
+            <article class="figure-card">
+              <h3>UC3 Tolerance Ranking Landscape</h3>
+              <a class="figure-zoom" href="static/analysis_figures/uc3_tolerance_ranking_landscape.png" target="_blank" rel="noopener noreferrer">
+                <img src="static/analysis_figures/uc3_tolerance_ranking_landscape.png" alt="UC3 Tolerance Ranking Landscape">
+              </a>
+              <p>Entries are ordered by frozen tolerance score; only terminal constructs stable across sensitivity analysis and Bayesian cross-checks receive robust tiers.</p>
+              <p class="figure-download">Download figure (PNG/PDF):
+                <a href="static/analysis_figures/uc3_tolerance_ranking_landscape.png" download>PNG</a>
+                <a href="static/analysis_figures/uc3_tolerance_ranking_landscape.pdf" download>PDF</a>
+              </p>
+            </article>
+            
+            <article class="figure-card">
+              <h3>Reproducibility Ceiling</h3>
+              <a class="figure-zoom" href="static/analysis_figures/reproducibility_ceiling.png" target="_blank" rel="noopener noreferrer">
+                <img src="static/analysis_figures/reproducibility_ceiling.png" alt="Reproducibility Ceiling">
+              </a>
+              <p>Cross-source agreement under similar assay conditions estimates the practical reproducibility ceiling under heterogeneous literature evidence.</p>
+              <p class="figure-download">Download figure (PNG/PDF):
+                <a href="static/analysis_figures/reproducibility_ceiling.png" download>PNG</a>
+                <a href="static/analysis_figures/reproducibility_ceiling.pdf" download>PDF</a>
+              </p>
+            </article>
+            </div>
+    </section>
+    <section class="section">
+      <h2>Data Overview</h2>
+      <div class="stats-grid">
+        <div class='stat-card'><div class='stat-label'>Canonical entries</div><div class='stat-value'>625</div><div class='card-note'>published identity index</div></div>
+        <div class='stat-card'><div class='stat-label'>Construct tolerance records</div><div class='stat-value'>439</div><div class='card-note'>continuous LTS_ref available</div></div>
+        <div class='stat-card'><div class='stat-label'>Protocol units</div><div class='stat-value'>695</div><div class='card-note'>assay-protocol grain</div></div>
+        <div class='stat-card'><div class='stat-label'>Measurement rows</div><div class='stat-value'>2732</div><div class='card-note'>methanol challenge evidence</div></div>
+      </div>
+    </section>
+    <section class="section">
+      <h2>Rank-Stability Tier</h2>
+      <div class="content-card">
+        <p>The methanol-tolerance badge is a confidence coarse tier based on rank stability, not an absolute credible-interval call: More tolerant 37, Less tolerant 38, Uncertain 364.</p>
+        <p>The public methanol-tolerance badge is a coarse rank-stability tier derived from frozen construct LTS_ref, Stage 5 sensitivity stability, and the MCMC cross-check. It complements the numeric score and is not an absolute credible-interval class.</p>
+      </div>
+    </section>
+    
+    <footer class="site-footer">
+      <a href="documentation.html">Documentation</a>
+      <a href="glossary.html">Glossary</a>
+      <a href="downloads/lmt_atlas_downloads_v1_0.zip">Downloads</a>
+      <a href="about.html">Suggested citation and license</a>
+      <span>v1.0 released 2026-06-25</span>
+      <span>Contact: maintainer@example.org</span>
+    </footer>
+    
+    
+  </div>
+</body>
+</html>

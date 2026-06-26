@@ -1,0 +1,139 @@
+{
+  "title": "LMT-Atlas v1.0",
+  "description": "Datasette-backed release for the Lipase Methanol Tolerance Atlas, built from Phase 1.5 LTS outputs plus five representative enzyme pages.",
+  "license": "Data: CC-BY-4.0; code: MIT",
+  "tables": {
+    "homepage_stats": {
+      "title": "Homepage Stats",
+      "description": "Top-level counts for the v1.0 static release homepage."
+    },
+    "representative_pages": {
+      "title": "Representative Enzyme Pages",
+      "description": "Five manually closed representative enzyme pages used for the v1.0 release."
+    },
+    "variant_summary": {
+      "title": "Variant Summary",
+      "description": "Construct-level summary with official Phase 1.5 LTS_ref, CI, confidence_LTS, tolerance_tier, archive-only strict LTS_label, and archived tolerance_class_v0."
+    },
+    "all_enzyme_index": {
+      "title": "All Enzyme Index",
+      "description": "Frozen web-publication canonical Browse Enzymes index left-joined to official Stage 6 LTS fields."
+    },
+    "evidence_measurement": {
+      "title": "Evidence Measurement",
+      "description": "Phase 1.5 measurement-level evidence table with D_obs and protocol linkage."
+    },
+    "source_reference": {
+      "title": "Source Reference",
+      "description": "Deduplicated literature DOI and patent publication sources."
+    }
+  },
+  "queries": {
+    "homepage_stats": {
+      "title": "Homepage Stats",
+      "sql": "select * from homepage_stats"
+    },
+    "enzyme_page_browser": {
+      "title": "Representative Enzyme Pages",
+      "sql": "\n                select page_id, short_name, standard_name, source_species_normalized,\n                       root_canonical_id, wt_tolerance, best_engineered_variant,\n                       best_engineered_variant_tolerance, median_variant_tolerance,\n                       literature_direct_rows, patent_direct_rows, protocol_matrix_count\n                from representative_pages\n                order by short_name\n            "
+    },
+    "page_variant_listing": {
+      "title": "Variants By Representative Page",
+      "sql": "\n                select canonical_enzyme_id, construct_display_name, LTS_ref,\n                       LTS_ref_ci_low, LTS_ref_ci_high, confidence_LTS, LTS_label,\n                       fit_status, literature_evidence_count, patent_evidence_count,\n                       measurement_row_count, protocol_unit_count, variant_page_path\n                from variant_summary\n                where (:page_id = '' or page_id = :page_id)\n                order by LTS_ref asc, measurement_row_count desc, canonical_enzyme_id\n            "
+    },
+    "variant_page_summary": {
+      "title": "Variant Page Summary",
+      "sql": "\n                select *\n                from variant_summary\n                where (:canonical_enzyme_id = '' or canonical_enzyme_id = :canonical_enzyme_id)\n                order by canonical_enzyme_id\n            "
+    },
+    "variant_measurements": {
+      "title": "Variant Measurements",
+      "sql": "\n                select display_canonical_id, construct_display_name, source_type, source_key,\n                       methanol_conc_percent, incubation_time_h, incubation_temp_C,\n                       residual_activity_percent, evidence_confidence_tier, LTS_ref,\n                       LTS_ref_ci_low, LTS_ref_ci_high, confidence_LTS, LTS_label,\n                       fit_status, D_obs, protocol_id, page_or_figure_anchor, source_figure_table_id\n                from evidence_measurement\n                where (:canonical_enzyme_id = '' or display_canonical_id = :canonical_enzyme_id)\n                order by methanol_conc_percent desc, incubation_time_h desc, residual_activity_percent desc\n            "
+    },
+    "evidence_table_filterable": {
+      "title": "Evidence Table Filterable",
+      "sql": "\n                select evidence_id, display_canonical_id, construct_display_name, source_type,\n                       source_key, methanol_conc_percent, incubation_time_h, incubation_temp_C,\n                       residual_activity_percent, evidence_confidence_tier, LTS_ref,\n                       LTS_ref_ci_low, LTS_ref_ci_high, confidence_LTS, LTS_label,\n                       fit_status, D_obs, protocol_id, page_or_figure_anchor, source_figure_table_id\n                from evidence_measurement\n                where (:source_type = '' or source_type = :source_type)\n                  and (:confidence_tier = '' or evidence_confidence_tier = :confidence_tier)\n                  and (:min_methanol = '' or methanol_conc_percent >= cast(:min_methanol as real))\n                  and (:max_methanol = '' or methanol_conc_percent <= cast(:max_methanol as real))\n                  and (:min_time = '' or incubation_time_h >= cast(:min_time as real))\n                  and (:max_time = '' or incubation_time_h <= cast(:max_time as real))\n                order by methanol_conc_percent desc, incubation_time_h desc, residual_activity_percent desc\n            "
+    },
+    "source_lookup": {
+      "title": "Source Reference Lookup",
+      "sql": "\n                select *\n                from source_reference\n                where (:source_key = ''\n                       or source_key = :source_key\n                       or doi = :source_key\n                       or patent_publication_number = :source_key)\n                order by evidence_row_count desc, source_key\n            "
+    },
+    "global_search": {
+      "title": "Global Search",
+      "sql": "\n                select entity_type, entity_id, label, subtitle, page_id, static_path, datasette_path\n                from global_search_index\n                where (:q = '' or lower(search_text) like '%' || lower(:q) || '%')\n                order by entity_type, label\n                limit 100\n            "
+    },
+    "browse_enzymes": {
+      "title": "Browse Enzymes",
+      "sql": "\n                select canonical_enzyme_id, display_name, canonical_species, entity_role,\n                       parent_canonical_id, enzyme_ec_number, uniprot_id, pdb_ids,\n                       structure_modeling_readiness, LTS_ref, LTS_ref_ci_low,\n                       LTS_ref_ci_high, confidence_LTS, LTS_label, fit_status,\n                       measurement_row_count, protocol_unit_count, evidence_source_mix,\n                       evidence_status, variant_page_path\n                from all_enzyme_index\n                order by canonical_enzyme_id\n            "
+    }
+  },
+  "databases": {
+    "lmt_atlas": {
+      "title": "LMT-Atlas",
+      "description": "Static v1.0 database bundle released 2026-06-25.",
+      "queries": {
+        "homepage_stats": {
+          "title": "Homepage Stats",
+          "sql": "select * from homepage_stats"
+        },
+        "enzyme_page_browser": {
+          "title": "Representative Enzyme Pages",
+          "sql": "\n                select page_id, short_name, standard_name, source_species_normalized,\n                       root_canonical_id, wt_tolerance, best_engineered_variant,\n                       best_engineered_variant_tolerance, median_variant_tolerance,\n                       literature_direct_rows, patent_direct_rows, protocol_matrix_count\n                from representative_pages\n                order by short_name\n            "
+        },
+        "page_variant_listing": {
+          "title": "Variants By Representative Page",
+          "sql": "\n                select canonical_enzyme_id, construct_display_name, LTS_ref,\n                       LTS_ref_ci_low, LTS_ref_ci_high, confidence_LTS, LTS_label,\n                       fit_status, literature_evidence_count, patent_evidence_count,\n                       measurement_row_count, protocol_unit_count, variant_page_path\n                from variant_summary\n                where (:page_id = '' or page_id = :page_id)\n                order by LTS_ref asc, measurement_row_count desc, canonical_enzyme_id\n            "
+        },
+        "variant_page_summary": {
+          "title": "Variant Page Summary",
+          "sql": "\n                select *\n                from variant_summary\n                where (:canonical_enzyme_id = '' or canonical_enzyme_id = :canonical_enzyme_id)\n                order by canonical_enzyme_id\n            "
+        },
+        "variant_measurements": {
+          "title": "Variant Measurements",
+          "sql": "\n                select display_canonical_id, construct_display_name, source_type, source_key,\n                       methanol_conc_percent, incubation_time_h, incubation_temp_C,\n                       residual_activity_percent, evidence_confidence_tier, LTS_ref,\n                       LTS_ref_ci_low, LTS_ref_ci_high, confidence_LTS, LTS_label,\n                       fit_status, D_obs, protocol_id, page_or_figure_anchor, source_figure_table_id\n                from evidence_measurement\n                where (:canonical_enzyme_id = '' or display_canonical_id = :canonical_enzyme_id)\n                order by methanol_conc_percent desc, incubation_time_h desc, residual_activity_percent desc\n            "
+        },
+        "evidence_table_filterable": {
+          "title": "Evidence Table Filterable",
+          "sql": "\n                select evidence_id, display_canonical_id, construct_display_name, source_type,\n                       source_key, methanol_conc_percent, incubation_time_h, incubation_temp_C,\n                       residual_activity_percent, evidence_confidence_tier, LTS_ref,\n                       LTS_ref_ci_low, LTS_ref_ci_high, confidence_LTS, LTS_label,\n                       fit_status, D_obs, protocol_id, page_or_figure_anchor, source_figure_table_id\n                from evidence_measurement\n                where (:source_type = '' or source_type = :source_type)\n                  and (:confidence_tier = '' or evidence_confidence_tier = :confidence_tier)\n                  and (:min_methanol = '' or methanol_conc_percent >= cast(:min_methanol as real))\n                  and (:max_methanol = '' or methanol_conc_percent <= cast(:max_methanol as real))\n                  and (:min_time = '' or incubation_time_h >= cast(:min_time as real))\n                  and (:max_time = '' or incubation_time_h <= cast(:max_time as real))\n                order by methanol_conc_percent desc, incubation_time_h desc, residual_activity_percent desc\n            "
+        },
+        "source_lookup": {
+          "title": "Source Reference Lookup",
+          "sql": "\n                select *\n                from source_reference\n                where (:source_key = ''\n                       or source_key = :source_key\n                       or doi = :source_key\n                       or patent_publication_number = :source_key)\n                order by evidence_row_count desc, source_key\n            "
+        },
+        "global_search": {
+          "title": "Global Search",
+          "sql": "\n                select entity_type, entity_id, label, subtitle, page_id, static_path, datasette_path\n                from global_search_index\n                where (:q = '' or lower(search_text) like '%' || lower(:q) || '%')\n                order by entity_type, label\n                limit 100\n            "
+        },
+        "browse_enzymes": {
+          "title": "Browse Enzymes",
+          "sql": "\n                select canonical_enzyme_id, display_name, canonical_species, entity_role,\n                       parent_canonical_id, enzyme_ec_number, uniprot_id, pdb_ids,\n                       structure_modeling_readiness, LTS_ref, LTS_ref_ci_low,\n                       LTS_ref_ci_high, confidence_LTS, LTS_label, fit_status,\n                       measurement_row_count, protocol_unit_count, evidence_source_mix,\n                       evidence_status, variant_page_path\n                from all_enzyme_index\n                order by canonical_enzyme_id\n            "
+        }
+      },
+      "tables": {
+        "homepage_stats": {
+          "title": "Homepage Stats",
+          "description": "Top-level counts for the v1.0 static release homepage."
+        },
+        "representative_pages": {
+          "title": "Representative Enzyme Pages",
+          "description": "Five manually closed representative enzyme pages used for the v1.0 release."
+        },
+        "variant_summary": {
+          "title": "Variant Summary",
+          "description": "Construct-level summary with official Phase 1.5 LTS_ref, CI, confidence_LTS, tolerance_tier, archive-only strict LTS_label, and archived tolerance_class_v0."
+        },
+        "all_enzyme_index": {
+          "title": "All Enzyme Index",
+          "description": "Frozen web-publication canonical Browse Enzymes index left-joined to official Stage 6 LTS fields."
+        },
+        "evidence_measurement": {
+          "title": "Evidence Measurement",
+          "description": "Phase 1.5 measurement-level evidence table with D_obs and protocol linkage."
+        },
+        "source_reference": {
+          "title": "Source Reference",
+          "description": "Deduplicated literature DOI and patent publication sources."
+        }
+      }
+    }
+  }
+}
