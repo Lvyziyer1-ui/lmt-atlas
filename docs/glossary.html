@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="./static/styles.css">
 </head>
 <body>
+  <nav class="site-nav" aria-label="Primary navigation"><a href="index.html">Home</a><a href="browse_enzymes.html">Browse</a><a href="search.html">Search</a><a href="analysis.html">Analysis</a><a href="downloads.html">Downloads</a><a href="documentation.html">Documentation</a><a href="about.html">About</a><a href="glossary.html" aria-current='page'>Glossary</a><a href="known_limitations.html">Known Limitations</a></nav>
   <div class="shell">
     
     <header class="hero">
@@ -14,12 +15,10 @@
         <p class="eyebrow">Help</p>
         <h1>Glossary</h1>
         <p class="lede">Plain-language definitions for the public v1.0 static release. CSV and SQLite downloads retain internal schema fields for ML and reproducibility.</p>
-      </div>
-      <nav class='hero-links main-nav'><a href="index.html">Home</a><a href="browse_enzymes.html">Browse Enzymes</a><a href="organisms.html">Browse by Organism</a><a href="search.html">Search</a><a href="analysis.html">Analysis</a><a href="documentation.html">Documentation</a><a href="glossary.html" aria-current='page'>Glossary</a><a href="about.html">About</a></nav>
-    </header>
+      </div></header>
     <section class="section">
       <h2>Terms</h2>
-      <div class='table-wrap'><table><thead><tr><th>Field</th><th>Value</th></tr></thead><tbody><tr><td>LTS_ref</td><td>Reference-condition latent tolerance score. lower = more tolerant; values are frozen Phase 1.5 outputs.</td></tr><tr><td>confidence_LTS</td><td>Confidence for the LTS_ref estimate after considering A0 quality, missing assay context, provenance, and sensitivity stability.</td></tr><tr><td>tolerance_tier</td><td>Public methanol-tolerance badge: More tolerant, Uncertain, or Less tolerant. It is based on rank stability, not a hard CI class.</td></tr><tr><td>fit_status</td><td>Whether the LTS estimate was directly fitted, partially pooled because of low evidence, insufficiently supported, or not applicable.</td></tr><tr><td>scaffold_family</td><td>Structural-family or scaffold proxy used for grouping entries and later structure-module analysis.</td></tr><tr><td>evidence tier</td><td>Assay/provenance quality tier: core training, downweighted training, or holdout-only evidence.</td></tr><tr><td>source type</td><td>Whether support comes from literature, patent evidence, both, or no linked methanol-tolerance evidence.</td></tr><tr><td>assay method class</td><td>Broad measurement-readout group, such as spectrophotometric/colorimetric, fluorometric, titrimetric/pH-stat, or biodiesel-conversion assays.</td></tr><tr><td>substrate class</td><td>Broad substrate group used to make condition filters easier to scan before choosing exact substrates.</td></tr><tr><td>family tolerance summary</td><td>A structural-family level overview that helps users inspect family trends; it is not a substitute for construct-level LTS_ref.</td></tr><tr><td>95% CI</td><td>Model interval around LTS_ref. It communicates uncertainty; it is not itself the public tolerance tier.</td></tr></tbody></table></div>
+      <div class='table-wrap'><table><thead><tr><th>Item</th><th>Details</th></tr></thead><tbody><tr><td>Methanol-tolerance score</td><td>Reference-condition score for methanol tolerance. lower = more tolerant; release values are frozen for reproducibility.</td></tr><tr><td>Confidence</td><td>How much support the score has after checking baseline activity, missing assay context, source traceability, and sensitivity to evidence choices.</td></tr><tr><td>Methanol tolerance badge</td><td>Public badge shown as More tolerant, Uncertain, or Less tolerant. It summarizes stable rank behavior and does not replace the numeric score.</td></tr><tr><td>Fit status</td><td>Whether the score is directly supported, supported by limited evidence, insufficiently supported, or not applicable.</td></tr><tr><td>Enzyme group</td><td>Readable parent, duplicate, or benchmark grouping used for browsing. It is provisional and not a final taxonomy.</td></tr><tr><td>evidence tier</td><td>Evidence strength tier: strong, moderate, or limited support after assay and provenance checks.</td></tr><tr><td>source type</td><td>Whether support comes from literature, patent evidence, both, or no linked methanol-tolerance evidence.</td></tr><tr><td>assay method class</td><td>Broad measurement-readout group, such as spectrophotometric/colorimetric, fluorometric, titrimetric/pH-stat, or biodiesel-conversion assays.</td></tr><tr><td>substrate class</td><td>Broad substrate group used to make condition filters easier to scan before choosing exact substrates.</td></tr><tr><td>SEQ ID NO</td><td>专利序列表中某条序列的编号（Sequence Listing ID），用于指向专利中一条具体蛋白或核酸序列。</td></tr><tr><td>family tolerance summary</td><td>A group-level overview that helps users inspect trends; it is not a substitute for construct-level evidence.</td></tr><tr><td>95% interval</td><td>Uncertainty interval around the score. It communicates uncertainty; it is not itself the public tolerance badge.</td></tr></tbody></table></div>
     </section>
     <section class="section">
       <div class="content-card">
@@ -31,7 +30,7 @@
     <footer class="site-footer">
       <a href="documentation.html">Documentation</a>
       <a href="glossary.html">Glossary</a>
-      <a href="downloads/lmt_atlas_downloads_v1_0.zip">Downloads</a>
+      <a href="downloads.html">Downloads</a>
       <a href="about.html">Suggested citation and license</a>
       <span>v1.0 released 2026-06-25</span>
       <span>Contact: Lvyziyer1@163.com</span>

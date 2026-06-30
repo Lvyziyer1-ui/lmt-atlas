@@ -1,6 +1,6 @@
 {
   "title": "LMT-Atlas v1.0",
-  "description": "Datasette-backed release for the Lipase Methanol Tolerance Atlas, built from Phase 1.5 LTS outputs plus five representative enzyme pages.",
+  "description": "Datasette-backed release for the Lipase Methanol Tolerance Atlas, built from released tolerance-score outputs plus five representative enzyme pages.",
   "license": "Data: CC-BY-4.0; code: MIT",
   "tables": {
     "homepage_stats": {
@@ -13,15 +13,15 @@
     },
     "variant_summary": {
       "title": "Variant Summary",
-      "description": "Construct-level summary with official Phase 1.5 LTS_ref, CI, confidence_LTS, tolerance_tier, archive-only strict LTS_label, and archived tolerance_class_v0."
+      "description": "Construct-level summary with frozen LTS_ref, interval, confidence, public tolerance badge, and archive-only label fields retained for reproducibility."
     },
     "all_enzyme_index": {
       "title": "All Enzyme Index",
-      "description": "Frozen web-publication canonical Browse Enzymes index left-joined to official Stage 6 LTS fields."
+      "description": "Frozen web-publication canonical Browse Enzymes index joined to the released tolerance-score fields."
     },
     "evidence_measurement": {
       "title": "Evidence Measurement",
-      "description": "Phase 1.5 measurement-level evidence table with D_obs and protocol linkage."
+      "description": "Measurement-level methanol-challenge evidence table with observed response and protocol linkage."
     },
     "source_reference": {
       "title": "Source Reference",
@@ -119,15 +119,15 @@
         },
         "variant_summary": {
           "title": "Variant Summary",
-          "description": "Construct-level summary with official Phase 1.5 LTS_ref, CI, confidence_LTS, tolerance_tier, archive-only strict LTS_label, and archived tolerance_class_v0."
+          "description": "Construct-level summary with frozen LTS_ref, interval, confidence, public tolerance badge, and archive-only label fields retained for reproducibility."
         },
         "all_enzyme_index": {
           "title": "All Enzyme Index",
-          "description": "Frozen web-publication canonical Browse Enzymes index left-joined to official Stage 6 LTS fields."
+          "description": "Frozen web-publication canonical Browse Enzymes index joined to the released tolerance-score fields."
         },
         "evidence_measurement": {
           "title": "Evidence Measurement",
-          "description": "Phase 1.5 measurement-level evidence table with D_obs and protocol linkage."
+          "description": "Measurement-level methanol-challenge evidence table with observed response and protocol linkage."
         },
         "source_reference": {
           "title": "Source Reference",

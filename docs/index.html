@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="./static/styles.css">
 </head>
 <body>
+  <nav class="site-nav" aria-label="Primary navigation"><a href="index.html" aria-current='page'>Home</a><a href="browse_enzymes.html">Browse</a><a href="search.html">Search</a><a href="analysis.html">Analysis</a><a href="downloads.html">Downloads</a><a href="documentation.html">Documentation</a><a href="about.html">About</a><a href="glossary.html">Glossary</a><a href="known_limitations.html">Known Limitations</a></nav>
   <div class="shell">
     
     <header class="hero home-hero">
@@ -16,21 +17,19 @@
         <p class="lede">A curated evidence database for enzyme-intrinsic methanol tolerance in TAG lipases, linking canonical enzyme identities, constructs, assay protocols, quantitative measurements, and literature/patent provenance.</p>
         <p class="release-note"><strong>Release note:</strong> Stable v1.0 static release with frozen LTS_ref values, source-scope downloads, and reader-facing evidence caveats.</p>
         <form class="search-bar" action="search.html" method="get">
-          <input name="q" type="search" placeholder="Search by enzyme, construct, species, UniProt, PDB, EC, DOI, or patent">
+          <input name="q" type="search" placeholder="Search by enzyme name, species, UniProt, PDB, EC, DOI, or patent number">
           <button type="submit">Search</button>
         </form>
         <div class="hero-actions" aria-label="Primary database tasks">
           <a class="primary" href="browse_enzymes.html">Browse entries</a>
           <a href="organisms.html">Browse by organism</a>
           <a href="search.html">Search sources</a>
-          <a href="downloads/lmt_atlas_downloads_v1_0.zip">Download CSV bundle</a>
+          <a href="downloads.html">Download tables</a>
         </div>
-        <div class="status-strip" aria-label="Current build status"><div class='status-item'><strong>625</strong><span>canonical entries</span></div><div class='status-item'><strong>439</strong><span>construct-level records</span></div><div class='status-item'><strong>37</strong><span>More tolerant</span></div><div class='status-item'><strong>38</strong><span>Less tolerant</span></div><div class='status-item'><strong>364</strong><span>Uncertain</span></div><div class='status-item'><strong>695</strong><span>protocol units</span></div><div class='status-item'><strong>2732</strong><span>measurement rows</span></div></div>
+        <div class="status-strip" aria-label="Current build status"><div class='status-item'><strong><a href="browse_enzymes.html">625</a></strong><span>canonical entries <span class="info-tip" tabindex="0" data-tooltip="Unique enzyme or construct identity records in the public index." aria-label="Unique enzyme or construct identity records in the public index.">ⓘ</span></span><span>enzyme identity entries</span></div><div class='status-item'><strong><a href="browse_enzymes.html?evidence_linked=yes">439</a></strong><span>construct-level records <span class="info-tip" tabindex="0" data-tooltip="Construct units with frozen construct-level methanol-tolerance scores." aria-label="Construct units with frozen construct-level methanol-tolerance scores.">ⓘ</span></span><span>entries with LTS_ref</span></div><div class='status-item'><strong><a href="browse_enzymes.html?tolerance_tier=robustly_tolerant">37</a></strong><span>More tolerant</span></div><div class='status-item'><strong><a href="browse_enzymes.html?tolerance_tier=robustly_fragile">38</a></strong><span>Less tolerant</span></div><div class='status-item'><strong><a href="browse_enzymes.html?tolerance_tier=uncertain_or_intermediate">364</a></strong><span>Uncertain</span></div><div class='status-item'><strong><a href="downloads.html#assay_protocol">695</a></strong><span>protocol units <span class="info-tip" tabindex="0" data-tooltip="Protocol-level assay units, not individual residual-activity points." aria-label="Protocol-level assay units, not individual residual-activity points.">ⓘ</span></span><span>assay setups</span></div><div class='status-item'><strong><a href="downloads.html#evidence_measurement">2732</a></strong><span>measurement rows <span class="info-tip" tabindex="0" data-tooltip="Measurement rows are individual data points, not independent samples; 439 construct units from 162 sources." aria-label="Measurement rows are individual data points, not independent samples; 439 construct units from 162 sources.">ⓘ</span></span><span>individual data points</span></div></div>
         <div class="release-banner compact" role="note"><strong>Continuous LTS_ref primary.</strong> Public pages use the frozen LTS_ref score with a 95% interval and a confidence badge as the main tolerance summary. Lower LTS_ref means more methanol tolerant. Internal archive fields remain available in CSV and SQLite downloads for reproducibility.</div>
         <div class="lts-scale compact" role="note" aria-label="LTS scale legend"><span class="lts-scale-label">lower = more tolerant</span><span class="lts-scale-bar" aria-hidden="true"></span><span class="lts-scale-end tolerant">more tolerant</span><span class="lts-scale-end fragile">less tolerant</span></div>
-      </div>
-      <nav class='hero-links main-nav'><a href="index.html" aria-current='page'>Home</a><a href="browse_enzymes.html">Browse Enzymes</a><a href="organisms.html">Browse by Organism</a><a href="search.html">Search</a><a href="analysis.html">Analysis</a><a href="documentation.html">Documentation</a><a href="glossary.html">Glossary</a><a href="about.html">About</a></nav>
-    </header>
+      </div></header>
     <section class="section">
       <h2>How To Use This Database</h2>
       <div class="task-grid">
@@ -55,12 +54,12 @@
         <article class='task-card'><h3><a href="search.html">Find an enzyme or construct</a></h3><p>Search names, species, canonical IDs, UniProt, PDB, EC, DOI, and patent numbers.</p></article>
         <article class='task-card'><h3><a href="browse_enzymes.html">Browse all canonical entries</a></h3><p>Open the 625-row identity index with identifier-status caveats.</p></article>
         <article class='task-card'><h3><a href="evidence/index.html">Inspect evidence matrices</a></h3><p>Filter methanol concentration, incubation time, residual activity, source type, and confidence tier.</p></article>
-        <article class='task-card'><h3><a href="downloads/lmt_atlas_downloads_v1_0.zip">Download reusable tables</a></h3><p>Use CSV/SQLite artifacts generated from the same release snapshot.</p></article>
+        <article class='task-card'><h3><a href="downloads.html">Download reusable tables</a></h3><p>Use CSV/SQLite artifacts generated from the same release snapshot.</p></article>
       </div>
     </section>
     <section class="section">
       <h2>Database Snapshot</h2>
-      <div class="stats-grid"><div class='stat-card'><div class='stat-label'>Canonical enzyme/construct entries</div><div class='stat-value'>625</div></div><div class='stat-card'><div class='stat-label'>Construct-level tolerance records</div><div class='stat-value'>439</div></div><div class='stat-card'><div class='stat-label'>More tolerant</div><div class='stat-value'>37</div></div><div class='stat-card'><div class='stat-label'>Less tolerant</div><div class='stat-value'>38</div></div><div class='stat-card'><div class='stat-label'>Uncertain</div><div class='stat-value'>364</div></div><div class='stat-card'><div class='stat-label'>Assay protocol units</div><div class='stat-value'>695</div></div><div class='stat-card'><div class='stat-label'>Measurement rows</div><div class='stat-value'>2732</div></div><div class='stat-card'><div class='stat-label'>All-registry DOI publications</div><div class='stat-value'>283</div><div class='card-note'>283 registry breadth (includes mechanism/process/background-only sources)</div></div><div class='stat-card'><div class='stat-label'>Direct evidence DOI publications</div><div class='stat-value'>162</div><div class='card-note'>source-layer / direct evidence source count</div></div><div class='stat-card'><div class='stat-label'>Patent families</div><div class='stat-value'>20</div></div></div>
+      <div class="stats-grid"><div class='stat-card'><div class='stat-label'>Canonical enzyme/construct entries <span class="info-tip" tabindex="0" data-tooltip="Unique enzyme or construct identity records in the public index." aria-label="Unique enzyme or construct identity records in the public index.">ⓘ</span></div><div class='stat-value'>625</div><div class='card-note'>enzyme identity entries</div></div><div class='stat-card'><div class='stat-label'>Construct-level tolerance records <span class="info-tip" tabindex="0" data-tooltip="Construct units with frozen construct-level methanol-tolerance scores." aria-label="Construct units with frozen construct-level methanol-tolerance scores.">ⓘ</span></div><div class='stat-value'>439</div><div class='card-note'>entries with LTS_ref</div></div><div class='stat-card'><div class='stat-label'>More tolerant</div><div class='stat-value'>37</div></div><div class='stat-card'><div class='stat-label'>Less tolerant</div><div class='stat-value'>38</div></div><div class='stat-card'><div class='stat-label'>Uncertain</div><div class='stat-value'>364</div></div><div class='stat-card'><div class='stat-label'>Assay protocol units <span class="info-tip" tabindex="0" data-tooltip="Protocol-level assay units, not individual residual-activity points." aria-label="Protocol-level assay units, not individual residual-activity points.">ⓘ</span></div><div class='stat-value'>695</div><div class='card-note'>assay setups</div></div><div class='stat-card'><div class='stat-label'>Measurement rows <span class="info-tip" tabindex="0" data-tooltip="Measurement rows are individual data points, not independent samples; 439 construct units from 162 sources." aria-label="Measurement rows are individual data points, not independent samples; 439 construct units from 162 sources.">ⓘ</span></div><div class='stat-value'>2732</div><div class='card-note'>individual data points</div></div><div class='stat-card'><div class='stat-label'>All-registry DOI publications</div><div class='stat-value'>283</div><div class='card-note'>283 registry breadth (includes mechanism/process/background-only sources)</div></div><div class='stat-card'><div class='stat-label'>Direct evidence DOI publications</div><div class='stat-value'>162</div><div class='card-note'>source-layer / direct evidence source count</div></div><div class='stat-card'><div class='stat-label'>Patent families</div><div class='stat-value'>20</div></div></div>
       <div class="content-card">
         <p>283 counts every DOI in the registry, including mechanism/process/background sources.</p>
         <p>162 counts DOI-bearing literature sources with direct intrinsic methanol-challenge evidence.</p>
@@ -135,7 +134,7 @@
       <h2>Scope And Citation</h2>
       <div class="content-card">
         <p>This v1.0 static release supports browsing, search, provenance inspection, and table download for the locked source-scope publication bundle.</p>
-        <p>Structural module overlays and family taxonomy claims remain outside this release. Phase 1.5 official LTS fields are active for the web publication scope.</p>
+        <p>Structural module overlays and family taxonomy claims remain outside this release. Official tolerance fields are active for the web publication scope.</p>
         <p><strong>Suggested citation:</strong> LMT-Atlas Consortium. LMT-Atlas: Lipase Methanol Tolerance Atlas v1.0. Zenodo. DOI: 10.5281/zenodo.20908852</p>
         <p><strong>License:</strong> data CC-BY-4.0; code MIT. Contact: <a href="mailto:Lvyziyer1@163.com">Lvyziyer1@163.com</a>.</p>
       </div>
@@ -145,7 +144,7 @@
     <footer class="site-footer">
       <a href="documentation.html">Documentation</a>
       <a href="glossary.html">Glossary</a>
-      <a href="downloads/lmt_atlas_downloads_v1_0.zip">Downloads</a>
+      <a href="downloads.html">Downloads</a>
       <a href="about.html">Suggested citation and license</a>
       <span>v1.0 released 2026-06-25</span>
       <span>Contact: Lvyziyer1@163.com</span>

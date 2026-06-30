@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LMT-Atlas Downloads</title>
+  <link rel="stylesheet" href="./static/styles.css">
+</head>
+<body>
+  <nav class="site-nav" aria-label="Primary navigation"><a href="index.html">Home</a><a href="browse_enzymes.html">Browse</a><a href="search.html">Search</a><a href="analysis.html">Analysis</a><a href="downloads.html" aria-current='page'>Downloads</a><a href="documentation.html">Documentation</a><a href="about.html">About</a><a href="glossary.html">Glossary</a><a href="known_limitations.html">Known Limitations</a></nav>
+  <div class="shell">
+    
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Downloads</p>
+        <h1>Download Tables</h1>
+        <p class="lede full-width-note">Download the frozen v1.0 CSV bundle or individual release tables. Protocol and measurement tables are downloadable data layers; this static site does not create separate row browsers for all protocol or measurement rows.</p>
+      </div></header>
+    <section class="section">
+      <h2>Complete Bundle</h2>
+      <div class="content-card">
+        <p>The complete archive contains the public CSV tables generated from the same release snapshot as the website.</p>
+        <p><a class="button-link" href="downloads/lmt_atlas_downloads_v1_0.zip">Download CSV bundle</a></p>
+      </div>
+    </section>
+    <section class="section">
+      <h2>Individual Tables</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Table</th><th>Rows</th><th>How to read it</th><th>Download</th></tr></thead>
+          <tbody>
+            <tr id="all_enzyme_index">
+              <td><strong>all_enzyme_index.csv</strong></td>
+              <td>625</td>
+              <td>Canonical enzyme and construct identity index. Use Browse Enzymes for the same full list.</td>
+              <td><a href="downloads/all_enzyme_index.csv">CSV</a></td>
+            </tr>
+            <tr id="variant_summary">
+              <td><strong>variant_summary.csv</strong></td>
+              <td>439</td>
+              <td>Construct-level LTS records with frozen scores and confidence fields.</td>
+              <td><a href="downloads/variant_summary.csv">CSV</a></td>
+            </tr>
+            <tr id="assay_protocol">
+              <td><strong>assay_protocol.csv</strong></td>
+              <td>695</td>
+              <td>Protocol-level assay units: coherent assay setups grouped above individual residual-activity observations.</td>
+              <td><a href="downloads/assay_protocol.csv">CSV</a></td>
+            </tr>
+            <tr id="evidence_measurement">
+              <td><strong>evidence_measurement.csv</strong></td>
+              <td>2732</td>
+              <td>Measurement rows are the lowest-level observations, not independent samples; compare them only within matched assay context.</td>
+              <td><a href="downloads/evidence_measurement.csv">CSV</a></td>
+            </tr>
+            <tr id="source_reference">
+              <td><strong>source_reference.csv</strong></td>
+              <td>283</td>
+              <td>Literature and patent provenance summary for release navigation and audit.</td>
+              <td><a href="downloads/source_reference.csv">CSV</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <section class="section">
+      <h2>Programmatic Use</h2>
+      <div class="content-card">
+        <p>CSV and SQLite downloads retain internal fields needed for reproducibility. Public HTML pages hide internal workflow tokens and expose reader-facing labels.</p>
+        <p><a href="documentation.html">Open documentation</a></p>
+      </div>
+    </section>
+    
+  </div>
+</body>
+</html>

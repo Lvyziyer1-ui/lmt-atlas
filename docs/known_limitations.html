@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Known Limitations - LMT-Atlas</title>
+  <link rel="stylesheet" href="./static/styles.css">
+</head>
+<body>
+  <nav class="site-nav" aria-label="Primary navigation"><a href="index.html">Home</a><a href="browse_enzymes.html">Browse</a><a href="search.html">Search</a><a href="analysis.html">Analysis</a><a href="downloads.html">Downloads</a><a href="documentation.html">Documentation</a><a href="about.html">About</a><a href="glossary.html">Glossary</a><a href="known_limitations.html" aria-current='page'>Known Limitations</a></nav>
+  <div class="shell">
+    
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Known Limitations</p>
+        <h1>Known Limitations</h1>
+        <p class="lede">Use these constraints when interpreting methanol-tolerance scores, evidence tables, and raw residual activity values.</p>
+      </div></header>
+    <section class="section">
+      <div class="content-card">
+        <ul class="summary-list limitation-list">
+          <li><strong>Measurement rows are individual data points, not independent samples.</strong> The release contains 2732 measurement rows, but the construct-level modeling layer is 439 construct units from 162 sources.</li>
+          <li><strong>Most construct-level records have uncertain confidence.</strong> Among the 439 construct units, many entries remain uncertain or intermediate because source evidence is sparse, heterogeneous, or sensitivity-dependent.</li>
+          <li><strong>Incubation temperature is missing from 28.96% of raw direct rows.</strong> Missing temperatures are disclosed as missing and are not replaced with room temperature, optimum temperature, or model estimates.</li>
+          <li><strong>Residual activity values should not be compared directly across unmatched temperatures, methods, methanol concentrations, or exposure times.</strong> Filter to comparable assay conditions before interpreting raw activity differences.</li>
+        </ul>
+      </div>
+    </section>
+    
+    <footer class="site-footer">
+      <a href="documentation.html">Documentation</a>
+      <a href="glossary.html">Glossary</a>
+      <a href="downloads.html">Downloads</a>
+      <a href="about.html">Suggested citation and license</a>
+      <span>v1.0 released 2026-06-25</span>
+      <span>Contact: Lvyziyer1@163.com</span>
+    </footer>
+    
+    
+  </div>
+</body>
+</html>
