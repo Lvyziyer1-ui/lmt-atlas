@@ -14,7 +14,7 @@
       <div>
         <p class="eyebrow">LMT-Atlas</p>
         <h1>Documentation</h1>
-        <p class="lede">Methods, definitions, and practical guidance for using the LMT-Atlas v1.0 static release without rewriting source evidence tables.</p>
+        <p class="lede">Methods, definitions, and practical guidance for using the LMT-Atlas v2.0 static release without rewriting source evidence tables.</p>
       </div></header>
     <section class="section">
       <h2>How To Use This Database</h2>
@@ -23,7 +23,7 @@
           <li>Use Search for enzyme names, species, UniProt, PDB, DOI, patent numbers, and exact provenance IDs.</li>
           <li>Use Browse Enzymes to filter the full canonical enzyme/construct identity index.</li>
           <li>Read the methanol-tolerance score, 95% interval, confidence, and fit status as the primary tolerance summary.</li>
-          <li>Read the public tolerance badge as a coarse stable-rank summary: More tolerant 37, Less tolerant 38, Uncertain 364.</li>
+          <li>Read the public tolerance badge as a coarse stable-rank summary: More tolerant 37, Less tolerant 38, Uncertain 365.</li>
           <li>Additional archive labels remain available only in downloads; they are not used for headlines or Browse/Search filtering.</li>
           <li>Use the Assay Evidence Matrix on linked entries to inspect methanol concentration, incubation time, residual activity, and protocol grouping.</li>
           <li>Because assay conditions are heterogeneous, filter by temperature, method, concentration, and time before comparing entries. Raw residual activity across conditions is not directly comparable.</li>
@@ -49,7 +49,7 @@
       <h2>Official Score Display</h2>
       <div class="release-banner" role="note"><strong>Continuous LTS_ref primary.</strong> Public pages use the frozen LTS_ref score with a 95% interval and a confidence badge as the main tolerance summary. Lower LTS_ref means more methanol tolerant. Internal archive fields remain available in CSV and SQLite downloads for reproducibility.</div>
       <p>The web headline uses frozen score, interval, confidence, and fit-status fields. The discrete Browse/Search view uses the public More tolerant / Uncertain / Less tolerant badge.</p>
-      <p>The public badge is a coarse confidence tier based on stable ranking, with More tolerant / Less tolerant / Uncertain counts of 37 / 38 / 364. It complements the continuous score and should not be read as an absolute interval classification.</p>
+      <p>The public badge is a coarse confidence tier based on stable ranking, with More tolerant / Less tolerant / Uncertain counts of 37 / 38 / 365. It complements the continuous score and should not be read as an absolute interval classification.</p>
       <ul class="flat-list">
         <li><strong>Public badge</strong>: stable-rank confidence tier used for headline discrete counts, Browse/Search filters, and table scanning.</li>
         <li><strong>Archive labels</strong>: retained in downloads/SQLite for audit; many rows are unclear because confidence is low, the activity baseline is unreliable, sensitivity is unstable, or support is otherwise insufficient.</li>
@@ -59,6 +59,7 @@
       <h2>Score Inference</h2>
       <p>The official values come from a preregistered latent-score workflow with an independent Bayesian cross-check. The cross-check confirmed the frozen ranking for converged constructs.</p>
       <p>The score is derived from residual-activity evidence only when baseline activity interpretation is reliable. Confidence is reduced when baseline quality, extraction method, evidence strength, missing context, or sensitivity checks are weak.</p>
+      <p>Rows marked <code>enzyme_form=crude_preparation</code> are retained at construct level, but their public score display carries a <strong>crude preparation — downweighted</strong> caveat. Rows confirmed as free purified, including san-ai lipase, do not carry the crude-preparation caveat. The frozen <code>LTS_ref</code> point estimate is not changed; only the adjusted display confidence is capped and the penalty is recorded in downloadable provenance fields.</p>
     </section>
     <section class="section">
       <h2>Assay Comparability</h2>
@@ -84,7 +85,7 @@
     <section class="section">
       <h2>Release Boundaries</h2>
       <p>This release uses five manually reviewed representative enzyme pages: CALB, TLL, RML, BCL, and UM-1. The rest of the atlas is available at construct-level through the variant summary, evidence table, and downloads, but does not yet have hand-curated enzyme-species narrative pages.</p>
-      <p>Known limitation: latest newly entered constructs such as RML N-glyco, EstSP2, and JK-1 carry lower confidence and are mostly <code>uncertain_or_intermediate</code>; this is intentional evidence-quality disclosure, not a missing table render.</p>
+      <p>Known limitation: latest newly entered constructs such as LipA9, RML N-glyco, EstSP2, and JK-1 carry lower confidence and are mostly Uncertain; this is intentional evidence-quality disclosure, not a missing table render.</p>
     </section>
     
     <footer class="site-footer">
@@ -92,7 +93,7 @@
       <a href="glossary.html">Glossary</a>
       <a href="downloads.html">Downloads</a>
       <a href="about.html">Suggested citation and license</a>
-      <span>v1.0 released 2026-06-25</span>
+      <span>v2.0 released 2026-06-25</span>
       <span>Contact: Lvyziyer1@163.com</span>
     </footer>
     

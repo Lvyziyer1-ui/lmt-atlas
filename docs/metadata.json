@@ -1,15 +1,15 @@
 {
-  "title": "LMT-Atlas v1.0",
+  "title": "LMT-Atlas v2.0",
   "description": "Datasette-backed release for the Lipase Methanol Tolerance Atlas, built from released tolerance-score outputs plus five representative enzyme pages.",
   "license": "Data: CC-BY-4.0; code: MIT",
   "tables": {
     "homepage_stats": {
       "title": "Homepage Stats",
-      "description": "Top-level counts for the v1.0 static release homepage."
+      "description": "Top-level counts for the v2.0 static release homepage."
     },
     "representative_pages": {
       "title": "Representative Enzyme Pages",
-      "description": "Five manually closed representative enzyme pages used for the v1.0 release."
+      "description": "Five manually closed representative enzyme pages used for the v2.0 release."
     },
     "variant_summary": {
       "title": "Variant Summary",
@@ -69,7 +69,7 @@
   "databases": {
     "lmt_atlas": {
       "title": "LMT-Atlas",
-      "description": "Static v1.0 database bundle released 2026-06-25.",
+      "description": "Static v2.0 database bundle released 2026-06-25.",
       "queries": {
         "homepage_stats": {
           "title": "Homepage Stats",
@@ -111,11 +111,11 @@
       "tables": {
         "homepage_stats": {
           "title": "Homepage Stats",
-          "description": "Top-level counts for the v1.0 static release homepage."
+          "description": "Top-level counts for the v2.0 static release homepage."
         },
         "representative_pages": {
           "title": "Representative Enzyme Pages",
-          "description": "Five manually closed representative enzyme pages used for the v1.0 release."
+          "description": "Five manually closed representative enzyme pages used for the v2.0 release."
         },
         "variant_summary": {
           "title": "Variant Summary",

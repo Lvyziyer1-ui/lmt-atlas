@@ -335,6 +335,29 @@ code {
   font-weight: 700;
   color: var(--brand);
 }
+.sequence-details {
+  margin: 0.35rem 0;
+}
+.sequence-details summary {
+  cursor: pointer;
+  color: var(--ink);
+  font-weight: 600;
+}
+.sequence-toggle {
+  max-height: 220px;
+  overflow: auto;
+  white-space: pre-wrap;
+  word-break: break-all;
+  background: #f8fafc;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 0.75rem;
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+.copy-sequence {
+  margin: 0.55rem 0;
+}
 .figure-download a {
   margin-left: 0.55rem;
 }

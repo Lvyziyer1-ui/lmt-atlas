@@ -12,20 +12,24 @@
     "sha256": "a42e345b19c2fb7a35927f3352fe276431126b3c1071b5454a4f16d6201d0ace"
   },
   {
-    "path": "atlas_workspace/lts_layer/phase15_construct_lts_ref_v1.csv",
-    "sha256": "5fee47cb1091c4bb8dcf363e451ab0601cd6c05976d6a7b5cc85eba842fdae87"
+    "path": "atlas_workspace/lts_layer/phase15_construct_lts_ref_v2.csv",
+    "sha256": "6e85a15b3c8fa54642f2ee0e80df6c02df485172603597a1b589e35fd42b00a3"
   },
   {
-    "path": "atlas_workspace/lts_layer/phase15_protocol_posterior_v1.csv",
-    "sha256": "090c20cde7870ea9662f01fdd8cca0606c9bad482bc81382b5b6ad066d02cdd6"
+    "path": "atlas_workspace/lts_layer/phase15_protocol_posterior_v2.csv",
+    "sha256": "57ab3361a607f2b5962d71f2068ce43af7ee39ab407dc0ff8aa4485d014c5720"
   },
   {
     "path": "atlas_workspace/lts_layer/phase15_label_stability_v1.csv",
     "sha256": "430696a6877d00068bfa1baa0bf93c81ee855a4ed11fd7eb581ebe456e7d2ec8"
   },
   {
-    "path": "atlas_workspace/lts_layer/phase15_lts_label_v1.csv",
-    "sha256": "d0ab046d6d09ffef372ce32a9c7b1da91627c8916ddc426daf20bd8b18a3a4f2"
+    "path": "atlas_workspace/lts_layer/phase15_lts_label_v2.csv",
+    "sha256": "56a9d201eeca530fb5ceabcbc5a3156e1a0c652eac3e77209aebd101a63f3d01"
+  },
+  {
+    "path": "atlas_workspace/lts_layer/phase15_incremental_measurement_model_input_lmt0651_v2.csv",
+    "sha256": "0786f0cd7385da337f80e98ee0fa826e8de4d366a5e6149d1ae997dbf9c933db"
   },
   {
     "path": "atlas_workspace/lts_layer/phase15_lts_release_manifest_v1.csv",
@@ -37,19 +41,19 @@
   },
   {
     "path": "atlas_workspace/canonical_layer/canonical_enzymes_v1.csv",
-    "sha256": "7d053634cc18c7f3e746304884f2796ddb4dbb8d505e487c5198ca0404509dad"
+    "sha256": "0152d215f542548fa030afbd8b6c7e2be84b9b6de95fcba39037add0a7072841"
   },
   {
     "path": "atlas_workspace/evidence_layer/phase1A_registry_staged.csv",
-    "sha256": "37c2fefff25188c8f1330265200b88d8780a349f29f0e9aee71787b4f33943fa"
+    "sha256": "5c69edd3e37fb49ee9f7e303d7960efd84ce0a97591bf2f7d32dfd8d27bcbf4a"
   },
   {
     "path": "atlas_workspace/evidence_layer/phase1A_direct_staged.csv",
-    "sha256": "cb88da7a77e4e1dd59de1f6d6a8ac90b4e2a3efbed85ab3998ad66f0567ab240"
+    "sha256": "c2ca9a9e572c9260ebd47f8b0df9e8d0460a5a9ab131e68f842a28fe2b44d959"
   },
   {
     "path": "atlas_workspace/evidence_layer/patent_evidence_layer.csv",
-    "sha256": "a3dfd4273f9673ef5f1efe2c0d46c109e45a0edad05c55b99ee0c5a11d1e382d"
+    "sha256": "3fdf60bee014bc0215ec5a269174b96ee2771240661ed2917f247b0735ee2aca"
   },
   {
     "path": "results/2026-06-09_calb_enzyme_page_closure/calb_page_metadata.csv",

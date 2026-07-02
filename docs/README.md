@@ -1,10 +1,13 @@
-# LMT-Atlas v1.0 Static Release
+# LMT-Atlas v2.0 Static Release
 
 This bundle was generated from:
 
 - `atlas_workspace/lts_layer/measurement_lts_v0_1.csv`
 - `atlas_workspace/lts_layer/protocol_lts_v0_1.csv`
 - `atlas_workspace/lts_layer/tolerance_class_v0.csv`
+- `atlas_workspace/lts_layer/phase15_construct_lts_ref_v2.csv`
+- `atlas_workspace/lts_layer/phase15_protocol_posterior_v2.csv`
+- `atlas_workspace/lts_layer/phase15_lts_label_v2.csv`
 - `atlas_workspace/canonical_layer/canonical_enzymes_v1.csv`
 - `atlas_workspace/evidence_layer/phase1A_direct_staged.csv`
 - `atlas_workspace/evidence_layer/patent_evidence_layer.csv`
@@ -26,14 +29,14 @@ This bundle was generated from:
 
 ## Key counts
 
-- `canonical_enzyme_count=625`
-- `variant_count=439`
-- `evidence_row_count=2732`
-- `literature_source_count=162`
-- `registry_literature_breadth=283`
-- `direct_intrinsic_source_count=162`
+- `canonical_enzyme_count=626`
+- `variant_count=440`
+- `evidence_row_count=2740`
+- `literature_source_count=163`
+- `registry_literature_breadth=284`
+- `direct_intrinsic_source_count=163`
 - `patent_family_count=20`
-- `structure_ready_count=137`
+- `structure_ready_count=139`
 
 ## Run with Datasette
 
