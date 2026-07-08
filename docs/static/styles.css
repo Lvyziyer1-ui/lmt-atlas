@@ -358,6 +358,32 @@ code {
 .copy-sequence {
   margin: 0.55rem 0;
 }
+.structure-viewer-card .table-wrap {
+  margin-top: 0.9rem;
+}
+.structure-viewer {
+  display: grid;
+  gap: 10px;
+  margin: 0.85rem 0;
+}
+.structure-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+.structure-toolbar .button-link[disabled] {
+  opacity: 0.62;
+  cursor: wait;
+}
+.structure-viewport {
+  width: 100%;
+  min-height: 430px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #eef3f6;
+  overflow: hidden;
+}
 .figure-download a {
   margin-left: 0.55rem;
 }

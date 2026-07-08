@@ -54,9 +54,89 @@
     <section class="section">
       <h2>Structure Viewer</h2>
       
-    <div class="placeholder-section">
-      No structure currently linked. Structure readiness: Sequence available (modelable). Predicted model exports and module overlays are not part of v1.
+    <div class="content-card structure-viewer-card" id="structure-viewer-lmt-0358">
+      <p><span class="badge v2">Predicted (proxy)</span> <span class="badge">pLDDT tier: proxy_high</span> <span class="badge">Mean pLDDT: 92.37</span></p>
+      <div
+        class="structure-viewer"
+        data-molstar-viewer="ngl-lazy"
+        data-structure-kind="predicted_proxy"
+        data-structure-url="../static/structure_models/LMT_0358/ptm0.908_r3_default.pdb"
+        data-structure-canonical-id="LMT_0358"
+        data-parent-scaffold-id="LMT_0358"
+      >
+        <div class="structure-toolbar">
+          <button class="button-link" type="button" data-load-structure>Load 3D viewer</button>
+          <span class="card-note" data-structure-status>Viewer loads on demand.</span>
+        </div>
+        <div class="structure-viewport" data-ngl-viewport role="img" aria-label="3D protein structure viewer"></div>
+      </div>
+      
+      <div class='table-wrap'><table><thead><tr><th>Item</th><th>Details</th></tr></thead><tbody><tr><td>Model source</td><td>ESMFold predicted proxy</td></tr><tr><td>Model version</td><td>esmfold_colab_r3</td></tr><tr><td>Uses MSA</td><td>False</td></tr><tr><td>pLDDT tier</td><td>proxy_high</td></tr><tr><td>Mean pLDDT</td><td>92.37</td></tr><tr><td>Caveat</td><td>predicted proxy model; not an experimental PDB; not written to experimental structure identifiers; mapping_confidence capped at proxy for Web structure display; Predicted external model; sequence EXACT by CA-residue check; not an experimental PDB and not written to experimental structure identifiers. quality_badge_color=green; tier_scope=global_mean; uses_msa=False; target_resolution_confidence remains provisional; mapping_confidence capped at proxy (predicted ESMFold model); real value recomputed in a later structural-mapping step</td></tr></tbody></table></div>
     </div>
+    
+    <script>
+    (function() {
+      const containerId = "structure-viewer-lmt-0358";
+      const modelUrl = "../static/structure_models/LMT_0358/ptm0.908_r3_default.pdb";
+      const mutationSites = [];
+      const root = document.getElementById(containerId);
+      if (!root) return;
+      const button = root.querySelector('[data-load-structure]');
+      const viewport = root.querySelector('[data-ngl-viewport]');
+      const status = root.querySelector('[data-structure-status]');
+      let nglPromise = null;
+      function loadNgl() {
+        if (window.NGL) return Promise.resolve(window.NGL);
+        if (nglPromise) return nglPromise;
+        nglPromise = new Promise((resolve, reject) => {
+          const script = document.createElement('script');
+          script.src = 'https://cdn.jsdelivr.net/npm/ngl@2.0.0-dev.39/dist/ngl.js';
+          script.async = true;
+          script.onload = () => resolve(window.NGL);
+          script.onerror = () => reject(new Error('NGL viewer failed to load'));
+          document.head.appendChild(script);
+        });
+        return nglPromise;
+      }
+      function setStatus(message) {
+        if (status) status.textContent = message;
+      }
+      if (button && viewport) {
+        button.addEventListener('click', () => {
+          button.disabled = true;
+          setStatus('Loading 3D viewer...');
+          loadNgl()
+            .then(() => {
+              const stage = new window.NGL.Stage(viewport);
+              window.addEventListener('resize', () => stage.handleResize(), false);
+              return stage.loadFile(modelUrl, { defaultRepresentation: true }).then((component) => {
+                if (mutationSites.length) {
+                  const selection = mutationSites.map((site) => String(site.selection || site.residueNumber)).join(' or ');
+                  component.addRepresentation('spacefill', {
+                    sele: '(' + selection + ') and protein',
+                    color: '#f97316',
+                    radiusScale: 0.55,
+                    opacity: 0.95
+                  });
+                  stage.signals.hovered.add((pickingProxy) => {
+                    if (!pickingProxy || !pickingProxy.atom) return;
+                    const hit = mutationSites.find((site) => Number(site.residueNumber) === Number(pickingProxy.atom.resno));
+                    if (hit) setStatus(hit.hoverText || ('Residue ' + hit.residueNumber));
+                  });
+                }
+                component.autoView();
+                setStatus('3D viewer loaded.');
+              });
+            })
+            .catch((error) => {
+              button.disabled = false;
+              setStatus(error && error.message ? error.message : '3D viewer failed to load.');
+            });
+        });
+      }
+    }());
+    </script>
+    
     
     </section>
     <section class="section">
@@ -120,7 +200,7 @@
       <a href="../glossary.html">Glossary</a>
       <a href="../downloads.html">Downloads</a>
       <a href="../about.html">Suggested citation and license</a>
-      <span>v2.0 released 2026-06-25</span>
+      <span>Web v2.1 · data v2.0 · released 2026-06-25</span>
       <span>Contact: Lvyziyer1@163.com</span>
     </footer>
     

@@ -92,9 +92,89 @@
     <section class="section">
       <h2>Structure Viewer</h2>
       
-    <div class="placeholder-section">
-      No structure currently linked. Structure readiness: Phenotype ready. Predicted model exports and module overlays are not part of v1.
+    <div class="content-card structure-viewer-card" id="structure-viewer-lmt-0132">
+      <p><span class="badge confidence-high">Experimental structure</span> <span class="badge">Structure source: RCSB PDB</span> <span class="badge">Phenotype ready</span></p>
+      <div
+        class="structure-viewer"
+        data-molstar-viewer="ngl-lazy"
+        data-structure-kind="experimental_pdb"
+        data-structure-url="https://files.rcsb.org/download/4TGL.pdb"
+        data-structure-canonical-id="LMT_0132"
+        data-parent-scaffold-id="LMT_0132"
+      >
+        <div class="structure-toolbar">
+          <button class="button-link" type="button" data-load-structure>Load 3D viewer</button>
+          <span class="card-note" data-structure-status>Viewer loads on demand.</span>
+        </div>
+        <div class="structure-viewport" data-ngl-viewport role="img" aria-label="3D protein structure viewer"></div>
+      </div>
+      <div class="mutation-context"><p><span class="badge v2">Mutation mapped onto parent WT scaffold, not an experimental mutant structure.</span><span class="badge v2">residue mapping pending</span></p></div>
+      <div class='table-wrap'><table><thead><tr><th>Item</th><th>Details</th></tr></thead><tbody><tr><td>Model source</td><td>RCSB PDB</td></tr><tr><td>PDB entry</td><td><a href="https://www.rcsb.org/structure/4TGL" target="_blank" rel="noopener noreferrer">RCSB 4TGL</a></td></tr><tr><td>Model version</td><td>RCSB_PDB</td></tr><tr><td>Resolution / confidence</td><td>resolution_Not reported</td></tr><tr><td>Caveat</td><td>Experimental structure linked from exact canonical PDB evidence; visualization only.</td></tr></tbody></table></div>
     </div>
+    
+    <script>
+    (function() {
+      const containerId = "structure-viewer-lmt-0132";
+      const modelUrl = "https://files.rcsb.org/download/4TGL.pdb";
+      const mutationSites = [];
+      const root = document.getElementById(containerId);
+      if (!root) return;
+      const button = root.querySelector('[data-load-structure]');
+      const viewport = root.querySelector('[data-ngl-viewport]');
+      const status = root.querySelector('[data-structure-status]');
+      let nglPromise = null;
+      function loadNgl() {
+        if (window.NGL) return Promise.resolve(window.NGL);
+        if (nglPromise) return nglPromise;
+        nglPromise = new Promise((resolve, reject) => {
+          const script = document.createElement('script');
+          script.src = 'https://cdn.jsdelivr.net/npm/ngl@2.0.0-dev.39/dist/ngl.js';
+          script.async = true;
+          script.onload = () => resolve(window.NGL);
+          script.onerror = () => reject(new Error('NGL viewer failed to load'));
+          document.head.appendChild(script);
+        });
+        return nglPromise;
+      }
+      function setStatus(message) {
+        if (status) status.textContent = message;
+      }
+      if (button && viewport) {
+        button.addEventListener('click', () => {
+          button.disabled = true;
+          setStatus('Loading 3D viewer...');
+          loadNgl()
+            .then(() => {
+              const stage = new window.NGL.Stage(viewport);
+              window.addEventListener('resize', () => stage.handleResize(), false);
+              return stage.loadFile(modelUrl, { defaultRepresentation: true }).then((component) => {
+                if (mutationSites.length) {
+                  const selection = mutationSites.map((site) => String(site.selection || site.residueNumber)).join(' or ');
+                  component.addRepresentation('spacefill', {
+                    sele: '(' + selection + ') and protein',
+                    color: '#f97316',
+                    radiusScale: 0.55,
+                    opacity: 0.95
+                  });
+                  stage.signals.hovered.add((pickingProxy) => {
+                    if (!pickingProxy || !pickingProxy.atom) return;
+                    const hit = mutationSites.find((site) => Number(site.residueNumber) === Number(pickingProxy.atom.resno));
+                    if (hit) setStatus(hit.hoverText || ('Residue ' + hit.residueNumber));
+                  });
+                }
+                component.autoView();
+                setStatus('3D viewer loaded.');
+              });
+            })
+            .catch((error) => {
+              button.disabled = false;
+              setStatus(error && error.message ? error.message : '3D viewer failed to load.');
+            });
+        });
+      }
+    }());
+    </script>
+    
     
     </section>
     <section class="section">
@@ -158,7 +238,7 @@
       <a href="../glossary.html">Glossary</a>
       <a href="../downloads.html">Downloads</a>
       <a href="../about.html">Suggested citation and license</a>
-      <span>v2.0 released 2026-06-25</span>
+      <span>Web v2.1 · data v2.0 · released 2026-06-25</span>
       <span>Contact: Lvyziyer1@163.com</span>
     </footer>
     
