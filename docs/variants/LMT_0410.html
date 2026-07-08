@@ -40,18 +40,6 @@
       </div>
     </section>
     <section class="section">
-      <h2>Measurements & conditions</h2>
-      <div class="placeholder-section">Identity known, but no methanol challenge data are linked yet</div>
-    </section>
-    <section class="section">
-      <h2>Assay protocols</h2>
-      <div class="placeholder-section">Identity known, but no methanol challenge data are linked yet</div>
-    </section>
-    <section class="section">
-      <h2>Sources</h2>
-      <div class="placeholder-section">Identity known, but no methanol challenge data are linked yet</div>
-    </section>
-    <section class="section">
       <h2>Structure Viewer</h2>
       
     <div class="content-card structure-viewer-card" id="structure-viewer-lmt-0416">
@@ -70,6 +58,15 @@
         </div>
         <div class="structure-viewport" data-ngl-viewport role="img" aria-label="3D protein structure viewer"></div>
       </div>
+      
+      <div class="structure-legend" aria-label="Structure viewer color legend">
+        <strong>Secondary structure coloring</strong>
+        <span class="structure-swatch helix">Helix</span>
+        <span class="structure-swatch sheet">Sheet</span>
+        <span class="structure-swatch coil">Coil</span>
+        
+      </div>
+    
       <div class="mutation-context"><p><span class="badge v2">Mutation mapped onto parent WT scaffold, not an experimental mutant structure.</span><span class="badge v2">residue mapping pending</span></p></div>
       <div class='table-wrap'><table><thead><tr><th>Item</th><th>Details</th></tr></thead><tbody><tr><td>Model source</td><td>RCSB PDB</td></tr><tr><td>PDB entry</td><td><a href="https://www.rcsb.org/structure/3G7N" target="_blank" rel="noopener noreferrer">RCSB 3G7N</a></td></tr><tr><td>Model version</td><td>RCSB_PDB</td></tr><tr><td>Resolution / confidence</td><td>resolution_Not reported</td></tr><tr><td>Caveat</td><td>Experimental structure linked from exact canonical PDB evidence; visualization only.</td></tr></tbody></table></div>
     </div>
@@ -109,14 +106,34 @@
             .then(() => {
               const stage = new window.NGL.Stage(viewport);
               window.addEventListener('resize', () => stage.handleResize(), false);
-              return stage.loadFile(modelUrl, { defaultRepresentation: true }).then((component) => {
+              return stage.loadFile(modelUrl).then((component) => {
+                const helixColor = 0x6fa8b7;
+                const sheetColor = 0x8abf9a;
+                const coilColor = 0xb8c2cc;
+                const mutationOrange = '#ff7a00';
+                const secondaryStructureScheme = window.NGL.ColormakerRegistry.addScheme(function() {
+                  this.atomColor = function(atom) {
+                    const secondary = String(atom.sstruc || '').toLowerCase();
+                    if (secondary.includes('h')) return helixColor;
+                    if (secondary.includes('e') || secondary.includes('s')) return sheetColor;
+                    return coilColor;
+                  };
+                }, 'LMT secondary structure');
+                component.addRepresentation('cartoon', {
+                  color: secondaryStructureScheme,
+                  opacity: 0.94,
+                  aspectRatio: 4,
+                  radius: 0.22,
+                  smoothSheet: true
+                });
                 if (mutationSites.length) {
                   const selection = mutationSites.map((site) => String(site.selection || site.residueNumber)).join(' or ');
-                  component.addRepresentation('spacefill', {
+                  component.addRepresentation('ball+stick', {
                     sele: '(' + selection + ') and protein',
-                    color: '#f97316',
-                    radiusScale: 0.55,
-                    opacity: 0.95
+                    color: mutationOrange,
+                    radiusScale: 2.1,
+                    aspectRatio: 1.6,
+                    multipleBond: true
                   });
                   stage.signals.hovered.add((pickingProxy) => {
                     if (!pickingProxy || !pickingProxy.atom) return;
@@ -138,6 +155,18 @@
     </script>
     
     
+    </section>
+    <section class="section">
+      <h2>Measurements & conditions</h2>
+      <div class="placeholder-section">Identity known, but no methanol challenge data are linked yet</div>
+    </section>
+    <section class="section">
+      <h2>Assay protocols</h2>
+      <div class="placeholder-section">Identity known, but no methanol challenge data are linked yet</div>
+    </section>
+    <section class="section">
+      <h2>Sources</h2>
+      <div class="placeholder-section">Identity known, but no methanol challenge data are linked yet</div>
     </section>
     <section class="section">
       <h2>Download This Entry</h2>

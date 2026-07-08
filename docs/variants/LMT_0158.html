@@ -54,6 +54,123 @@
     
     </section>
     <section class="section">
+      <h2>Structure Viewer</h2>
+      
+    <div class="content-card structure-viewer-card" id="structure-viewer-lmt-0001">
+      <p><span class="badge confidence-high">Experimental structure</span> <span class="badge">Structure source: RCSB PDB</span> <span class="badge">Sequence available (modelable)</span></p>
+      <div
+        class="structure-viewer"
+        data-molstar-viewer="ngl-lazy"
+        data-structure-kind="experimental_pdb"
+        data-structure-url="https://files.rcsb.org/download/5H6B.pdb"
+        data-structure-canonical-id="LMT_0001"
+        data-parent-scaffold-id="LMT_0001" data-mutation-highlight-sites="[{&quot;token&quot;: &quot;G40S&quot;, &quot;residueNumber&quot;: 40, &quot;wildType&quot;: &quot;Gly&quot;, &quot;mutant&quot;: &quot;Ser&quot;, &quot;label&quot;: &quot;Gly40\u2192Ser&quot;, &quot;selection&quot;: &quot;40&quot;, &quot;mappingSource&quot;: &quot;UM-1 5H6B self-mapping confirmed&quot;, &quot;hoverText&quot;: &quot;Residue 40: Gly\u2192Ser&quot;}, {&quot;token&quot;: &quot;T204E&quot;, &quot;residueNumber&quot;: 204, &quot;wildType&quot;: &quot;Thr&quot;, &quot;mutant&quot;: &quot;Glu&quot;, &quot;label&quot;: &quot;Thr204\u2192Glu&quot;, &quot;selection&quot;: &quot;204&quot;, &quot;mappingSource&quot;: &quot;UM-1 5H6B self-mapping confirmed&quot;, &quot;hoverText&quot;: &quot;Residue 204: Thr\u2192Glu&quot;}, {&quot;token&quot;: &quot;A234E&quot;, &quot;residueNumber&quot;: 234, &quot;wildType&quot;: &quot;Ala&quot;, &quot;mutant&quot;: &quot;Glu&quot;, &quot;label&quot;: &quot;Ala234\u2192Glu&quot;, &quot;selection&quot;: &quot;234&quot;, &quot;mappingSource&quot;: &quot;UM-1 5H6B self-mapping confirmed&quot;, &quot;hoverText&quot;: &quot;Residue 234: Ala\u2192Glu&quot;}]"
+      >
+        <div class="structure-toolbar">
+          <button class="button-link" type="button" data-load-structure>Load 3D viewer</button>
+          <span class="card-note" data-structure-status>Viewer loads on demand.</span>
+        </div>
+        <div class="structure-viewport" data-ngl-viewport role="img" aria-label="3D protein structure viewer"></div>
+      </div>
+      
+      <div class="structure-legend" aria-label="Structure viewer color legend">
+        <strong>Secondary structure coloring</strong>
+        <span class="structure-swatch helix">Helix</span>
+        <span class="structure-swatch sheet">Sheet</span>
+        <span class="structure-swatch coil">Coil</span>
+        <span class="structure-swatch mutation">Mutant residues highlighted in orange</span>
+      </div>
+    
+      <div class="mutation-context"><p><span class="badge v2">Mutation mapped onto parent WT scaffold, not an experimental mutant structure.</span></p><ul class="mutation-site-list"><li title="Residue 40: Gly→Ser">Gly40→Ser<span class="card-note">UM-1 5H6B self-mapping confirmed</span></li><li title="Residue 204: Thr→Glu">Thr204→Glu<span class="card-note">UM-1 5H6B self-mapping confirmed</span></li><li title="Residue 234: Ala→Glu">Ala234→Glu<span class="card-note">UM-1 5H6B self-mapping confirmed</span></li></ul></div>
+      <div class='table-wrap'><table><thead><tr><th>Item</th><th>Details</th></tr></thead><tbody><tr><td>Model source</td><td>RCSB PDB</td></tr><tr><td>PDB entry</td><td><a href="https://www.rcsb.org/structure/5H6B" target="_blank" rel="noopener noreferrer">RCSB 5H6B</a></td></tr><tr><td>Model version</td><td>RCSB_PDB</td></tr><tr><td>Resolution / confidence</td><td>resolution_Not reported</td></tr><tr><td>Caveat</td><td>Experimental structure linked from exact canonical PDB evidence; visualization only.</td></tr></tbody></table></div>
+    </div>
+    
+    <script>
+    (function() {
+      const containerId = "structure-viewer-lmt-0001";
+      const modelUrl = "https://files.rcsb.org/download/5H6B.pdb";
+      const mutationSites = [{"token": "G40S", "residueNumber": 40, "wildType": "Gly", "mutant": "Ser", "label": "Gly40\u2192Ser", "selection": "40", "mappingSource": "UM-1 5H6B self-mapping confirmed", "hoverText": "Residue 40: Gly\u2192Ser"}, {"token": "T204E", "residueNumber": 204, "wildType": "Thr", "mutant": "Glu", "label": "Thr204\u2192Glu", "selection": "204", "mappingSource": "UM-1 5H6B self-mapping confirmed", "hoverText": "Residue 204: Thr\u2192Glu"}, {"token": "A234E", "residueNumber": 234, "wildType": "Ala", "mutant": "Glu", "label": "Ala234\u2192Glu", "selection": "234", "mappingSource": "UM-1 5H6B self-mapping confirmed", "hoverText": "Residue 234: Ala\u2192Glu"}];
+      const root = document.getElementById(containerId);
+      if (!root) return;
+      const button = root.querySelector('[data-load-structure]');
+      const viewport = root.querySelector('[data-ngl-viewport]');
+      const status = root.querySelector('[data-structure-status]');
+      let nglPromise = null;
+      function loadNgl() {
+        if (window.NGL) return Promise.resolve(window.NGL);
+        if (nglPromise) return nglPromise;
+        nglPromise = new Promise((resolve, reject) => {
+          const script = document.createElement('script');
+          script.src = 'https://cdn.jsdelivr.net/npm/ngl@2.0.0-dev.39/dist/ngl.js';
+          script.async = true;
+          script.onload = () => resolve(window.NGL);
+          script.onerror = () => reject(new Error('NGL viewer failed to load'));
+          document.head.appendChild(script);
+        });
+        return nglPromise;
+      }
+      function setStatus(message) {
+        if (status) status.textContent = message;
+      }
+      if (button && viewport) {
+        button.addEventListener('click', () => {
+          button.disabled = true;
+          setStatus('Loading 3D viewer...');
+          loadNgl()
+            .then(() => {
+              const stage = new window.NGL.Stage(viewport);
+              window.addEventListener('resize', () => stage.handleResize(), false);
+              return stage.loadFile(modelUrl).then((component) => {
+                const helixColor = 0x6fa8b7;
+                const sheetColor = 0x8abf9a;
+                const coilColor = 0xb8c2cc;
+                const mutationOrange = '#ff7a00';
+                const secondaryStructureScheme = window.NGL.ColormakerRegistry.addScheme(function() {
+                  this.atomColor = function(atom) {
+                    const secondary = String(atom.sstruc || '').toLowerCase();
+                    if (secondary.includes('h')) return helixColor;
+                    if (secondary.includes('e') || secondary.includes('s')) return sheetColor;
+                    return coilColor;
+                  };
+                }, 'LMT secondary structure');
+                component.addRepresentation('cartoon', {
+                  color: secondaryStructureScheme,
+                  opacity: 0.94,
+                  aspectRatio: 4,
+                  radius: 0.22,
+                  smoothSheet: true
+                });
+                if (mutationSites.length) {
+                  const selection = mutationSites.map((site) => String(site.selection || site.residueNumber)).join(' or ');
+                  component.addRepresentation('ball+stick', {
+                    sele: '(' + selection + ') and protein',
+                    color: mutationOrange,
+                    radiusScale: 2.1,
+                    aspectRatio: 1.6,
+                    multipleBond: true
+                  });
+                  stage.signals.hovered.add((pickingProxy) => {
+                    if (!pickingProxy || !pickingProxy.atom) return;
+                    const hit = mutationSites.find((site) => Number(site.residueNumber) === Number(pickingProxy.atom.resno));
+                    if (hit) setStatus(hit.hoverText || ('Residue ' + hit.residueNumber));
+                  });
+                }
+                component.autoView();
+                setStatus('3D viewer loaded.');
+              });
+            })
+            .catch((error) => {
+              button.disabled = false;
+              setStatus(error && error.message ? error.message : '3D viewer failed to load.');
+            });
+        });
+      }
+    }());
+    </script>
+    
+    
+    </section>
+    <section class="section">
       <h2>Measurements & conditions</h2>
       <div class='protocol-selector'><strong>Protocol selector</strong><a href="#protocol-1" class="badge">Protocol 1 (Literature)</a></div>
             <article class="content-card protocol-card" id="protocol-1">
@@ -88,94 +205,6 @@
               <div class='placeholder-section'>No linked patent sources.</div>
             </div>
             </div>
-    </section>
-    <section class="section">
-      <h2>Structure Viewer</h2>
-      
-    <div class="content-card structure-viewer-card" id="structure-viewer-lmt-0001">
-      <p><span class="badge confidence-high">Experimental structure</span> <span class="badge">Structure source: RCSB PDB</span> <span class="badge">Sequence available (modelable)</span></p>
-      <div
-        class="structure-viewer"
-        data-molstar-viewer="ngl-lazy"
-        data-structure-kind="experimental_pdb"
-        data-structure-url="https://files.rcsb.org/download/5H6B.pdb"
-        data-structure-canonical-id="LMT_0001"
-        data-parent-scaffold-id="LMT_0001" data-mutation-highlight-sites="[{&quot;token&quot;: &quot;G40S&quot;, &quot;residueNumber&quot;: 40, &quot;wildType&quot;: &quot;Gly&quot;, &quot;mutant&quot;: &quot;Ser&quot;, &quot;label&quot;: &quot;Gly40\u2192Ser&quot;, &quot;selection&quot;: &quot;40&quot;, &quot;mappingSource&quot;: &quot;UM-1 5H6B self-mapping confirmed&quot;, &quot;hoverText&quot;: &quot;Residue 40: Gly40\u2192Ser&quot;}, {&quot;token&quot;: &quot;T204E&quot;, &quot;residueNumber&quot;: 204, &quot;wildType&quot;: &quot;Thr&quot;, &quot;mutant&quot;: &quot;Glu&quot;, &quot;label&quot;: &quot;Thr204\u2192Glu&quot;, &quot;selection&quot;: &quot;204&quot;, &quot;mappingSource&quot;: &quot;UM-1 5H6B self-mapping confirmed&quot;, &quot;hoverText&quot;: &quot;Residue 204: Thr204\u2192Glu&quot;}, {&quot;token&quot;: &quot;A234E&quot;, &quot;residueNumber&quot;: 234, &quot;wildType&quot;: &quot;Ala&quot;, &quot;mutant&quot;: &quot;Glu&quot;, &quot;label&quot;: &quot;Ala234\u2192Glu&quot;, &quot;selection&quot;: &quot;234&quot;, &quot;mappingSource&quot;: &quot;UM-1 5H6B self-mapping confirmed&quot;, &quot;hoverText&quot;: &quot;Residue 234: Ala234\u2192Glu&quot;}]"
-      >
-        <div class="structure-toolbar">
-          <button class="button-link" type="button" data-load-structure>Load 3D viewer</button>
-          <span class="card-note" data-structure-status>Viewer loads on demand.</span>
-        </div>
-        <div class="structure-viewport" data-ngl-viewport role="img" aria-label="3D protein structure viewer"></div>
-      </div>
-      <div class="mutation-context"><p><span class="badge v2">Mutation mapped onto parent WT scaffold, not an experimental mutant structure.</span></p><ul class="mutation-site-list"><li title="Residue 40: Gly40→Ser">Residue 40: Gly40→Ser<span class="card-note">UM-1 5H6B self-mapping confirmed</span></li><li title="Residue 204: Thr204→Glu">Residue 204: Thr204→Glu<span class="card-note">UM-1 5H6B self-mapping confirmed</span></li><li title="Residue 234: Ala234→Glu">Residue 234: Ala234→Glu<span class="card-note">UM-1 5H6B self-mapping confirmed</span></li></ul></div>
-      <div class='table-wrap'><table><thead><tr><th>Item</th><th>Details</th></tr></thead><tbody><tr><td>Model source</td><td>RCSB PDB</td></tr><tr><td>PDB entry</td><td><a href="https://www.rcsb.org/structure/5H6B" target="_blank" rel="noopener noreferrer">RCSB 5H6B</a></td></tr><tr><td>Model version</td><td>RCSB_PDB</td></tr><tr><td>Resolution / confidence</td><td>resolution_Not reported</td></tr><tr><td>Caveat</td><td>Experimental structure linked from exact canonical PDB evidence; visualization only.</td></tr></tbody></table></div>
-    </div>
-    
-    <script>
-    (function() {
-      const containerId = "structure-viewer-lmt-0001";
-      const modelUrl = "https://files.rcsb.org/download/5H6B.pdb";
-      const mutationSites = [{"token": "G40S", "residueNumber": 40, "wildType": "Gly", "mutant": "Ser", "label": "Gly40\u2192Ser", "selection": "40", "mappingSource": "UM-1 5H6B self-mapping confirmed", "hoverText": "Residue 40: Gly40\u2192Ser"}, {"token": "T204E", "residueNumber": 204, "wildType": "Thr", "mutant": "Glu", "label": "Thr204\u2192Glu", "selection": "204", "mappingSource": "UM-1 5H6B self-mapping confirmed", "hoverText": "Residue 204: Thr204\u2192Glu"}, {"token": "A234E", "residueNumber": 234, "wildType": "Ala", "mutant": "Glu", "label": "Ala234\u2192Glu", "selection": "234", "mappingSource": "UM-1 5H6B self-mapping confirmed", "hoverText": "Residue 234: Ala234\u2192Glu"}];
-      const root = document.getElementById(containerId);
-      if (!root) return;
-      const button = root.querySelector('[data-load-structure]');
-      const viewport = root.querySelector('[data-ngl-viewport]');
-      const status = root.querySelector('[data-structure-status]');
-      let nglPromise = null;
-      function loadNgl() {
-        if (window.NGL) return Promise.resolve(window.NGL);
-        if (nglPromise) return nglPromise;
-        nglPromise = new Promise((resolve, reject) => {
-          const script = document.createElement('script');
-          script.src = 'https://cdn.jsdelivr.net/npm/ngl@2.0.0-dev.39/dist/ngl.js';
-          script.async = true;
-          script.onload = () => resolve(window.NGL);
-          script.onerror = () => reject(new Error('NGL viewer failed to load'));
-          document.head.appendChild(script);
-        });
-        return nglPromise;
-      }
-      function setStatus(message) {
-        if (status) status.textContent = message;
-      }
-      if (button && viewport) {
-        button.addEventListener('click', () => {
-          button.disabled = true;
-          setStatus('Loading 3D viewer...');
-          loadNgl()
-            .then(() => {
-              const stage = new window.NGL.Stage(viewport);
-              window.addEventListener('resize', () => stage.handleResize(), false);
-              return stage.loadFile(modelUrl, { defaultRepresentation: true }).then((component) => {
-                if (mutationSites.length) {
-                  const selection = mutationSites.map((site) => String(site.selection || site.residueNumber)).join(' or ');
-                  component.addRepresentation('spacefill', {
-                    sele: '(' + selection + ') and protein',
-                    color: '#f97316',
-                    radiusScale: 0.55,
-                    opacity: 0.95
-                  });
-                  stage.signals.hovered.add((pickingProxy) => {
-                    if (!pickingProxy || !pickingProxy.atom) return;
-                    const hit = mutationSites.find((site) => Number(site.residueNumber) === Number(pickingProxy.atom.resno));
-                    if (hit) setStatus(hit.hoverText || ('Residue ' + hit.residueNumber));
-                  });
-                }
-                component.autoView();
-                setStatus('3D viewer loaded.');
-              });
-            })
-            .catch((error) => {
-              button.disabled = false;
-              setStatus(error && error.message ? error.message : '3D viewer failed to load.');
-            });
-        });
-      }
-    }());
-    </script>
-    
-    
     </section>
     <section class="section">
       <h2>Download This Entry</h2>

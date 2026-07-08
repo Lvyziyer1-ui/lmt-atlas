@@ -10,6 +10,10 @@
   --accent: #2f7d61;
   --warning: #8a5a00;
   --danger: #a33a2c;
+  --structure-helix: #6fa8b7;
+  --structure-sheet: #8abf9a;
+  --structure-coil: #b8c2cc;
+  --mutation-orange: #ff7a00;
   --shadow: 0 1px 3px rgba(18, 35, 45, 0.08);
   --font-display: "Avenir Next", "Segoe UI", sans-serif;
   --font-body: "Source Sans 3", "Segoe UI", sans-serif;
@@ -384,6 +388,38 @@ code {
   background: #eef3f6;
   overflow: hidden;
 }
+.structure-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #f9fbfc;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+.structure-legend strong {
+  color: var(--ink);
+}
+.structure-swatch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.structure-swatch::before {
+  content: "";
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 999px;
+  border: 1px solid rgba(23, 36, 44, 0.18);
+  background: var(--structure-coil);
+}
+.structure-swatch.helix::before { background: var(--structure-helix); }
+.structure-swatch.sheet::before { background: var(--structure-sheet); }
+.structure-swatch.coil::before { background: var(--structure-coil); }
+.structure-swatch.mutation::before { background: var(--mutation-orange); }
 .figure-download a {
   margin-left: 0.55rem;
 }

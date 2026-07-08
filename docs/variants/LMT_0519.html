@@ -54,6 +54,123 @@
     
     </section>
     <section class="section">
+      <h2>Structure Viewer</h2>
+      
+    <div class="content-card structure-viewer-card" id="structure-viewer-lmt-0022">
+      <p><span class="badge confidence-high">Experimental structure</span> <span class="badge">Structure source: RCSB PDB</span> <span class="badge">Sequence available (modelable)</span></p>
+      <div
+        class="structure-viewer"
+        data-molstar-viewer="ngl-lazy"
+        data-structure-kind="experimental_pdb"
+        data-structure-url="https://files.rcsb.org/download/1TCA.pdb"
+        data-structure-canonical-id="LMT_0022"
+        data-parent-scaffold-id="LMT_0022" data-mutation-highlight-sites="[{&quot;token&quot;: &quot;T103G&quot;, &quot;residueNumber&quot;: 103, &quot;wildType&quot;: &quot;Thr&quot;, &quot;mutant&quot;: &quot;Gly&quot;, &quot;label&quot;: &quot;Thr103\u2192Gly&quot;, &quot;selection&quot;: &quot;103&quot;, &quot;mappingSource&quot;: &quot;validated parent-scaffold residue mapping&quot;, &quot;hoverText&quot;: &quot;Residue 103: Thr\u2192Gly&quot;}, {&quot;token&quot;: &quot;D223G&quot;, &quot;residueNumber&quot;: 223, &quot;wildType&quot;: &quot;Asp&quot;, &quot;mutant&quot;: &quot;Gly&quot;, &quot;label&quot;: &quot;Asp223\u2192Gly&quot;, &quot;selection&quot;: &quot;223&quot;, &quot;mappingSource&quot;: &quot;validated parent-scaffold residue mapping&quot;, &quot;hoverText&quot;: &quot;Residue 223: Asp\u2192Gly&quot;}]"
+      >
+        <div class="structure-toolbar">
+          <button class="button-link" type="button" data-load-structure>Load 3D viewer</button>
+          <span class="card-note" data-structure-status>Viewer loads on demand.</span>
+        </div>
+        <div class="structure-viewport" data-ngl-viewport role="img" aria-label="3D protein structure viewer"></div>
+      </div>
+      
+      <div class="structure-legend" aria-label="Structure viewer color legend">
+        <strong>Secondary structure coloring</strong>
+        <span class="structure-swatch helix">Helix</span>
+        <span class="structure-swatch sheet">Sheet</span>
+        <span class="structure-swatch coil">Coil</span>
+        <span class="structure-swatch mutation">Mutant residues highlighted in orange</span>
+      </div>
+    
+      <div class="mutation-context"><p><span class="badge v2">Mutation mapped onto parent WT scaffold, not an experimental mutant structure.</span><span class="badge v2">residue mapping pending</span></p><ul class="mutation-site-list"><li title="Residue 103: Thr→Gly">Thr103→Gly<span class="card-note">validated parent-scaffold residue mapping</span></li><li title="Residue 223: Asp→Gly">Asp223→Gly<span class="card-note">validated parent-scaffold residue mapping</span></li></ul></div>
+      <div class='table-wrap'><table><thead><tr><th>Item</th><th>Details</th></tr></thead><tbody><tr><td>Model source</td><td>RCSB PDB</td></tr><tr><td>PDB entry</td><td><a href="https://www.rcsb.org/structure/1TCA" target="_blank" rel="noopener noreferrer">RCSB 1TCA</a></td></tr><tr><td>Model version</td><td>RCSB_PDB</td></tr><tr><td>Resolution / confidence</td><td>resolution_Not reported</td></tr><tr><td>Caveat</td><td>Experimental structure linked from exact canonical PDB evidence; visualization only.</td></tr></tbody></table></div>
+    </div>
+    
+    <script>
+    (function() {
+      const containerId = "structure-viewer-lmt-0022";
+      const modelUrl = "https://files.rcsb.org/download/1TCA.pdb";
+      const mutationSites = [{"token": "T103G", "residueNumber": 103, "wildType": "Thr", "mutant": "Gly", "label": "Thr103\u2192Gly", "selection": "103", "mappingSource": "validated parent-scaffold residue mapping", "hoverText": "Residue 103: Thr\u2192Gly"}, {"token": "D223G", "residueNumber": 223, "wildType": "Asp", "mutant": "Gly", "label": "Asp223\u2192Gly", "selection": "223", "mappingSource": "validated parent-scaffold residue mapping", "hoverText": "Residue 223: Asp\u2192Gly"}];
+      const root = document.getElementById(containerId);
+      if (!root) return;
+      const button = root.querySelector('[data-load-structure]');
+      const viewport = root.querySelector('[data-ngl-viewport]');
+      const status = root.querySelector('[data-structure-status]');
+      let nglPromise = null;
+      function loadNgl() {
+        if (window.NGL) return Promise.resolve(window.NGL);
+        if (nglPromise) return nglPromise;
+        nglPromise = new Promise((resolve, reject) => {
+          const script = document.createElement('script');
+          script.src = 'https://cdn.jsdelivr.net/npm/ngl@2.0.0-dev.39/dist/ngl.js';
+          script.async = true;
+          script.onload = () => resolve(window.NGL);
+          script.onerror = () => reject(new Error('NGL viewer failed to load'));
+          document.head.appendChild(script);
+        });
+        return nglPromise;
+      }
+      function setStatus(message) {
+        if (status) status.textContent = message;
+      }
+      if (button && viewport) {
+        button.addEventListener('click', () => {
+          button.disabled = true;
+          setStatus('Loading 3D viewer...');
+          loadNgl()
+            .then(() => {
+              const stage = new window.NGL.Stage(viewport);
+              window.addEventListener('resize', () => stage.handleResize(), false);
+              return stage.loadFile(modelUrl).then((component) => {
+                const helixColor = 0x6fa8b7;
+                const sheetColor = 0x8abf9a;
+                const coilColor = 0xb8c2cc;
+                const mutationOrange = '#ff7a00';
+                const secondaryStructureScheme = window.NGL.ColormakerRegistry.addScheme(function() {
+                  this.atomColor = function(atom) {
+                    const secondary = String(atom.sstruc || '').toLowerCase();
+                    if (secondary.includes('h')) return helixColor;
+                    if (secondary.includes('e') || secondary.includes('s')) return sheetColor;
+                    return coilColor;
+                  };
+                }, 'LMT secondary structure');
+                component.addRepresentation('cartoon', {
+                  color: secondaryStructureScheme,
+                  opacity: 0.94,
+                  aspectRatio: 4,
+                  radius: 0.22,
+                  smoothSheet: true
+                });
+                if (mutationSites.length) {
+                  const selection = mutationSites.map((site) => String(site.selection || site.residueNumber)).join(' or ');
+                  component.addRepresentation('ball+stick', {
+                    sele: '(' + selection + ') and protein',
+                    color: mutationOrange,
+                    radiusScale: 2.1,
+                    aspectRatio: 1.6,
+                    multipleBond: true
+                  });
+                  stage.signals.hovered.add((pickingProxy) => {
+                    if (!pickingProxy || !pickingProxy.atom) return;
+                    const hit = mutationSites.find((site) => Number(site.residueNumber) === Number(pickingProxy.atom.resno));
+                    if (hit) setStatus(hit.hoverText || ('Residue ' + hit.residueNumber));
+                  });
+                }
+                component.autoView();
+                setStatus('3D viewer loaded.');
+              });
+            })
+            .catch((error) => {
+              button.disabled = false;
+              setStatus(error && error.message ? error.message : '3D viewer failed to load.');
+            });
+        });
+      }
+    }());
+    </script>
+    
+    
+    </section>
+    <section class="section">
       <h2>Measurements & conditions</h2>
       <div class='protocol-selector'><strong>Protocol selector</strong><a href="#protocol-1" class="badge">Protocol 1 (Patent)</a></div>
             <article class="content-card protocol-card" id="protocol-1">
@@ -88,94 +205,6 @@
     
             </div>
             </div>
-    </section>
-    <section class="section">
-      <h2>Structure Viewer</h2>
-      
-    <div class="content-card structure-viewer-card" id="structure-viewer-lmt-0022">
-      <p><span class="badge confidence-high">Experimental structure</span> <span class="badge">Structure source: RCSB PDB</span> <span class="badge">Sequence available (modelable)</span></p>
-      <div
-        class="structure-viewer"
-        data-molstar-viewer="ngl-lazy"
-        data-structure-kind="experimental_pdb"
-        data-structure-url="https://files.rcsb.org/download/1TCA.pdb"
-        data-structure-canonical-id="LMT_0022"
-        data-parent-scaffold-id="LMT_0022" data-mutation-highlight-sites="[{&quot;token&quot;: &quot;T103G&quot;, &quot;residueNumber&quot;: 103, &quot;wildType&quot;: &quot;Thr&quot;, &quot;mutant&quot;: &quot;Gly&quot;, &quot;label&quot;: &quot;Thr103\u2192Gly&quot;, &quot;selection&quot;: &quot;103&quot;, &quot;mappingSource&quot;: &quot;validated parent-scaffold residue mapping&quot;, &quot;hoverText&quot;: &quot;Residue 103: Thr103\u2192Gly&quot;}, {&quot;token&quot;: &quot;D223G&quot;, &quot;residueNumber&quot;: 223, &quot;wildType&quot;: &quot;Asp&quot;, &quot;mutant&quot;: &quot;Gly&quot;, &quot;label&quot;: &quot;Asp223\u2192Gly&quot;, &quot;selection&quot;: &quot;223&quot;, &quot;mappingSource&quot;: &quot;validated parent-scaffold residue mapping&quot;, &quot;hoverText&quot;: &quot;Residue 223: Asp223\u2192Gly&quot;}]"
-      >
-        <div class="structure-toolbar">
-          <button class="button-link" type="button" data-load-structure>Load 3D viewer</button>
-          <span class="card-note" data-structure-status>Viewer loads on demand.</span>
-        </div>
-        <div class="structure-viewport" data-ngl-viewport role="img" aria-label="3D protein structure viewer"></div>
-      </div>
-      <div class="mutation-context"><p><span class="badge v2">Mutation mapped onto parent WT scaffold, not an experimental mutant structure.</span><span class="badge v2">residue mapping pending</span></p><ul class="mutation-site-list"><li title="Residue 103: Thr103→Gly">Residue 103: Thr103→Gly<span class="card-note">validated parent-scaffold residue mapping</span></li><li title="Residue 223: Asp223→Gly">Residue 223: Asp223→Gly<span class="card-note">validated parent-scaffold residue mapping</span></li></ul></div>
-      <div class='table-wrap'><table><thead><tr><th>Item</th><th>Details</th></tr></thead><tbody><tr><td>Model source</td><td>RCSB PDB</td></tr><tr><td>PDB entry</td><td><a href="https://www.rcsb.org/structure/1TCA" target="_blank" rel="noopener noreferrer">RCSB 1TCA</a></td></tr><tr><td>Model version</td><td>RCSB_PDB</td></tr><tr><td>Resolution / confidence</td><td>resolution_Not reported</td></tr><tr><td>Caveat</td><td>Experimental structure linked from exact canonical PDB evidence; visualization only.</td></tr></tbody></table></div>
-    </div>
-    
-    <script>
-    (function() {
-      const containerId = "structure-viewer-lmt-0022";
-      const modelUrl = "https://files.rcsb.org/download/1TCA.pdb";
-      const mutationSites = [{"token": "T103G", "residueNumber": 103, "wildType": "Thr", "mutant": "Gly", "label": "Thr103\u2192Gly", "selection": "103", "mappingSource": "validated parent-scaffold residue mapping", "hoverText": "Residue 103: Thr103\u2192Gly"}, {"token": "D223G", "residueNumber": 223, "wildType": "Asp", "mutant": "Gly", "label": "Asp223\u2192Gly", "selection": "223", "mappingSource": "validated parent-scaffold residue mapping", "hoverText": "Residue 223: Asp223\u2192Gly"}];
-      const root = document.getElementById(containerId);
-      if (!root) return;
-      const button = root.querySelector('[data-load-structure]');
-      const viewport = root.querySelector('[data-ngl-viewport]');
-      const status = root.querySelector('[data-structure-status]');
-      let nglPromise = null;
-      function loadNgl() {
-        if (window.NGL) return Promise.resolve(window.NGL);
-        if (nglPromise) return nglPromise;
-        nglPromise = new Promise((resolve, reject) => {
-          const script = document.createElement('script');
-          script.src = 'https://cdn.jsdelivr.net/npm/ngl@2.0.0-dev.39/dist/ngl.js';
-          script.async = true;
-          script.onload = () => resolve(window.NGL);
-          script.onerror = () => reject(new Error('NGL viewer failed to load'));
-          document.head.appendChild(script);
-        });
-        return nglPromise;
-      }
-      function setStatus(message) {
-        if (status) status.textContent = message;
-      }
-      if (button && viewport) {
-        button.addEventListener('click', () => {
-          button.disabled = true;
-          setStatus('Loading 3D viewer...');
-          loadNgl()
-            .then(() => {
-              const stage = new window.NGL.Stage(viewport);
-              window.addEventListener('resize', () => stage.handleResize(), false);
-              return stage.loadFile(modelUrl, { defaultRepresentation: true }).then((component) => {
-                if (mutationSites.length) {
-                  const selection = mutationSites.map((site) => String(site.selection || site.residueNumber)).join(' or ');
-                  component.addRepresentation('spacefill', {
-                    sele: '(' + selection + ') and protein',
-                    color: '#f97316',
-                    radiusScale: 0.55,
-                    opacity: 0.95
-                  });
-                  stage.signals.hovered.add((pickingProxy) => {
-                    if (!pickingProxy || !pickingProxy.atom) return;
-                    const hit = mutationSites.find((site) => Number(site.residueNumber) === Number(pickingProxy.atom.resno));
-                    if (hit) setStatus(hit.hoverText || ('Residue ' + hit.residueNumber));
-                  });
-                }
-                component.autoView();
-                setStatus('3D viewer loaded.');
-              });
-            })
-            .catch((error) => {
-              button.disabled = false;
-              setStatus(error && error.message ? error.message : '3D viewer failed to load.');
-            });
-        });
-      }
-    }());
-    </script>
-    
-    
     </section>
     <section class="section">
       <h2>Download This Entry</h2>
