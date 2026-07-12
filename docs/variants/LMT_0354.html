@@ -57,6 +57,7 @@
           <span class="card-note" data-structure-status>Viewer loads on demand.</span>
         </div>
         <div class="structure-viewport" data-ngl-viewport role="img" aria-label="3D protein structure viewer"></div>
+        <div class="mutation-hover-tooltip" data-mutation-tooltip hidden></div>
       </div>
       
       <div class="structure-legend" aria-label="Structure viewer color legend">
@@ -81,7 +82,9 @@
       const button = root.querySelector('[data-load-structure]');
       const viewport = root.querySelector('[data-ngl-viewport]');
       const status = root.querySelector('[data-structure-status]');
+      const tooltip = root.querySelector('[data-mutation-tooltip]');
       let nglPromise = null;
+      let lastPointerPosition = null;
       function loadNgl() {
         if (window.NGL) return Promise.resolve(window.NGL);
         if (nglPromise) return nglPromise;
@@ -98,13 +101,68 @@
       function setStatus(message) {
         if (status) status.textContent = message;
       }
+      function updatePointerPosition(event) {
+        lastPointerPosition = {
+          clientX: event.clientX,
+          clientY: event.clientY,
+          pageX: event.pageX,
+          pageY: event.pageY
+        };
+      }
+      function finiteNumber(value) {
+        return Number.isFinite(Number(value));
+      }
+      function viewportFallbackPosition() {
+        const box = viewport.getBoundingClientRect();
+        return { x: box.left + box.width / 2, y: box.top + box.height / 2 };
+      }
+      function pointerPosition() {
+        if (lastPointerPosition && finiteNumber(lastPointerPosition.clientX) && finiteNumber(lastPointerPosition.clientY)) {
+          return { x: Number(lastPointerPosition.clientX), y: Number(lastPointerPosition.clientY) };
+        }
+        return null;
+      }
+      function tooltipPosition(pickingProxy) {
+        const pointer = pointerPosition();
+        if (pointer) return pointer;
+        const mouse = pickingProxy && pickingProxy.mouse;
+        if (mouse && finiteNumber(mouse.x) && finiteNumber(mouse.y)) {
+          return { x: Number(mouse.x), y: Number(mouse.y) };
+        }
+        if (window.event && finiteNumber(window.event.clientX) && finiteNumber(window.event.clientY)) {
+          return { x: Number(window.event.clientX), y: Number(window.event.clientY) };
+        }
+        return viewportFallbackPosition();
+      }
+      function showMutationTooltip(hit, pickingProxy) {
+        if (!tooltip || !hit) return;
+        const position = tooltipPosition(pickingProxy);
+        const x = Math.max(12, Math.min(position.x + 14, window.innerWidth - 24));
+        const y = Math.max(12, Math.min(position.y + 14, window.innerHeight - 24));
+        tooltip.textContent = hit.hoverText || ('Residue ' + hit.residueNumber);
+        tooltip.style.left = x + 'px';
+        tooltip.style.top = y + 'px';
+        tooltip.style.display = 'block';
+        tooltip.hidden = false;
+        tooltip.classList.add('is-visible');
+      }
+      function hideMutationTooltip() {
+        if (!tooltip) return;
+        tooltip.hidden = true;
+        tooltip.style.display = 'none';
+        tooltip.classList.remove('is-visible');
+      }
       if (button && viewport) {
+        viewport.addEventListener('pointermove', updatePointerPosition, false);
+        viewport.addEventListener('mouseleave', () => {
+          hideMutationTooltip();
+        }, false);
         button.addEventListener('click', () => {
           button.disabled = true;
           setStatus('Loading 3D viewer...');
           loadNgl()
             .then(() => {
-              const stage = new window.NGL.Stage(viewport);
+              const stage = new window.NGL.Stage(viewport, { tooltip: false });
               window.addEventListener('resize', () => stage.handleResize(), false);
               return stage.loadFile(modelUrl).then((component) => {
                 const helixColor = 0x6fa8b7;
@@ -136,9 +194,15 @@
                     multipleBond: true
                   });
                   stage.signals.hovered.add((pickingProxy) => {
-                    if (!pickingProxy || !pickingProxy.atom) return;
-                    const hit = mutationSites.find((site) => Number(site.residueNumber) === Number(pickingProxy.atom.resno));
-                    if (hit) setStatus(hit.hoverText || ('Residue ' + hit.residueNumber));
+                    const atom = pickingProxy && pickingProxy.atom;
+                    const hit = atom
+                      ? mutationSites.find((site) => Number(site.residueNumber) === Number(atom.resno))
+                      : null;
+                    if (hit) {
+                      showMutationTooltip(hit, pickingProxy);
+                    } else {
+                      hideMutationTooltip();
+                    }
                   });
                 }
                 component.autoView();
@@ -147,6 +211,7 @@
             })
             .catch((error) => {
               button.disabled = false;
+              hideMutationTooltip();
               setStatus(error && error.message ? error.message : '3D viewer failed to load.');
             });
         });
