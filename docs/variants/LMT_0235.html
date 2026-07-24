@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="../static/styles.css">
 </head>
 <body>
-  <nav class="site-nav" aria-label="Primary navigation"><a href="../index.html">Home</a><a href="../browse_enzymes.html">Browse</a><a href="../search.html">Search</a><a href="../analysis.html">Analysis</a><a href="../downloads.html">Downloads</a><a href="../documentation.html">Documentation</a><a href="../about.html">About</a><a href="../glossary.html">Glossary</a><a href="../known_limitations.html">Known Limitations</a></nav>
+  <nav class="site-nav" aria-label="Primary navigation"><a href="../index.html">Home</a><a href="../search.html" aria-current='page'>Search</a><a href="../organisms.html">Browse by Organism</a><a href="../research.html">Research / Methods</a><a href="../downloads.html">Downloads</a><a href="../documentation.html">Documentation</a><a href="../about.html">About</a><a href="../glossary.html">Glossary</a><a href="../contribute.html">Contribute</a><a href="../known_limitations.html">Known Limitations</a></nav>
   <div class="shell">
     
     <header class="hero">
@@ -16,44 +16,74 @@
         <h1>EstN7 cold-active family IV esterase</h1>
         <p class="lede">EstN7 cold-active family IV esterase · Bacillus cohnii N1; taxonomic_alias=Sutcliffiella cohnii</p>
         <p>
-          <span class="badge">LTS_ref: 0.543 (CI [-1.251, 2.259]; confidence 0.072)</span>
-          <span class="badge">Confidence: Low</span>
+          <span class="badge">Methanol tolerance score (LTS_ref): 0.543 (uncertainty range [-1.251, 2.259]; confidence 0.072)</span>
           <span class="badge">Methanol tolerance: Uncertain</span>
           <span class="badge">Fit status: Partial pooling / low evidence</span>
           <span class="badge">Literature</span>
           <span class="badge">Experimental structure available</span>
         </p>
+        <div class="confidence-note" aria-label="Tolerance confidence summary"><span>confidence low</span><span>score confidence 0.072</span><span>uncertainty range [-1.251, 2.259]</span><span class="uncertainty-bar" aria-hidden="true"><span></span></span></div>
       </div></header>
+    <div class="entry-layout">
+      <aside class="entry-section-nav" aria-label="Entry section index"><strong>Sections</strong><a href="#tolerance">Tolerance</a><a href="#measurements">Measurements</a><a href="#variants">Variants</a><a href="#identifiers">Identifiers</a><a href="#sources">Sources</a><a href="#structure-viewer">Structure Viewer</a></aside>
+      <main class="entry-sections">
+    <div id="tolerance"></div>
     
     <section class="section">
       <h2>At a glance</h2>
       <div class="at-a-glance">
-        <div class="glance-grid"><div class='glance-row'><div class='glance-label'>Methanol-tolerance data</div><div class='glance-value'>Available</div></div><div class='glance-row'><div class='glance-label'>Best-supported methanol condition</div><div class='glance-value'>30% methanol / 3 h / 20 C</div></div><div class='glance-row'><div class='glance-label'>Preliminary tolerance verdict</div><div class='glance-value'>Uncertain or intermediate</div></div><div class='glance-row'><div class='glance-label'>Main caveat</div><div class='glance-value'>Limited evidence — treat this score as preliminary. Ranking is sensitive to which records are included.</div></div></div>
+        <p class="glance-verdict">
+          <span class="badge tier tier-uncertain">Uncertain</span>
+          <span>Uncertain or intermediate based on 0.543 (uncertainty range [-1.251, 2.259]; confidence 0.072); best-supported condition: 30% methanol / 3 h / 20 C.</span>
+        </p>
+        <p class="glance-caveat"><strong>Caveat:</strong> Limited evidence — treat this score as preliminary. Ranking is sensitive to which records are included. Enzyme preparation: Free.</p>
         <div class="no-data-state" role="note"><strong>Unstable evidence</strong><span>Evidence exists, but it is not strong enough for a stable tolerance verdict</span></div>
       </div>
     </section>
     
-    <section class="section">
-      <h2>Identity Summary</h2>
-      <div class='table-wrap'><table><thead><tr><th>Item</th><th>Details</th></tr></thead><tbody><tr><td>Stable accession</td><td>LMT_0235</td></tr><tr><td>Canonical name</td><td>EstN7 cold-active family IV esterase</td></tr><tr><td>Display name</td><td>EstN7 cold-active family IV esterase</td></tr><tr><td>Source organism</td><td>Bacillus cohnii</td></tr><tr><td>Strain</td><td>N1; taxonomic_alias=Sutcliffiella cohnii</td></tr><tr><td>Expression host</td><td>Not reported</td></tr><tr><td>EC</td><td>EC 3.1.1.1</td></tr><tr><td>Role</td><td>Wild-type / canonical enzyme</td></tr><tr><td>Parent construct</td><td>Not reported</td></tr><tr><td>Structure readiness</td><td>Experimental structure available</td></tr></tbody></table></div><details class='identifier-details'><summary>Identifiers</summary><div class='table-wrap'><table><thead><tr><th>Item</th><th>Details</th></tr></thead><tbody><tr><td>Exact UniProt</td><td><a href="https://www.uniprot.org/uniprotkb/A0A2K9UV39/entry" target="_blank" rel="noopener noreferrer">A0A2K9UV39</a></td></tr><tr><td>Parent-reference UniProt</td><td>Not reported</td></tr><tr><td>Historical UniProt</td><td>Not reported</td></tr><tr><td>Alias / active UniProt</td><td>A0A2K9UV39</td></tr><tr><td>PDB</td><td><a href="https://www.rcsb.org/structure/7B4Q" target="_blank" rel="noopener noreferrer">7B4Q</a></td></tr><tr><td>DOI / patent number</td><td><a href="https://doi.org/10.1016/j.ijbiomac.2018.07.169" target="_blank" rel="noopener noreferrer">10.1016/j.ijbiomac.2018.07.169</a></td></tr><tr><td>SEQ ID NO</td><td>Not available <span class="info-tip" tabindex="0" data-tooltip="Sequence Listing ID in a patent sequence listing; 专利序列表中某条序列的编号." aria-label="Sequence Listing ID in a patent sequence listing; 专利序列表中某条序列的编号.">ⓘ</span></td></tr><tr><td>Protein sequence</td><td><details class='sequence-details'><summary>A0A2K9UV39 · UniProt · 320 aa · sha256 a9705494bd1c</summary><button class='button secondary copy-sequence' type='button' data-sequence='MKNRIDPELRAMLDMFPPLNLDDVQATRKAMEEAAQLTELPVDEEVVVSNRMVPGPEDNPYVRVRIYEPKEKIEKLPGLLWIHGGGYVLGAPEGDDLLCQRFVKEANCVVVSVDYRLAPEHPYPAPLEDCYAALQWFAKKVDELGVDASRIGVGGQSAGGGLTAALALLARDRKGPELCFQMPLYPMIDDKNNSPSSLEITGNLIWNHDLNEKGWSMYLDGKNGTDDVPVHAAPARATDLTNLPYTYTCVGQLDPFRDETLDYVKRLCQAGVDVEFHLYPGAYHGFETLNPAAAVSQRALAEYVGAVKHVLNREKVVERK'>Copy sequence</button><pre class='sequence-toggle'>MKNRIDPELRAMLDMFPPLNLDDVQATRKAMEEAAQLTELPVDEEVVVSNRMVPGPEDNPYVRVRIYEPKEKIEKLPGLLWIHGGGYVLGAPEGDDLLCQRFVKEANCVVVSVDYRLAPEHPYPAPLEDCYAALQWFAKKVDELGVDASRIGVGGQSAGGGLTAALALLARDRKGPELCFQMPLYPMIDDKNNSPSSLEITGNLIWNHDLNEKGWSMYLDGKNGTDDVPVHAAPARATDLTNLPYTYTCVGQLDPFRDETLDYVKRLCQAGVDVEFHLYPGAYHGFETLNPAAAVSQRALAEYVGAVKHVLNREKVVERK</pre></details></td></tr><tr><td>Identifier caveat</td><td>3 exact active identifiers recorded</td></tr></tbody></table></div><h3>External links</h3><div class='external-links'><span class="external-link-button"><a href="https://www.uniprot.org/uniprotkb/A0A2K9UV39/entry" target="_blank" rel="noopener noreferrer">UniProt A0A2K9UV39</a></span><span class="external-link-button"><a href="https://alphafold.ebi.ac.uk/entry/A0A2K9UV39" target="_blank" rel="noopener noreferrer">AlphaFold A0A2K9UV39</a></span><span class="external-link-button"><a href="https://www.rcsb.org/structure/7B4Q" target="_blank" rel="noopener noreferrer">PDB 7B4Q</a></span><span class="external-link-button"><a href="https://www.brenda-enzymes.org/enzyme.php?ecno=3.1.1.1" target="_blank" rel="noopener noreferrer">EC 3.1.1.1</a></span></div></details>
+    <section class="section" id="measurements">
+      <h2>Measurements & conditions</h2>
+      <div class="release-banner" role="note"><strong>Continuous methanol tolerance score primary.</strong> Public pages use the frozen methanol-tolerance score (internal field LTS_ref) with an uncertainty range and a confidence badge as the main tolerance summary. Lower number = more methanol tolerant. Internal archive fields remain available in CSV and SQLite downloads for reproducibility.</div>
+      <div class="lts-scale" role="note" aria-label="LTS scale legend"><span class="lts-scale-label">Methanol tolerance score (LTS_ref)</span><span class="lts-scale-label">Lower number = more methanol tolerant (lower = more tolerant)</span><span class="lts-scale-end tolerant">← More methanol tolerant</span><span class="lts-scale-bar" aria-hidden="true"></span><span class="lts-scale-end fragile">Less tolerant →</span></div>
+      <div class='protocol-selector'><strong>Protocol selector</strong><a href="#protocol-1" class="badge">Protocol 1 (Literature)</a></div>
+            <article class="content-card protocol-card" id="protocol-1">
+              <h3>Protocol 1</h3>
+              <div class="table-wrap"><table><thead><tr><th>Item <span class="info-tip" tabindex="0" data-tooltip="Short label for this detail row." aria-label="Short label for this detail row.">ⓘ</span></th><th>Details <span class="info-tip" tabindex="0" data-tooltip="Reader-facing value for this detail row." aria-label="Reader-facing value for this detail row.">ⓘ</span></th></tr></thead><tbody><tr><td>Source type</td><td>Literature</td></tr><tr><td>Source</td><td><a href="https://doi.org/10.1016/j.ijbiomac.2018.07.169" target="_blank" rel="noopener noreferrer">10.1016/j.ijbiomac.2018.07.169</a></td></tr><tr><td>Methanol concentration set (%)</td><td>30</td></tr><tr><td>Incubation time set (h)</td><td>3</td></tr><tr><td>Best-supported concentration (%)</td><td>30</td></tr><tr><td>Best-supported time (h)</td><td>3</td></tr><tr><td>Best-supported residual activity (%)</td><td>95.8</td></tr><tr><td>Methanol tolerance score</td><td>0.463</td></tr><tr><td>Uncertainty range low</td><td>-1.152</td></tr><tr><td>Uncertainty range high</td><td>2.132</td></tr><tr><td>Confidence</td><td>Low</td></tr><tr><td>Fit status</td><td>Partial pooling / low evidence</td></tr><tr><td>Enzyme group (provisional)</td><td>single-entry family</td></tr></tbody></table></div>
+              <h4>Methanol concentration x incubation time x residual activity</h4>
+              <div class='table-wrap matrix'><table><thead><tr><th>time (h) <span class="info-tip" tabindex="0" data-tooltip="time (h) column." aria-label="time (h) column.">ⓘ</span></th><th>30% <span class="info-tip" tabindex="0" data-tooltip="Methanol challenge concentration from the measurement or protocol summary." aria-label="Methanol challenge concentration from the measurement or protocol summary.">ⓘ</span></th></tr></thead><tbody><tr><th>3 <span class="info-tip" tabindex="0" data-tooltip="Methanol exposure or incubation duration." aria-label="Methanol exposure or incubation duration.">ⓘ</span></th><td><span class='matrix-value'>95.8%</span><span class='matrix-note'>95.8</span></td></tr></tbody></table></div>
+              <h4>Measurements & conditions</h4>
+              <div class="table-wrap table-scroll measurements-scroll"><table data-table-kind="measurement-conditions"><thead><tr><th>Source type <span class="info-tip" tabindex="0" data-tooltip="Whether support comes from literature, patent evidence, both, or no linked measurements." aria-label="Whether support comes from literature, patent evidence, both, or no linked measurements.">ⓘ</span></th><th>Source <span class="info-tip" tabindex="0" data-tooltip="Source column." aria-label="Source column.">ⓘ</span></th><th>Methanol concentration (%) <span class="info-tip" tabindex="0" data-tooltip="Methanol challenge concentration from the measurement or protocol summary." aria-label="Methanol challenge concentration from the measurement or protocol summary.">ⓘ</span></th><th>Incubation time (h) <span class="info-tip" tabindex="0" data-tooltip="Methanol exposure or incubation duration." aria-label="Methanol exposure or incubation duration.">ⓘ</span></th><th>Incubation temperature (°C) <span class="info-tip" tabindex="0" data-tooltip="Reported methanol-challenge incubation temperature; missing values are not imputed." aria-label="Reported methanol-challenge incubation temperature; missing values are not imputed.">ⓘ</span></th><th>Assay method <span class="info-tip" tabindex="0" data-tooltip="Assay method column." aria-label="Assay method column.">ⓘ</span></th><th>Substrate <span class="info-tip" tabindex="0" data-tooltip="Substrate column." aria-label="Substrate column.">ⓘ</span></th><th>Enzyme concentration <span class="info-tip" tabindex="0" data-tooltip="Enzyme concentration column." aria-label="Enzyme concentration column.">ⓘ</span></th><th>Enzyme preparation <span class="info-tip" tabindex="0" data-tooltip="Enzyme preparation column." aria-label="Enzyme preparation column.">ⓘ</span></th><th>Buffer system <span class="info-tip" tabindex="0" data-tooltip="Buffer system column." aria-label="Buffer system column.">ⓘ</span></th><th>pH <span class="info-tip" tabindex="0" data-tooltip="pH column." aria-label="pH column.">ⓘ</span></th><th>Residual activity (%) <span class="info-tip" tabindex="0" data-tooltip="Residual activity (%) column." aria-label="Residual activity (%) column.">ⓘ</span></th><th>Methanol tolerance score <span class="info-tip" tabindex="0" data-tooltip="Methanol tolerance score column." aria-label="Methanol tolerance score column.">ⓘ</span></th><th>Confidence <span class="info-tip" tabindex="0" data-tooltip="How much support the score has after checking baseline activity, missing assay context, source traceability, and sensitivity to evidence choices." aria-label="How much support the score has after checking baseline activity, missing assay context, source traceability, and sensitivity to evidence choices.">ⓘ</span></th><th>Evidence details <span class="info-tip" tabindex="0" data-tooltip="Evidence details column." aria-label="Evidence details column.">ⓘ</span></th></tr></thead><tbody><tr><td>Literature</td><td><a href="https://doi.org/10.1016/j.ijbiomac.2018.07.169" target="_blank" rel="noopener noreferrer">10.1016/j.ijbiomac.2018.07.169</a></td><td>30</td><td>3</td><td>20</td><td>pNPA residual activity assay after organic-solvent preincubation</td><td>p-nitrophenyl acetate</td><td>Not reported</td><td>Free</td><td>Not reported</td><td>Not reported</td><td>95.8</td><td>0.463</td><td>Low</td><td><details class="evidence-details"><summary>Evidence details</summary><div class="table-wrap"><table><thead><tr><th>Item <span class="info-tip" tabindex="0" data-tooltip="Short label for this detail row." aria-label="Short label for this detail row.">ⓘ</span></th><th>Details <span class="info-tip" tabindex="0" data-tooltip="Reader-facing value for this detail row." aria-label="Reader-facing value for this detail row.">ⓘ</span></th></tr></thead><tbody><tr><td>Fit status</td><td>Partial pooling / low evidence</td></tr><tr><td>Evidence tier</td><td>Downweighted training</td></tr><tr><td>Source location</td><td>PDF pp. 4 and 7, Methods effect of organic solvents and Table 3</td></tr><tr><td>Extraction method</td><td>direct_text</td></tr></tbody></table></div></details></td></tr></tbody></table></div>
+            </article>
+            
     </section>
-    <section class="section">
-      <h2>Tolerance</h2>
-      <div class="release-banner" role="note"><strong>Continuous LTS_ref primary.</strong> Public pages use the frozen LTS_ref score with a 95% interval and a confidence badge as the main tolerance summary. Lower LTS_ref means more methanol tolerant. Internal archive fields remain available in CSV and SQLite downloads for reproducibility.</div>
-      <div class="lts-scale" role="note" aria-label="LTS scale legend"><span class="lts-scale-label">lower = more tolerant</span><span class="lts-scale-bar" aria-hidden="true"></span><span class="lts-scale-end tolerant">more tolerant</span><span class="lts-scale-end fragile">less tolerant</span></div>
-      
-    <div class="content-card">
-      <p>
-        <span class="pill">LTS_ref: 0.543 (CI [-1.251, 2.259]; confidence 0.072)</span>
-        <span class="pill">Methanol tolerance: Uncertain</span>
-      </p>
-      <p class="card-note">lower = more tolerant. The methanol-tolerance badge is based on rank stability, not an absolute CI class.</p>
-      <p class="card-note">Underlying rank-stability basis and quality-penalty provenance are retained in CSV/SQLite downloads.</p>
-      <div class='table-wrap'><table><thead><tr><th>Item</th><th>Details</th></tr></thead><tbody><tr><td>LTS_ref (95% CI)</td><td>0.543 (CI [-1.251, 2.259]; confidence 0.072)</td></tr><tr><td>LTS_ref</td><td>0.543</td></tr><tr><td>CI low</td><td>-1.251</td></tr><tr><td>CI high</td><td>2.259</td></tr><tr><td>Confidence</td><td>Low</td></tr><tr><td>Adjusted confidence</td><td>0.072</td></tr><tr><td>Fit status</td><td>Partial pooling / low evidence</td></tr><tr><td>Enzyme preparation</td><td>Free</td></tr><tr><td>Methanol tolerance</td><td>Uncertain</td></tr><tr><td>Enzyme group (provisional)</td><td>Canonical enzyme group: single-entry group</td></tr><tr><td>Max methanol concentration (%)</td><td>30</td></tr><tr><td>Max incubation time (h)</td><td>3</td></tr><tr><td>Incubation temperature (°C)</td><td>20</td></tr><tr><td>Assay method</td><td>pNPA residual activity assay after organic-solvent preincubation</td></tr><tr><td>Substrate</td><td>p-nitrophenyl acetate</td></tr><tr><td>Evidence tier</td><td>Downweighted training</td></tr><tr><td>Measurement rows</td><td>1</td></tr><tr><td>Protocol units</td><td>1</td></tr><tr><td>Literature evidence</td><td>1</td></tr><tr><td>Patent evidence</td><td>Source not reported (missing DOI)</td></tr><tr><td>Caveat</td><td>Limited evidence — treat this score as preliminary. Ranking is sensitive to which records are included.</td></tr></tbody></table></div>
-    </div>
+    <section class="section" id="variants">
+      <h2>Variants of this enzyme</h2>
+      <div class='content-card'><p class='card-note'>Delta tolerance is shown only within the linked WT-mutant series. Positive values mean the construct has a lower LTS_ref than the WT under the same series-level comparison frame.</p><div class="table-wrap"><table><thead><tr><th>Construct <span class="info-tip" tabindex="0" data-tooltip="Construct column." aria-label="Construct column.">ⓘ</span></th><th>Role <span class="info-tip" tabindex="0" data-tooltip="Role column." aria-label="Role column.">ⓘ</span></th><th>Site <span class="info-tip" tabindex="0" data-tooltip="Site column." aria-label="Site column.">ⓘ</span></th><th>Methanol tolerance <span class="info-tip" tabindex="0" data-tooltip="Reader badge summarizing whether the score stays near the tolerant or fragile end after uncertainty checks." aria-label="Reader badge summarizing whether the score stays near the tolerant or fragile end after uncertainty checks.">ⓘ</span></th><th>Delta tolerance vs WT <span class="info-tip" tabindex="0" data-tooltip="Delta tolerance vs WT column." aria-label="Delta tolerance vs WT column.">ⓘ</span></th></tr></thead><tbody><tr><td><a href="LMT_0235.html">EstN7 cold-active family IV esterase</a></td><td>Wild-type / canonical enzyme</td><td>WT reference</td><td><span class="badge tier tier-uncertain">Uncertain</span></td><td>WT reference</td></tr></tbody></table></div></div>
+    </section>
+    <section class="section" id="identifiers">
+      <h2>Identifiers</h2>
+      <details class='identifier-details' open><summary>Identifiers</summary><h3>Identity</h3><div class="table-wrap"><table><thead><tr><th>Item <span class="info-tip" tabindex="0" data-tooltip="Short label for this detail row." aria-label="Short label for this detail row.">ⓘ</span></th><th>Details <span class="info-tip" tabindex="0" data-tooltip="Reader-facing value for this detail row." aria-label="Reader-facing value for this detail row.">ⓘ</span></th></tr></thead><tbody><tr><td>Stable accession</td><td>LMT_0235</td></tr><tr><td>Canonical name</td><td>EstN7 cold-active family IV esterase</td></tr><tr><td>Display name</td><td>EstN7 cold-active family IV esterase</td></tr><tr><td>Source organism</td><td>Bacillus cohnii</td></tr><tr><td>Strain</td><td>N1; taxonomic_alias=Sutcliffiella cohnii</td></tr><tr><td>Expression host</td><td>Not reported</td></tr><tr><td>EC</td><td>EC 3.1.1.1</td></tr><tr><td>Role</td><td>Wild-type / canonical enzyme</td></tr><tr><td>Parent construct</td><td>Not reported</td></tr><tr><td>Structure readiness</td><td>Experimental structure available</td></tr></tbody></table></div><h3>Database and external identifiers</h3><div class="table-wrap"><table><thead><tr><th>Exact UniProt <span class="info-tip" tabindex="0" data-tooltip="Exact UniProt column." aria-label="Exact UniProt column.">ⓘ</span></th><th>Parent UniProt <span class="info-tip" tabindex="0" data-tooltip="Parent UniProt column." aria-label="Parent UniProt column.">ⓘ</span></th><th>PDB <span class="info-tip" tabindex="0" data-tooltip="PDB column." aria-label="PDB column.">ⓘ</span></th></tr></thead><tbody><tr><td><a href="https://www.uniprot.org/uniprotkb/A0A2K9UV39/entry" target="_blank" rel="noopener noreferrer">A0A2K9UV39</a></td><td>Not reported</td><td><a href="https://www.rcsb.org/structure/7B4Q" target="_blank" rel="noopener noreferrer">7B4Q</a></td></tr></tbody></table></div><p class="identifier-footnote">Identifier note  <span class="info-tip" tabindex="0" data-tooltip="Short caveat for historical, parent-only, or alias identifiers; exact public identifiers remain in the table." aria-label="Short caveat for historical, parent-only, or alias identifiers; exact public identifiers remain in the table.">ⓘ</span>: 3 exact active identifiers recorded</p><h3>Protein sequence</h3><details class='sequence-details'><summary>A0A2K9UV39 · UniProt · 320 aa · sha256 a9705494bd1c</summary><button class='button secondary copy-sequence' type='button' data-sequence='MKNRIDPELRAMLDMFPPLNLDDVQATRKAMEEAAQLTELPVDEEVVVSNRMVPGPEDNPYVRVRIYEPKEKIEKLPGLLWIHGGGYVLGAPEGDDLLCQRFVKEANCVVVSVDYRLAPEHPYPAPLEDCYAALQWFAKKVDELGVDASRIGVGGQSAGGGLTAALALLARDRKGPELCFQMPLYPMIDDKNNSPSSLEITGNLIWNHDLNEKGWSMYLDGKNGTDDVPVHAAPARATDLTNLPYTYTCVGQLDPFRDETLDYVKRLCQAGVDVEFHLYPGAYHGFETLNPAAAVSQRALAEYVGAVKHVLNREKVVERK'>Copy sequence</button><pre class='sequence-toggle'>MKNRIDPELRAMLDMFPPLNLDDVQATRKAMEEAAQLTELPVDEEVVVSNRMVPGPEDNPYVRVRIYEPKEKIEKLPGLLWIHGGGYVLGAPEGDDLLCQRFVKEANCVVVSVDYRLAPEHPYPAPLEDCYAALQWFAKKVDELGVDASRIGVGGQSAGGGLTAALALLARDRKGPELCFQMPLYPMIDDKNNSPSSLEITGNLIWNHDLNEKGWSMYLDGKNGTDDVPVHAAPARATDLTNLPYTYTCVGQLDPFRDETLDYVKRLCQAGVDVEFHLYPGAYHGFETLNPAAAVSQRALAEYVGAVKHVLNREKVVERK</pre></details><h3>External links</h3><div class='external-links'><span class="external-link-button"><a href="https://www.uniprot.org/uniprotkb/A0A2K9UV39/entry" target="_blank" rel="noopener noreferrer">UniProt A0A2K9UV39</a></span><span class="external-link-button"><a href="https://alphafold.ebi.ac.uk/entry/A0A2K9UV39" target="_blank" rel="noopener noreferrer">AlphaFold A0A2K9UV39</a></span><span class="external-link-button"><a href="https://www.rcsb.org/structure/7B4Q" target="_blank" rel="noopener noreferrer">PDB 7B4Q</a></span><span class="external-link-button"><a href="https://www.brenda-enzymes.org/enzyme.php?ecno=3.1.1.1" target="_blank" rel="noopener noreferrer">EC 3.1.1.1</a></span></div></details>
+    </section>
+    <section class="section" id="sources">
+      <h2>Sources</h2>
+      <div class='source-columns'>
+            <div class="source-column">
+              <h3>Literature</h3>
+              
+    <article class="content-card">
+      <h3><a href="https://doi.org/10.1016/j.ijbiomac.2018.07.169" target="_blank" rel="noopener noreferrer">10.1016/j.ijbiomac.2018.07.169</a></h3>
+      <div class="table-wrap"><table><thead><tr><th>Item <span class="info-tip" tabindex="0" data-tooltip="Short label for this detail row." aria-label="Short label for this detail row.">ⓘ</span></th><th>Details <span class="info-tip" tabindex="0" data-tooltip="Reader-facing value for this detail row." aria-label="Reader-facing value for this detail row.">ⓘ</span></th></tr></thead><tbody><tr><td>Year</td><td>2018</td></tr><tr><td>Journal</td><td>International Journal of Biological Macromolecules</td></tr><tr><td>Measurement count</td><td>1</td></tr><tr><td>Protocol count</td><td>1</td></tr><tr><td>Source location</td><td>PDF pp. 4 and 7, Methods effect of organic solvents and Table 3</td></tr><tr><td>Extraction method</td><td>direct_text</td></tr></tbody></table></div>
+    </article>
     
+            </div>
+            
+            <div class="source-column">
+              <h3>Patent</h3>
+              <div class='placeholder-section'>No linked patent sources.</div>
+            </div>
+            </div>
     </section>
-    <section class="section">
+    <section class="section" id="structure-viewer">
       <h2>Structure Viewer</h2>
       
     <div class="content-card structure-viewer-card" id="structure-viewer-lmt-0235">
@@ -83,7 +113,7 @@
       </div>
     
       
-      <div class='table-wrap'><table><thead><tr><th>Item</th><th>Details</th></tr></thead><tbody><tr><td>Model source</td><td>RCSB PDB</td></tr><tr><td>PDB entry</td><td><a href="https://www.rcsb.org/structure/7B4Q" target="_blank" rel="noopener noreferrer">RCSB 7B4Q</a></td></tr><tr><td>Model version</td><td>RCSB_PDB</td></tr><tr><td>Resolution / confidence</td><td>resolution_Not reported</td></tr><tr><td>Caveat</td><td>Experimental structure linked from exact canonical PDB evidence; visualization only.</td></tr></tbody></table></div>
+      <div class="table-wrap"><table><thead><tr><th>Item <span class="info-tip" tabindex="0" data-tooltip="Short label for this detail row." aria-label="Short label for this detail row.">ⓘ</span></th><th>Details <span class="info-tip" tabindex="0" data-tooltip="Reader-facing value for this detail row." aria-label="Reader-facing value for this detail row.">ⓘ</span></th></tr></thead><tbody><tr><td>Model source</td><td>RCSB PDB</td></tr><tr><td>PDB entry</td><td><a href="https://www.rcsb.org/structure/7B4Q" target="_blank" rel="noopener noreferrer">RCSB 7B4Q</a></td></tr><tr><td>Model version</td><td>RCSB_PDB</td></tr><tr><td>Resolution / confidence</td><td>resolution_Not reported</td></tr><tr><td>Caveat</td><td>Experimental structure linked from exact canonical PDB evidence; visualization only.</td></tr></tbody></table></div>
     </div>
     
     <script>
@@ -236,42 +266,6 @@
     
     </section>
     <section class="section">
-      <h2>Measurements & conditions</h2>
-      <div class='protocol-selector'><strong>Protocol selector</strong><a href="#protocol-1" class="badge">Protocol 1 (Literature)</a></div>
-            <article class="content-card protocol-card" id="protocol-1">
-              <h3>Protocol 1</h3>
-              <div class='table-wrap'><table><thead><tr><th>Item</th><th>Details</th></tr></thead><tbody><tr><td>Source type</td><td>Literature</td></tr><tr><td>Source</td><td><a href="https://doi.org/10.1016/j.ijbiomac.2018.07.169" target="_blank" rel="noopener noreferrer">10.1016/j.ijbiomac.2018.07.169</a></td></tr><tr><td>Methanol concentration set (%)</td><td>30</td></tr><tr><td>Incubation time set (h)</td><td>3</td></tr><tr><td>Best-supported concentration (%)</td><td>30</td></tr><tr><td>Best-supported time (h)</td><td>3</td></tr><tr><td>Best-supported residual activity (%)</td><td>95.8</td></tr><tr><td>LTS_ref</td><td>0.463</td></tr><tr><td>CI low</td><td>-1.152</td></tr><tr><td>CI high</td><td>2.132</td></tr><tr><td>Confidence</td><td>Low</td></tr><tr><td>Fit status</td><td>Partial pooling / low evidence</td></tr><tr><td>Enzyme group (provisional)</td><td>Canonical enzyme group: single-entry group</td></tr></tbody></table></div>
-              <h4>Methanol concentration x incubation time x residual activity</h4>
-              <div class='table-wrap matrix'><table><thead><tr><th>time (h)</th><th>30%</th></tr></thead><tbody><tr><th>3</th><td><span class='matrix-value'>95.8%</span><span class='matrix-note'>95.8</span></td></tr></tbody></table></div>
-              <h4>Measurements & conditions</h4>
-              <div class='table-wrap'><table><thead><tr><th>Source type</th><th>Source</th><th>Methanol concentration (%)</th><th>Incubation time (h)</th><th>Incubation temperature (°C)</th><th>Assay method</th><th>Substrate</th><th>Enzyme concentration</th><th>Enzyme preparation</th><th>Buffer system</th><th>pH</th><th>Residual activity (%)</th><th>LTS_ref</th><th>Confidence</th><th>Fit status</th><th>Evidence tier</th><th>Source location</th><th>Extraction method</th></tr></thead><tbody><tr><td>Literature</td><td><a href="https://doi.org/10.1016/j.ijbiomac.2018.07.169" target="_blank" rel="noopener noreferrer">10.1016/j.ijbiomac.2018.07.169</a></td><td>30</td><td>3</td><td>20</td><td>pNPA residual activity assay after organic-solvent preincubation</td><td>p-nitrophenyl acetate</td><td>Not reported</td><td>Free</td><td>Not reported</td><td>Not reported</td><td>95.8</td><td>0.463</td><td>Low</td><td>Partial pooling / low evidence</td><td>Downweighted training</td><td>PDF pp. 4 and 7, Methods effect of organic solvents and Table 3</td><td>direct_text</td></tr></tbody></table></div>
-            </article>
-            
-    </section>
-    <section class="section">
-      <h2>Assay protocols</h2>
-      <div class='table-wrap'><table><thead><tr><th>Source type</th><th>Source</th><th>Incubation temperature (°C)</th><th>Buffer system</th><th>pH</th><th>Enzyme concentration</th><th>Methanol addition mode</th><th>Assay method</th><th>Substrate</th><th>A0 source</th><th>LTS_ref</th><th>Confidence</th><th>Fit status</th><th>Enzyme group (provisional)</th></tr></thead><tbody><tr><td>Literature</td><td><a href="https://doi.org/10.1016/j.ijbiomac.2018.07.169" target="_blank" rel="noopener noreferrer">10.1016/j.ijbiomac.2018.07.169</a></td><td>20</td><td>Not reported</td><td>Not reported</td><td>Not reported</td><td>one_shot</td><td>pNPA residual activity assay after organic-solvent preincubation</td><td>p-nitrophenyl acetate</td><td>same_table_no_solvent_control</td><td>0.463</td><td>Low</td><td>Partial pooling / low evidence</td><td>Canonical enzyme group: single-entry group</td></tr></tbody></table></div>
-    </section>
-    <section class="section">
-      <h2>Sources</h2>
-      <div class='source-columns'>
-            <div class="source-column">
-              <h3>Literature</h3>
-              
-    <article class="content-card">
-      <h3><a href="https://doi.org/10.1016/j.ijbiomac.2018.07.169" target="_blank" rel="noopener noreferrer">10.1016/j.ijbiomac.2018.07.169</a></h3>
-      <div class='table-wrap'><table><thead><tr><th>Item</th><th>Details</th></tr></thead><tbody><tr><td>Year</td><td>2018</td></tr><tr><td>Journal</td><td>International Journal of Biological Macromolecules</td></tr><tr><td>Measurement count</td><td>1</td></tr><tr><td>Protocol count</td><td>1</td></tr><tr><td>Source location</td><td>PDF pp. 4 and 7, Methods effect of organic solvents and Table 3</td></tr><tr><td>Extraction method</td><td>direct_text</td></tr></tbody></table></div>
-    </article>
-    
-            </div>
-            
-            <div class="source-column">
-              <h3>Patent</h3>
-              <div class='placeholder-section'>No linked patent sources.</div>
-            </div>
-            </div>
-    </section>
-    <section class="section">
       <h2>Download This Entry</h2>
       
     <div class="content-card entry-download-card">
@@ -311,6 +305,8 @@
     </script>
     
     </section>
+      </main>
+    </div>
     
     <script>
     document.querySelectorAll('.copy-sequence').forEach((button) => {
@@ -332,6 +328,7 @@
       <a href="../glossary.html">Glossary</a>
       <a href="../downloads.html">Downloads</a>
       <a href="../about.html">Suggested citation and license</a>
+      <a href="../contribute.html">Contribute / Report error</a>
       <span>Web v2.1 · data v2.0 · released 2026-06-25</span>
       <span>Contact: Lvyziyer1@163.com</span>
     </footer>

@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="../static/styles.css">
 </head>
 <body>
-  <nav class="site-nav" aria-label="Primary navigation"><a href="../index.html">Home</a><a href="../browse_enzymes.html">Browse</a><a href="../search.html">Search</a><a href="../analysis.html">Analysis</a><a href="../downloads.html">Downloads</a><a href="../documentation.html">Documentation</a><a href="../about.html">About</a><a href="../glossary.html">Glossary</a><a href="../known_limitations.html">Known Limitations</a></nav>
+  <nav class="site-nav" aria-label="Primary navigation"><a href="../index.html">Home</a><a href="../search.html" aria-current='page'>Search</a><a href="../organisms.html">Browse by Organism</a><a href="../research.html">Research / Methods</a><a href="../downloads.html">Downloads</a><a href="../documentation.html">Documentation</a><a href="../about.html">About</a><a href="../glossary.html">Glossary</a><a href="../contribute.html">Contribute</a><a href="../known_limitations.html">Known Limitations</a></nav>
   <div class="shell">
     
     <header class="hero">
@@ -20,26 +20,40 @@
           <span class="badge">Phenotype ready</span>
         </p>
       </div></header>
+    <div class="entry-layout">
+      <aside class="entry-section-nav" aria-label="Entry section index"><strong>Sections</strong><a href="#tolerance">Tolerance</a><a href="#measurements">Measurements</a><a href="#variants">Variants</a><a href="#identifiers">Identifiers</a><a href="#sources">Sources</a><a href="#structure-viewer">Structure Viewer</a></aside>
+      <main class="entry-sections">
+    <div id="tolerance"></div>
     
     <section class="section">
       <h2>At a glance</h2>
       <div class="at-a-glance">
-        <div class="glance-grid"><div class='glance-row'><div class='glance-label'>Methanol-tolerance data</div><div class='glance-value'>Not available</div></div><div class='glance-row'><div class='glance-label'>Best-supported methanol condition</div><div class='glance-value'>No methanol challenge condition linked</div></div><div class='glance-row'><div class='glance-label'>Preliminary tolerance verdict</div><div class='glance-value'>No LTS estimate</div></div><div class='glance-row'><div class='glance-label'>Main caveat</div><div class='glance-value'>Limited evidence — treat this score as preliminary.</div></div></div>
+        <p class="glance-verdict">
+          <span class="badge tier tier-no-data info-tip" tabindex="0" data-tooltip="Identity-only entry: appears in the corpus but has no methanol-challenge measurement." aria-label="Identity-only entry: appears in the corpus but has no methanol-challenge measurement.">No methanol data</span>
+          <span>No LTS estimate based on score not available; best-supported condition: No methanol challenge condition linked.</span>
+        </p>
+        <p class="glance-caveat"><strong>Caveat:</strong> Limited evidence — treat this score as preliminary.</p>
         <div class="no-data-state" role="note"><strong>Identity without challenge data</strong><span>Identity known, but no methanol challenge data are linked yet</span></div>
       </div>
     </section>
     
-    <section class="section">
-      <h2>Identity Summary</h2>
-      <div class='table-wrap'><table><thead><tr><th>Item</th><th>Details</th></tr></thead><tbody><tr><td>Stable accession</td><td>LMT_0364</td></tr><tr><td>Canonical name</td><td>Penicillium corylophilum induced mycelium-bound lipase preparation</td></tr><tr><td>Display name</td><td>Penicillium corylophilum induced mycelium-bound lipase preparation</td></tr><tr><td>Source organism</td><td>Penicillium corylophilum</td></tr><tr><td>Strain</td><td>Not reported</td></tr><tr><td>Expression host</td><td>Not reported</td></tr><tr><td>EC</td><td>Not reported</td></tr><tr><td>Role</td><td>Wild-type / canonical enzyme</td></tr><tr><td>Parent construct</td><td>Not reported</td></tr><tr><td>Structure readiness</td><td>Phenotype ready</td></tr></tbody></table></div><details class='identifier-details'><summary>Identifiers</summary><div class='table-wrap'><table><thead><tr><th>Item</th><th>Details</th></tr></thead><tbody><tr><td>Exact UniProt</td><td>Not reported</td></tr><tr><td>Parent-reference UniProt</td><td>Not reported</td></tr><tr><td>Historical UniProt</td><td>Not reported</td></tr><tr><td>Alias / active UniProt</td><td>Not reported</td></tr><tr><td>PDB</td><td>Not reported</td></tr><tr><td>DOI / patent number</td><td>Not reported</td></tr><tr><td>SEQ ID NO</td><td>Not available <span class="info-tip" tabindex="0" data-tooltip="Sequence Listing ID in a patent sequence listing; 专利序列表中某条序列的编号." aria-label="Sequence Listing ID in a patent sequence listing; 专利序列表中某条序列的编号.">ⓘ</span></td></tr><tr><td>Protein sequence</td><td>Not available</td></tr><tr><td>Identifier caveat</td><td>no uniprot reported:1</td></tr></tbody></table></div><h3>External links</h3><p class='empty'>No exact external identifier links available.</p></details>
+    <section class="section" id="measurements">
+      <h2>Measurements & conditions</h2>
+      <div class="placeholder-section">Identity known, but no methanol challenge data are linked yet</div>
     </section>
-    <section class="section">
-      <h2>Tolerance</h2>
-      <div class="content-card">
-        <p>Identity known, but no methanol challenge data are linked yet</p>
-      </div>
+    <section class="section" id="variants">
+      <h2>Variants of this enzyme</h2>
+      <div class='content-card'><p class='card-note'>Delta tolerance is shown only within the linked WT-mutant series. Positive values mean the construct has a lower LTS_ref than the WT under the same series-level comparison frame.</p><div class="table-wrap"><table><thead><tr><th>Construct <span class="info-tip" tabindex="0" data-tooltip="Construct column." aria-label="Construct column.">ⓘ</span></th><th>Role <span class="info-tip" tabindex="0" data-tooltip="Role column." aria-label="Role column.">ⓘ</span></th><th>Site <span class="info-tip" tabindex="0" data-tooltip="Site column." aria-label="Site column.">ⓘ</span></th><th>Methanol tolerance <span class="info-tip" tabindex="0" data-tooltip="Reader badge summarizing whether the score stays near the tolerant or fragile end after uncertainty checks." aria-label="Reader badge summarizing whether the score stays near the tolerant or fragile end after uncertainty checks.">ⓘ</span></th><th>Delta tolerance vs WT <span class="info-tip" tabindex="0" data-tooltip="Delta tolerance vs WT column." aria-label="Delta tolerance vs WT column.">ⓘ</span></th></tr></thead><tbody><tr><td><a href="LMT_0364.html">Penicillium corylophilum induced mycelium-bound lipase preparation</a></td><td>Wild-type / canonical enzyme</td><td>WT reference</td><td><span class="badge tier tier-no-data info-tip" tabindex="0" data-tooltip="Identity-only entry: appears in the corpus but has no methanol-challenge measurement." aria-label="Identity-only entry: appears in the corpus but has no methanol-challenge measurement.">No methanol data</span></td><td>WT reference</td></tr></tbody></table></div></div>
     </section>
-    <section class="section">
+    <section class="section" id="identifiers">
+      <h2>Identifiers</h2>
+      <details class='identifier-details' open><summary>Identifiers</summary><h3>Identity</h3><div class="table-wrap"><table><thead><tr><th>Item <span class="info-tip" tabindex="0" data-tooltip="Short label for this detail row." aria-label="Short label for this detail row.">ⓘ</span></th><th>Details <span class="info-tip" tabindex="0" data-tooltip="Reader-facing value for this detail row." aria-label="Reader-facing value for this detail row.">ⓘ</span></th></tr></thead><tbody><tr><td>Stable accession</td><td>LMT_0364</td></tr><tr><td>Canonical name</td><td>Penicillium corylophilum induced mycelium-bound lipase preparation</td></tr><tr><td>Display name</td><td>Penicillium corylophilum induced mycelium-bound lipase preparation</td></tr><tr><td>Source organism</td><td>Penicillium corylophilum</td></tr><tr><td>Strain</td><td>Not reported</td></tr><tr><td>Expression host</td><td>Not reported</td></tr><tr><td>EC</td><td>Not reported</td></tr><tr><td>Role</td><td>Wild-type / canonical enzyme</td></tr><tr><td>Parent construct</td><td>Not reported</td></tr><tr><td>Structure readiness</td><td>Phenotype ready</td></tr></tbody></table></div><h3>Database and external identifiers</h3><div class="table-wrap"><table><thead><tr><th>Exact UniProt <span class="info-tip" tabindex="0" data-tooltip="Exact UniProt column." aria-label="Exact UniProt column.">ⓘ</span></th><th>Parent UniProt <span class="info-tip" tabindex="0" data-tooltip="Parent UniProt column." aria-label="Parent UniProt column.">ⓘ</span></th><th>PDB <span class="info-tip" tabindex="0" data-tooltip="PDB column." aria-label="PDB column.">ⓘ</span></th></tr></thead><tbody><tr><td>Not reported</td><td>Not reported</td><td>Not reported</td></tr></tbody></table></div><p class="identifier-footnote">Identifier note  <span class="info-tip" tabindex="0" data-tooltip="Short caveat for historical, parent-only, or alias identifiers; exact public identifiers remain in the table." aria-label="Short caveat for historical, parent-only, or alias identifiers; exact public identifiers remain in the table.">ⓘ</span>: no uniprot reported:1</p><h3>Protein sequence</h3>Not available<h3>External links</h3><p class='empty'>No exact external identifier links available.</p></details>
+    </section>
+    <section class="section" id="sources">
+      <h2>Sources</h2>
+      <div class="placeholder-section">Identity known, but no methanol challenge data are linked yet</div>
+    </section>
+    <section class="section" id="structure-viewer">
       <h2>Structure Viewer</h2>
       
     <div class="placeholder-section">
@@ -47,18 +61,6 @@
       
     </div>
     
-    </section>
-    <section class="section">
-      <h2>Measurements & conditions</h2>
-      <div class="placeholder-section">Identity known, but no methanol challenge data are linked yet</div>
-    </section>
-    <section class="section">
-      <h2>Assay protocols</h2>
-      <div class="placeholder-section">Identity known, but no methanol challenge data are linked yet</div>
-    </section>
-    <section class="section">
-      <h2>Sources</h2>
-      <div class="placeholder-section">Identity known, but no methanol challenge data are linked yet</div>
     </section>
     <section class="section">
       <h2>Download This Entry</h2>
@@ -100,6 +102,8 @@
     </script>
     
     </section>
+      </main>
+    </div>
     
     <script>
     document.querySelectorAll('.copy-sequence').forEach((button) => {
@@ -121,6 +125,7 @@
       <a href="../glossary.html">Glossary</a>
       <a href="../downloads.html">Downloads</a>
       <a href="../about.html">Suggested citation and license</a>
+      <a href="../contribute.html">Contribute / Report error</a>
       <span>Web v2.1 · data v2.0 · released 2026-06-25</span>
       <span>Contact: Lvyziyer1@163.com</span>
     </footer>

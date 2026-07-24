@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Research / Methods - LMT-Atlas</title>
+  <link rel="stylesheet" href="./static/styles.css">
+</head>
+<body>
+  <nav class="site-nav" aria-label="Primary navigation"><a href="index.html">Home</a><a href="search.html">Search</a><a href="organisms.html">Browse by Organism</a><a href="research.html" aria-current='page'>Research / Methods</a><a href="downloads.html">Downloads</a><a href="documentation.html">Documentation</a><a href="about.html">About</a><a href="glossary.html">Glossary</a><a href="contribute.html">Contribute</a><a href="known_limitations.html">Known Limitations</a></nav>
+  <div class="shell">
+    
+    <header class="hero">
+      <div>
+        <p class="eyebrow">for the thesis, not needed for lookup</p>
+        <h1>Research / Methods</h1>
+        <p class="lede">These figures document research analyses behind the database. You do not need them for ordinary enzyme lookup.</p>
+      </div></header>
+    <section class="section">
+      <h2>Research / Methods</h2>
+      <div class="figure-grid">
+            <article class="figure-card">
+              <h3>Figure 1 Parent and Variant Comparison</h3>
+              <a class="figure-zoom" href="static/analysis_figures/wt_vs_variant_tolerance_gain.png" target="_blank" rel="noopener noreferrer">
+                <img src="static/analysis_figures/wt_vs_variant_tolerance_gain.png" alt="Figure 1 Parent and Variant Comparison">
+              </a>
+              <p class="figure-summary"><em>(Did protein engineering measurably improve methanol tolerance over the wild-type parent?)</em></p>
+              <p class="figure-caption">a: For nine wild-type lipases, estimated methanol-tolerance gain of the best engineered variant vs its parent (ΔLTS_ref = WT − variant; positive = variant more tolerant), 95% credible intervals; all nine cross zero (0/9 credible) — no variant is credibly more tolerant than its parent. b: RML N-glycosylation series ranked by estimated gain over Pro-RML (N314 highest to N80 lowest); markers are point estimates, dashed lines paired 95% intervals from the joint covariance; wide overlapping intervals mean the ranking should not be over-read.</p>
+              <p class="figure-download">Download figure (PNG/PDF):
+                <a href="static/analysis_figures/wt_vs_variant_tolerance_gain.png" download>PNG</a>
+                <a href="static/analysis_figures/wt_vs_variant_tolerance_gain.pdf" download>PDF</a>
+              </p>
+            </article>
+            
+            <article class="figure-card">
+              <h3>Figure 2 Construct Score Spread</h3>
+              <a class="figure-zoom" href="static/analysis_figures/construct_tolerance_order.png" target="_blank" rel="noopener noreferrer">
+                <img src="static/analysis_figures/construct_tolerance_order.png" alt="Figure 2 Construct Score Spread">
+              </a>
+              <p class="figure-summary"><em>(How methanol-tolerance scores of all constructs are distributed and cluster by enzyme family.)</em></p>
+              <p class="figure-caption">a: All 439 constructs ordered most-to-least tolerant (rank 1 = most tolerant) by frozen score with uncertainty intervals; colour = rank-stability tier: green robust tolerant (37), red robust fragile (38), grey uncertain (364). b: Same scores grouped by enzyme family with family-median box and per-family robust-tolerant (RT) / robust-fragile (RF) counts; robust-tolerant constructs concentrate in a few engineered families while most families sit in the uncertain middle — family identity, not per-construct detail, organizes the landscape.</p>
+              <p class="figure-download">Download figure (PNG/PDF):
+                <a href="static/analysis_figures/construct_tolerance_order.png" download>PNG</a>
+                <a href="static/analysis_figures/construct_tolerance_order.pdf" download>PDF</a>
+              </p>
+            </article>
+            
+            <article class="figure-card">
+              <h3>Figure 3 Cross-study Agreement</h3>
+              <a class="figure-zoom" href="static/analysis_figures/reproducibility_ceiling.png" target="_blank" rel="noopener noreferrer">
+                <img src="static/analysis_figures/reproducibility_ceiling.png" alt="Figure 3 Cross-study Agreement">
+              </a>
+              <p class="figure-summary"><em>(How reproducible the measurements are — and the ceiling on prediction precision.)</em></p>
+              <p class="figure-caption">a: Paired same-construct/condition measurements; dashed diagonal = perfect agreement; same-study pairs agree tightly (r=0.95), different-study pairs scatter more (r=0.86). b: Same for derived metric D_obs (within-study r=0.91, cross-study r=0.77). c: Bland–Altman for residual activity, difference vs mean; red dashed = 95% limits of agreement; cross-study band ≈ ±28%. d: Bland–Altman for D_obs; cross-study limits ≈ ±0.85; c–d define a reproducibility ceiling: no model can predict tolerance more precisely than the data can be reproduced.</p>
+              <p class="figure-download">Download figure (PNG/PDF):
+                <a href="static/analysis_figures/reproducibility_ceiling.png" download>PNG</a>
+                <a href="static/analysis_figures/reproducibility_ceiling.pdf" download>PDF</a>
+              </p>
+            </article>
+            </div>
+    </section>
+    
+    <footer class="site-footer">
+      <a href="documentation.html">Documentation</a>
+      <a href="glossary.html">Glossary</a>
+      <a href="downloads.html">Downloads</a>
+      <a href="about.html">Suggested citation and license</a>
+      <a href="contribute.html">Contribute / Report error</a>
+      <span>Web v2.1 · data v2.0 · released 2026-06-25</span>
+      <span>Contact: Lvyziyer1@163.com</span>
+    </footer>
+    
+    
+  </div>
+</body>
+</html>

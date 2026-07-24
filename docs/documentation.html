@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="./static/styles.css">
 </head>
 <body>
-  <nav class="site-nav" aria-label="Primary navigation"><a href="index.html">Home</a><a href="browse_enzymes.html">Browse</a><a href="search.html">Search</a><a href="analysis.html">Analysis</a><a href="downloads.html">Downloads</a><a href="documentation.html" aria-current='page'>Documentation</a><a href="about.html">About</a><a href="glossary.html">Glossary</a><a href="known_limitations.html">Known Limitations</a></nav>
+  <nav class="site-nav" aria-label="Primary navigation"><a href="index.html">Home</a><a href="search.html">Search</a><a href="organisms.html">Browse by Organism</a><a href="research.html">Research / Methods</a><a href="downloads.html">Downloads</a><a href="documentation.html" aria-current='page'>Documentation</a><a href="about.html">About</a><a href="glossary.html">Glossary</a><a href="contribute.html">Contribute</a><a href="known_limitations.html">Known Limitations</a></nav>
   <div class="shell">
     
     <header class="hero">
@@ -21,14 +21,14 @@
       <div class="content-card">
         <ul class="flat-list">
           <li>Use Search for enzyme names, species, UniProt, PDB, DOI, patent numbers, and exact provenance IDs.</li>
-          <li>Use Browse Enzymes to filter the full canonical enzyme/construct identity index.</li>
+          <li>Use Search to filter the full canonical enzyme/construct identity index.</li>
           <li>Read the methanol-tolerance score, 95% interval, confidence, and fit status as the primary tolerance summary.</li>
-          <li>Read the public tolerance badge as a coarse stable-rank summary: More tolerant 37, Less tolerant 38, Uncertain 365.</li>
-          <li>Additional archive labels remain available only in downloads; they are not used for headlines or Browse/Search filtering.</li>
+          <li>Read the public tolerance badge as a coarse reader summary: More tolerant 37, Less tolerant 38, Uncertain 365.</li>
+          <li>Additional archive labels remain available only in downloads; they are not used for headlines or Search filtering.</li>
           <li>Use the Assay Evidence Matrix on linked entries to inspect methanol concentration, incubation time, residual activity, and protocol grouping.</li>
           <li>Because assay conditions are heterogeneous, filter by temperature, method, concentration, and time before comparing entries. Raw residual activity across conditions is not directly comparable.</li>
           <li>Separate literature evidence, patent evidence, and process-confounded evidence when interpreting the source mix.</li>
-          <li>Download full tables or use the Export Wizard on Browse/Search to export the current filtered subset as continuous-score rows or conservative tiered labels.</li>
+          <li>Download full tables or use the Export Wizard on Search to export the current filtered subset as continuous-score rows or conservative tiered labels.</li>
         </ul>
         <p>Legacy representative enzyme page index: <a href="enzyme_pages/index.html">enzyme_pages/index.html</a>.</p>
       </div>
@@ -47,24 +47,24 @@
     </section>
     <section class="section">
       <h2>Official Score Display</h2>
-      <div class="release-banner" role="note"><strong>Continuous LTS_ref primary.</strong> Public pages use the frozen LTS_ref score with a 95% interval and a confidence badge as the main tolerance summary. Lower LTS_ref means more methanol tolerant. Internal archive fields remain available in CSV and SQLite downloads for reproducibility.</div>
-      <p>The web headline uses frozen score, interval, confidence, and fit-status fields. The discrete Browse/Search view uses the public More tolerant / Uncertain / Less tolerant badge.</p>
-      <p>The public badge is a coarse confidence tier based on stable ranking, with More tolerant / Less tolerant / Uncertain counts of 37 / 38 / 365. It complements the continuous score and should not be read as an absolute interval classification.</p>
+      <div class="release-banner" role="note"><strong>Continuous methanol tolerance score primary.</strong> Public pages use the frozen methanol-tolerance score (internal field LTS_ref) with an uncertainty range and a confidence badge as the main tolerance summary. Lower number = more methanol tolerant. Internal archive fields remain available in CSV and SQLite downloads for reproducibility.</div>
+        <p>The web headline uses frozen score, interval, confidence, and fit-status fields. The discrete Search view uses the public More tolerant / Uncertain / Less tolerant badge.</p>
+      <p>The public badge is a coarse confidence tier with More tolerant / Less tolerant / Uncertain counts of 37 / 38 / 365. It complements the continuous score and should not be read as an absolute interval classification.</p>
       <ul class="flat-list">
-        <li><strong>Public badge</strong>: stable-rank confidence tier used for headline discrete counts, Browse/Search filters, and table scanning.</li>
+        <li><strong>Public badge</strong>: reader-facing confidence tier used for headline counts, Search filters, and table scanning.</li>
         <li><strong>Archive labels</strong>: retained in downloads/SQLite for audit; many rows are unclear because confidence is low, the activity baseline is unreliable, sensitivity is unstable, or support is otherwise insufficient.</li>
       </ul>
     </section>
     <section class="section">
       <h2>Score Inference</h2>
-      <p>The official values come from a preregistered latent-score workflow with an independent Bayesian cross-check. The cross-check confirmed the frozen ranking for converged constructs.</p>
+      <p>The official values come from a preregistered score workflow with an independent cross-check. The cross-check supports the frozen values for converged constructs.</p>
       <p>The score is derived from residual-activity evidence only when baseline activity interpretation is reliable. Confidence is reduced when baseline quality, extraction method, evidence strength, missing context, or sensitivity checks are weak.</p>
-      <p>Rows marked <code>enzyme_form=crude_preparation</code> are retained at construct level, but their public score display carries a <strong>crude preparation — downweighted</strong> caveat. Rows confirmed as free purified, including san-ai lipase, do not carry the crude-preparation caveat. The frozen <code>LTS_ref</code> point estimate is not changed; only the adjusted display confidence is capped and the penalty is recorded in downloadable provenance fields.</p>
+      <p>Rows marked <code>enzyme_form=crude_preparation</code> are retained at construct level, but their public score display carries a <strong>crude preparation — downweighted</strong> caveat. Rows confirmed as free purified, including san-ai lipase, do not carry the crude-preparation caveat. The frozen score point estimate is not changed; only the adjusted display confidence is capped and the penalty is recorded in downloadable provenance fields.</p>
     </section>
     <section class="section">
       <h2>Assay Comparability</h2>
       <p>Because assay conditions are heterogeneous, users should filter by incubation temperature, assay method/substrate, methanol concentration, and exposure time before comparing entries. Cross-condition raw residual activity values are not directly comparable; the database exposes all measurement rows and conditions so users can construct comparable subsets.</p>
-      <p>The Export Wizard supports condition-filtered comparable subsets, optional tiered labels with conservative gating, and optional reverse-mutation augmentation for WT-variant ML training views. These exported labels are derived from frozen <code>LTS_ref</code> values and are not new official LTS labels.</p>
+      <p>The Export Wizard supports condition-filtered comparable subsets, optional tiered labels with conservative gating, and optional reverse-mutation augmentation for WT-variant data-analysis views. These exported labels are derived from frozen score values and are not new official labels.</p>
     </section>
     <section class="section">
       <h2>Source Count Metrics</h2>
@@ -85,7 +85,7 @@
     <section class="section">
       <h2>Release Boundaries</h2>
       <p>This release uses five manually reviewed representative enzyme pages: CALB, TLL, RML, BCL, and UM-1. The rest of the atlas is available at construct-level through the variant summary, evidence table, and downloads, but does not yet have hand-curated enzyme-species narrative pages.</p>
-      <p>Known limitation: latest newly entered constructs such as LipA9, RML N-glyco, EstSP2, and JK-1 carry lower confidence and are mostly Uncertain; this is intentional evidence-quality disclosure, not a missing table render.</p>
+      <p>Evidence strength is expressed uniformly through confidence, uncertainty ranges, and fit status instead of entry-specific warning text.</p>
     </section>
     
     <footer class="site-footer">
@@ -93,6 +93,7 @@
       <a href="glossary.html">Glossary</a>
       <a href="downloads.html">Downloads</a>
       <a href="about.html">Suggested citation and license</a>
+      <a href="contribute.html">Contribute / Report error</a>
       <span>Web v2.1 · data v2.0 · released 2026-06-25</span>
       <span>Contact: Lvyziyer1@163.com</span>
     </footer>

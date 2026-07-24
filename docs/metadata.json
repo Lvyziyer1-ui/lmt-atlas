@@ -17,7 +17,7 @@
     },
     "all_enzyme_index": {
       "title": "All Enzyme Index",
-      "description": "Frozen web-publication canonical Browse Enzymes index joined to the released tolerance-score fields."
+      "description": "Frozen web-publication canonical Search index joined to the released tolerance-score fields."
     },
     "evidence_measurement": {
       "title": "Evidence Measurement",
@@ -62,7 +62,7 @@
       "sql": "\n                select entity_type, entity_id, label, subtitle, page_id, static_path, datasette_path\n                from global_search_index\n                where (:q = '' or lower(search_text) like '%' || lower(:q) || '%')\n                order by entity_type, label\n                limit 100\n            "
     },
     "browse_enzymes": {
-      "title": "Browse Enzymes",
+      "title": "Search Entries",
       "sql": "\n                select canonical_enzyme_id, display_name, canonical_species, entity_role,\n                       parent_canonical_id, enzyme_ec_number, uniprot_id, pdb_ids,\n                       structure_modeling_readiness, LTS_ref, LTS_ref_ci_low,\n                       LTS_ref_ci_high, confidence_LTS, LTS_label, fit_status,\n                       measurement_row_count, protocol_unit_count, evidence_source_mix,\n                       evidence_status, variant_page_path\n                from all_enzyme_index\n                order by canonical_enzyme_id\n            "
     }
   },
@@ -104,7 +104,7 @@
           "sql": "\n                select entity_type, entity_id, label, subtitle, page_id, static_path, datasette_path\n                from global_search_index\n                where (:q = '' or lower(search_text) like '%' || lower(:q) || '%')\n                order by entity_type, label\n                limit 100\n            "
         },
         "browse_enzymes": {
-          "title": "Browse Enzymes",
+          "title": "Search Entries",
           "sql": "\n                select canonical_enzyme_id, display_name, canonical_species, entity_role,\n                       parent_canonical_id, enzyme_ec_number, uniprot_id, pdb_ids,\n                       structure_modeling_readiness, LTS_ref, LTS_ref_ci_low,\n                       LTS_ref_ci_high, confidence_LTS, LTS_label, fit_status,\n                       measurement_row_count, protocol_unit_count, evidence_source_mix,\n                       evidence_status, variant_page_path\n                from all_enzyme_index\n                order by canonical_enzyme_id\n            "
         }
       },
@@ -123,7 +123,7 @@
         },
         "all_enzyme_index": {
           "title": "All Enzyme Index",
-          "description": "Frozen web-publication canonical Browse Enzymes index joined to the released tolerance-score fields."
+          "description": "Frozen web-publication canonical Search index joined to the released tolerance-score fields."
         },
         "evidence_measurement": {
           "title": "Evidence Measurement",
