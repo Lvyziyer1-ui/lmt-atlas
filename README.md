@@ -1,22 +1,26 @@
-# LMT-Atlas — A Methanol-Tolerance Database for Lipases (v1.0)
+# LMT-Atlas — A Methanol-Tolerance Database for Lipases (v3.0)
 
 **Live site:** https://lvyziyer1-ui.github.io/lmt-atlas/
-**Archived dataset (Zenodo DOI):** https://doi.org/10.5281/zenodo.20908852
+
+**Version DOI:** https://doi.org/10.5281/zenodo.23219799
+
+**Zenodo record:** https://zenodo.org/records/23219799
 
 LMT-Atlas (Lipase Methanol-Tolerance Atlas) is a curated database of methanol-tolerance
-evidence for triacylglycerol lipases (EC 3.1.1.3), integrating literature and patent
-sources: 625 enzyme entries (wild-type and engineered variants), 439 scored constructs,
-695 assay protocols, and 2,732 measurement records. Each scored construct carries a
-continuous latent tolerance score (LTS_ref) with a 95% credible interval and a confidence
-value from a hierarchical partial-pooling model.
+evidence for triacylglycerol lipases (EC 3.1.1.3). Version 3.0 contains 671 canonical
+enzyme entries, 611 construct-level LTS records, and 2,857 direct-intrinsic evidence
+rows assembled from traceable literature and patent sources.
 
-This repository hosts the **static website**, served via GitHub Pages from `/docs`.
-The frozen v1.0 data tables (CSV + SQLite), data dictionary, model card and hash manifest
-are permanently archived on Zenodo (DOI above).
+This repository hosts the static website served by GitHub Pages from `/docs`. The v3.0
+download bundle, SQLite database, data dictionary, model card, and integrity manifests
+are available through the live site; the final archival ZIP is preserved at the version
+DOI above.
 
 ## License
+
 Data are released under **CC-BY-4.0** (see `LICENSE`).
 
 ## Citation
-> LMT-Atlas Consortium. LMT-Atlas: A Methanol-Tolerance Database for Lipases (v1.0).
-> Zenodo, 2026. DOI: 10.5281/zenodo.20908852
+
+> LMT-Atlas Consortium. LMT-Atlas: A Methanol-Tolerance Database for Lipases (v3.0).
+> Zenodo, 2026. DOI: 10.5281/zenodo.23219799
