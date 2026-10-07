@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LMT-Atlas Query Guide</title>
+  <link rel="stylesheet" href="./static/styles.css">
+<!-- WEBR8PUB1 publication metadata start -->
+<meta name="citation_doi" content="10.5281/zenodo.23219799">
+<meta name="lmt-atlas-site-url" content="https://lvyziyer1-ui.github.io/lmt-atlas/">
+<meta name="lmt-atlas-zenodo-record" content="https://zenodo.org/records/23219799">
+<!-- WEBR8PUB1 publication metadata end -->
+</head>
+<body>
+  <nav class="site-nav" aria-label="Primary navigation"><a href="index.html">Home</a><a href="organisms.html">Browse</a><a href="search.html">Search</a><a href="statistics.html">Statistics</a><a href="downloads.html" aria-current='page'>Downloads</a><a href="documentation.html">Documentation</a></nav>
+  <div class="shell">
+    
+    <header class="hero">
+      <div>
+        <p class="eyebrow">LMT-Atlas</p>
+        <h1>Query the v3.0 data</h1>
+        <p class="lede">Use Datasette Lite in the browser, download SQLite and CSV files directly, or run Datasette locally. The static site does not provide online JSON endpoints or a persistent database server.</p>
+      </div></header>
+    <section class="section">
+      <h2>Three executable paths</h2>
+      <div class="content-card">
+        <ol>
+          <li><strong>Datasette Lite:</strong> <a href="https://lite.datasette.io/">open Datasette Lite</a> and load the downloaded v3.0 SQLite file in the browser. This route may depend on an external CDN.</li>
+          <li><strong>SQLite and CSV downloads:</strong> <a href="lmt_atlas_v3_0.sqlite">download SQLite</a> or <a href="downloads/lmt_atlas_downloads_v3_0.zip">download the CSV bundle</a>; these remain available if the CDN is unavailable.</li>
+          <li><strong>Local Datasette:</strong> install Datasette and run <code>python -m datasette lmt_atlas_v3_0.sqlite -m metadata.json</code>. JSON output is available only from that locally operated Datasette process.</li>
+        </ol>
+      </div>
+    </section>
+    <section class="section">
+      <h2>Copyable exact queries</h2>
+      <div class="content-card">
+        <h3>Exact UniProt Q6WER3</h3>
+        <pre><code>select canonical_enzyme_id, display_name from all_enzyme_index
+where uniprot_link_relation = 'exact'
+and instr(';' || upper(replace(coalesce(exact_uniprot_ids, ''), ',', ';')) || ';', ';Q6WER3;') &gt; 0;</code></pre>
+        <h3>Exact PDB 3NGM</h3>
+        <pre><code>select canonical_enzyme_id, display_name from all_enzyme_index
+where pdb_link_relation = 'exact'
+and instr(';' || upper(replace(coalesce(pdb_ids, ''), ',', ';')) || ';', ';3NGM;') &gt; 0;</code></pre>
+        <h3>DOI 10.1371/journal.pone.0286091</h3>
+        <pre><code>select canonical_enzyme_id, display_name from all_enzyme_index
+where lower(doi_or_patent_number) = lower('10.1371/journal.pone.0286091')
+order by canonical_enzyme_id;</code></pre>
+      </div>
+    </section>
+    <section class="section">
+      <h2>Identifier boundary</h2>
+      <div class="content-card">
+        <p>Exact examples include only identifiers whose relation is recorded as exact for that construct. Parent, historical, and unverified identifiers remain archival provenance and must not be interpreted as exact construct matches.</p>
+      </div>
+    </section>
+    
+    <section class="section"><h2>Offline query boundary</h2><p>The release supports offline SQLite and CSV analysis. No hosted REST API is provided.</p></section><section class="section strict-boundary-note"><h2>Strict comparison boundary</h2><p>Strict comparability is limited to released measurements that satisfy the strict condition contract and exact measurement context. Heterogeneous observations remain available with explicit warning and manual_review states.</p></section><footer class="site-footer">
+      <a href="documentation.html">Documentation</a>
+      <a href="glossary.html">Glossary</a>
+      <a href="downloads.html">Downloads</a>
+      <a href="about.html">Suggested citation and license</a>
+      <a href="known_limitations.html">Known limitations</a>
+      <a href="related_databases.html">Related databases</a>
+      <a href="contribute.html">Contribute / Report error</a>
+      <span>Web v3.0 · data v3.0 · built 2026-10-04</span>
+      <span>Contact: Lvyziyer1@163.com</span>
+    </footer>
+    
+    
+  </div>
+<!-- WEBR8PUB1 publication links start -->
+<aside class="publication-links" aria-label="Publication identifiers">Public site: <a href="https://lvyziyer1-ui.github.io/lmt-atlas/">https://lvyziyer1-ui.github.io/lmt-atlas/</a> · Version DOI: <a href="https://doi.org/10.5281/zenodo.23219799">10.5281/zenodo.23219799</a></aside>
+<!-- WEBR8PUB1 publication links end -->
+</body>
+</html>

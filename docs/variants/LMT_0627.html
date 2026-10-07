@@ -4,10 +4,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>UM-1 G40D/T237R mutant - LMT-Atlas</title>
+  <link rel="icon" href="../static/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../static/styles.css">
+<!-- WEBR8PUB1 publication metadata start -->
+<meta name="citation_doi" content="10.5281/zenodo.23219799">
+<meta name="lmt-atlas-site-url" content="https://lvyziyer1-ui.github.io/lmt-atlas/">
+<meta name="lmt-atlas-zenodo-record" content="https://zenodo.org/records/23219799">
+<!-- WEBR8PUB1 publication metadata end -->
 </head>
 <body>
-  <nav class="site-nav" aria-label="Primary navigation"><a href="../index.html">Home</a><a href="../search.html" aria-current='page'>Search</a><a href="../organisms.html">Browse by Organism</a><a href="../research.html">Research / Methods</a><a href="../downloads.html">Downloads</a><a href="../documentation.html">Documentation</a><a href="../about.html">About</a><a href="../glossary.html">Glossary</a><a href="../contribute.html">Contribute</a><a href="../known_limitations.html">Known Limitations</a></nav>
+  <nav class="site-nav" aria-label="Primary navigation"><a href="../index.html">Home</a><a href="../organisms.html">Browse</a><a href="../search.html" aria-current='page'>Search</a><a href="../statistics.html">Statistics</a><a href="../downloads.html">Downloads</a><a href="../documentation.html">Documentation</a></nav>
   <div class="shell">
     
     <header class="hero">
@@ -16,16 +22,16 @@
         <h1>UM-1 G40D/T237R mutant</h1>
         <p class="lede">UM-1 G40D/T237R mutant · Streptomyces sp. W007</p>
         <p>
-          <span class="badge">Methanol tolerance score (LTS_ref): -0.053 (uncertainty range [-1.666, 1.713]; confidence 0.058)</span>
-          <span class="badge">Methanol tolerance: More tolerant</span>
-          <span class="badge">Fit status: Partial pooling / low evidence</span>
+          <span class="badge">Methanol Tolerance Score (MTS): -0.274 (uncertainty range [-2.019, 1.566])</span>
+          <span class="badge">Methanol tolerance: Sparse evidence support</span>
+          <span class="badge">Fit status: Not reported</span>
           <span class="badge">Literature</span>
           <span class="badge">Sequence available (modelable)</span>
         </p>
-        <div class="confidence-note" aria-label="Tolerance confidence summary"><span>confidence low</span><span>score confidence 0.058</span><span>uncertainty range [-1.666, 1.713]</span><span class="uncertainty-bar" aria-hidden="true"><span></span></span></div>
+        <div class="confidence-note" aria-label="Tolerance confidence summary"><span>confidence low</span><span>uncertainty range [-2.019, 1.566]</span><span class="uncertainty-bar" aria-hidden="true"><span></span></span></div>
       </div></header>
     <div class="entry-layout">
-      <aside class="entry-section-nav" aria-label="Entry section index"><strong>Sections</strong><a href="#tolerance">Tolerance</a><a href="#measurements">Measurements</a><a href="#variants">Variants</a><a href="#identifiers">Identifiers</a><a href="#sources">Sources</a><a href="#structure-viewer">Structure Viewer</a></aside>
+      <aside class="entry-section-nav" aria-label="Entry section index"><strong>Sections</strong><a href="#tolerance">Tolerance</a><a href="#measurements">Measurements</a><a href="#condition-response">Condition response</a><a href="#variants">Variants</a><a href="#identifiers">Identifiers</a><a href="#related-resources">Related resources</a><a href="#sources">Sources</a><a href="#structure-viewer">Structure Viewer</a></aside>
       <main class="entry-sections">
     <div id="tolerance"></div>
     
@@ -33,47 +39,78 @@
       <h2>At a glance</h2>
       <div class="at-a-glance">
         <p class="glance-verdict">
-          <span class="badge tier tier-more">More tolerant</span>
-          <span>Robustly more tolerant based on -0.053 (uncertainty range [-1.666, 1.713]; confidence 0.058); best-supported condition: 60% methanol / 24 h / 4 C.</span>
+          <span class="badge tier tier-less">Sparse evidence support</span>
+          <span>Low-support display tier based on -0.274 (uncertainty range [-2.019, 1.566]). Observed concentrations: 60%; observed times: 24 h; Observed temperatures: 4 C.</span>
         </p>
         <p class="glance-caveat"><strong>Caveat:</strong> Limited evidence — treat this score as preliminary. Enzyme preparation: Free.</p>
-        <div class="no-data-state" role="note"><strong>Stable verdict</strong><span>Robust tolerance or fragility verdict available</span></div>
+        <div class="headline-explainers compact" aria-label="How to compare entries"><p>This score is a calculated value, not a single experimental readout.</p><p>Measurements collected at different methanol concentrations, exposure times, and temperatures are normalized to the fixed reference conditions before scores are compared.</p><p>Reference conditions: 50% methanol / about 2 h / 25 °C</p><p>Lower number = more methanol tolerant.</p><p>Every score is shown with an uncertainty range and an observation-support tier; a lower support tier means less evidence, not lower methanol tolerance.</p></div>
+        <div class="no-data-state" role="note"><strong>Low-support score</strong><span>Evidence exists, but the public display tier should be read as evidence support</span></div>
       </div>
     </section>
     
+    
+    <section class="section engineering-use" id="engineering-use">
+      <h2>How this record can support an engineering decision</h2>
+      <div class="card-grid two-col">
+        <article class="content-card"><h3>Observed evidence</h3><p>1 released observations across 1 source(s) and 1 recorded condition context(s).</p></article>
+        <article class="content-card"><h3>Comparable variants</h3><p>Same-source and same-condition comparisons are shown only when released rows share the complete comparison key.</p></article>
+      </div>
+      <p class="lede full-width-note">This record supports target selection and experiment planning, but it does not establish a universally superior mutation or replace same-protocol validation.</p>
+    </section>
     <section class="section" id="measurements">
       <h2>Measurements & conditions</h2>
-      <div class="release-banner" role="note"><strong>Continuous methanol tolerance score primary.</strong> Public pages use the frozen methanol-tolerance score (internal field LTS_ref) with an uncertainty range and a confidence badge as the main tolerance summary. Lower number = more methanol tolerant. Internal archive fields remain available in CSV and SQLite downloads for reproducibility.</div>
-      <div class="lts-scale" role="note" aria-label="LTS scale legend"><span class="lts-scale-label">Methanol tolerance score (LTS_ref)</span><span class="lts-scale-label">Lower number = more methanol tolerant (lower = more tolerant)</span><span class="lts-scale-end tolerant">← More methanol tolerant</span><span class="lts-scale-bar" aria-hidden="true"></span><span class="lts-scale-end fragile">Less tolerant →</span></div>
+      <div class="release-banner" role="note"><strong>MTS is the public tolerance metric.</strong> Public pages use the frozen Methanol Tolerance Score (MTS) with an uncertainty range and a confidence badge as the main tolerance summary. Lower number = more methanol tolerant. Internal archive fields remain available in CSV and SQLite downloads for reproducibility.</div>
+      <div class="lts-scale" role="note" aria-label="MTS scale legend"><span class="lts-scale-label">Methanol Tolerance Score (MTS)</span><span class="lts-scale-label">Lower number = more methanol tolerant (lower = more tolerant)</span><span class="lts-scale-end tolerant">← More methanol tolerant</span><span class="lts-scale-bar" aria-hidden="true"></span><span class="lts-scale-end fragile">Less tolerant →</span></div>
       <div class='protocol-selector'><strong>Protocol selector</strong><a href="#protocol-1" class="badge">Protocol 1 (Literature)</a></div>
             <article class="content-card protocol-card" id="protocol-1">
               <h3>Protocol 1</h3>
-              <div class="table-wrap"><table><thead><tr><th>Item <span class="info-tip" tabindex="0" data-tooltip="Short label for this detail row." aria-label="Short label for this detail row.">ⓘ</span></th><th>Details <span class="info-tip" tabindex="0" data-tooltip="Reader-facing value for this detail row." aria-label="Reader-facing value for this detail row.">ⓘ</span></th></tr></thead><tbody><tr><td>Source type</td><td>Literature</td></tr><tr><td>Source</td><td>Source not reported (missing DOI)</td></tr><tr><td>Methanol concentration set (%)</td><td>60</td></tr><tr><td>Incubation time set (h)</td><td>24</td></tr><tr><td>Best-supported concentration (%)</td><td>60</td></tr><tr><td>Best-supported time (h)</td><td>24</td></tr><tr><td>Best-supported residual activity (%)</td><td>99.84</td></tr><tr><td>Methanol tolerance score</td><td>-0.111</td></tr><tr><td>Uncertainty range low</td><td>-2.062</td></tr><tr><td>Uncertainty range high</td><td>1.776</td></tr><tr><td>Confidence</td><td>Low</td></tr><tr><td>Fit status</td><td>Partial pooling / low evidence</td></tr><tr><td>Enzyme group (provisional)</td><td>UM-1 family</td></tr></tbody></table></div>
+              <div class="table-wrap"><table><thead><tr><th>Item <span class="info-tip" tabindex="0" data-tooltip="Short label for this detail row." aria-label="Short label for this detail row.">ⓘ</span></th><th>Details <span class="info-tip" tabindex="0" data-tooltip="Reader-facing value for this detail row." aria-label="Reader-facing value for this detail row.">ⓘ</span></th></tr></thead><tbody><tr><td>Source type</td><td>Literature</td></tr><tr><td>Source</td><td>Yang Yang (2022). Molecular modification and application of lipase MAS1 esterification product accumulation preference</td></tr><tr><td>Methanol concentration set (%)</td><td>60</td></tr><tr><td>Incubation time set (h)</td><td>24</td></tr><tr><td>Best-supported concentration (%)</td><td>Not reported</td></tr><tr><td>Best-supported time (h)</td><td>Not reported</td></tr><tr><td>Best-supported residual activity (%)</td><td>Not reported</td></tr><tr><td>Methanol tolerance score</td><td>Linked records, no reliable public observation</td></tr><tr><td>Uncertainty range low</td><td>Not reported</td></tr><tr><td>Uncertainty range high</td><td>Not reported</td></tr><tr><td>Confidence label</td><td>Low</td></tr><tr><td>Fit status</td><td>Not reported</td></tr><tr><td>Enzyme group (provisional)</td><td>Not grouped</td></tr></tbody></table></div>
               <h4>Methanol concentration x incubation time x residual activity</h4>
               <div class='table-wrap matrix'><table><thead><tr><th>time (h) <span class="info-tip" tabindex="0" data-tooltip="time (h) column." aria-label="time (h) column.">ⓘ</span></th><th>60% <span class="info-tip" tabindex="0" data-tooltip="Methanol challenge concentration from the measurement or protocol summary." aria-label="Methanol challenge concentration from the measurement or protocol summary.">ⓘ</span></th></tr></thead><tbody><tr><th>24 <span class="info-tip" tabindex="0" data-tooltip="Methanol exposure or incubation duration." aria-label="Methanol exposure or incubation duration.">ⓘ</span></th><td><span class='matrix-value'>99.84%</span><span class='matrix-note'>99.84</span></td></tr></tbody></table></div>
               <h4>Measurements & conditions</h4>
-              <div class="table-wrap table-scroll measurements-scroll"><table data-table-kind="measurement-conditions"><thead><tr><th>Source type <span class="info-tip" tabindex="0" data-tooltip="Whether support comes from literature, patent evidence, both, or no linked measurements." aria-label="Whether support comes from literature, patent evidence, both, or no linked measurements.">ⓘ</span></th><th>Source <span class="info-tip" tabindex="0" data-tooltip="Source column." aria-label="Source column.">ⓘ</span></th><th>Methanol concentration (%) <span class="info-tip" tabindex="0" data-tooltip="Methanol challenge concentration from the measurement or protocol summary." aria-label="Methanol challenge concentration from the measurement or protocol summary.">ⓘ</span></th><th>Incubation time (h) <span class="info-tip" tabindex="0" data-tooltip="Methanol exposure or incubation duration." aria-label="Methanol exposure or incubation duration.">ⓘ</span></th><th>Incubation temperature (°C) <span class="info-tip" tabindex="0" data-tooltip="Reported methanol-challenge incubation temperature; missing values are not imputed." aria-label="Reported methanol-challenge incubation temperature; missing values are not imputed.">ⓘ</span></th><th>Assay method <span class="info-tip" tabindex="0" data-tooltip="Assay method column." aria-label="Assay method column.">ⓘ</span></th><th>Substrate <span class="info-tip" tabindex="0" data-tooltip="Substrate column." aria-label="Substrate column.">ⓘ</span></th><th>Enzyme concentration <span class="info-tip" tabindex="0" data-tooltip="Enzyme concentration column." aria-label="Enzyme concentration column.">ⓘ</span></th><th>Enzyme preparation <span class="info-tip" tabindex="0" data-tooltip="Enzyme preparation column." aria-label="Enzyme preparation column.">ⓘ</span></th><th>Buffer system <span class="info-tip" tabindex="0" data-tooltip="Buffer system column." aria-label="Buffer system column.">ⓘ</span></th><th>pH <span class="info-tip" tabindex="0" data-tooltip="pH column." aria-label="pH column.">ⓘ</span></th><th>Residual activity (%) <span class="info-tip" tabindex="0" data-tooltip="Residual activity (%) column." aria-label="Residual activity (%) column.">ⓘ</span></th><th>Methanol tolerance score <span class="info-tip" tabindex="0" data-tooltip="Methanol tolerance score column." aria-label="Methanol tolerance score column.">ⓘ</span></th><th>Confidence <span class="info-tip" tabindex="0" data-tooltip="How much support the score has after checking baseline activity, missing assay context, source traceability, and sensitivity to evidence choices." aria-label="How much support the score has after checking baseline activity, missing assay context, source traceability, and sensitivity to evidence choices.">ⓘ</span></th><th>Evidence details <span class="info-tip" tabindex="0" data-tooltip="Evidence details column." aria-label="Evidence details column.">ⓘ</span></th></tr></thead><tbody><tr><td>Literature</td><td>Local thesis source (missing DOI)</td><td>60</td><td>24</td><td>4</td><td>titrimetric olive-oil hydrolysis residual activity assay after solvent preincubation</td><td>olive oil emulsion</td><td>Not reported</td><td>Free</td><td>Not reported</td><td>Not reported</td><td>99.84</td><td>-0.111</td><td>Low</td><td><details class="evidence-details"><summary>Evidence details</summary><div class="table-wrap"><table><thead><tr><th>Item <span class="info-tip" tabindex="0" data-tooltip="Short label for this detail row." aria-label="Short label for this detail row.">ⓘ</span></th><th>Details <span class="info-tip" tabindex="0" data-tooltip="Reader-facing value for this detail row." aria-label="Reader-facing value for this detail row.">ⓘ</span></th></tr></thead><tbody><tr><td>Fit status</td><td>Partial pooling / low evidence</td></tr><tr><td>Evidence tier</td><td>Downweighted training</td></tr><tr><td>Source location</td><td>thesis page 42 method section 4.3.5; thesis pages 46-47 section 4.4.4; Figure 4-4</td></tr><tr><td>Extraction method</td><td>digitized_text_value</td></tr></tbody></table></div></details></td></tr></tbody></table></div>
+              <div class="table-wrap table-scroll measurements-scroll"><table data-table-kind="measurement-conditions"><thead><tr><th>Source type <span class="info-tip" tabindex="0" data-tooltip="Whether support comes from literature, patent evidence, both, or no linked measurements." aria-label="Whether support comes from literature, patent evidence, both, or no linked measurements.">ⓘ</span></th><th>Source <span class="info-tip" tabindex="0" data-tooltip="Source column." aria-label="Source column.">ⓘ</span></th><th>Methanol concentration (%) <span class="info-tip" tabindex="0" data-tooltip="Methanol challenge concentration from the measurement or protocol summary." aria-label="Methanol challenge concentration from the measurement or protocol summary.">ⓘ</span></th><th>Incubation time (h) <span class="info-tip" tabindex="0" data-tooltip="Methanol exposure or incubation duration." aria-label="Methanol exposure or incubation duration.">ⓘ</span></th><th>Incubation temperature (°C) <span class="info-tip" tabindex="0" data-tooltip="Reported methanol-challenge incubation temperature; missing values are not imputed." aria-label="Reported methanol-challenge incubation temperature; missing values are not imputed.">ⓘ</span></th><th>Assay method <span class="info-tip" tabindex="0" data-tooltip="Assay method column." aria-label="Assay method column.">ⓘ</span></th><th>Substrate <span class="info-tip" tabindex="0" data-tooltip="Substrate column." aria-label="Substrate column.">ⓘ</span></th><th>Enzyme concentration <span class="info-tip" tabindex="0" data-tooltip="Enzyme concentration column." aria-label="Enzyme concentration column.">ⓘ</span></th><th>Enzyme preparation <span class="info-tip" tabindex="0" data-tooltip="Enzyme preparation column." aria-label="Enzyme preparation column.">ⓘ</span></th><th>Buffer system <span class="info-tip" tabindex="0" data-tooltip="Buffer system column." aria-label="Buffer system column.">ⓘ</span></th><th>pH <span class="info-tip" tabindex="0" data-tooltip="pH column." aria-label="pH column.">ⓘ</span></th><th>Residual activity (%) <span class="info-tip" tabindex="0" data-tooltip="Residual activity (%) column." aria-label="Residual activity (%) column.">ⓘ</span></th><th>Methanol tolerance score <span class="info-tip" tabindex="0" data-tooltip="Methanol tolerance score column." aria-label="Methanol tolerance score column.">ⓘ</span></th><th>Reporting completeness <span class="info-tip" tabindex="0" data-tooltip="Reporting completeness column." aria-label="Reporting completeness column.">ⓘ</span></th><th>Missing reporting items <span class="info-tip" tabindex="0" data-tooltip="Missing reporting items column." aria-label="Missing reporting items column.">ⓘ</span></th><th>Evidence details <span class="info-tip" tabindex="0" data-tooltip="Evidence details column." aria-label="Evidence details column.">ⓘ</span></th></tr></thead><tbody><tr><td>Literature</td><td>Yang Yang (2022). Molecular modification and application of lipase MAS1 esterification product accumulation preference</td><td>60</td><td>24</td><td>4</td><td>titrimetric olive-oil hydrolysis residual activity assay after solvent preincubation</td><td>olive oil emulsion</td><td>Not reported</td><td>Free</td><td>Not reported</td><td>Not reported</td><td>99.84</td><td>Not reported</td><td><span class="reporting-completeness">6/8</span></td><td>incubation_buffer_and_ph;enzyme_form_and_concentration</td><td><details class="evidence-details"><summary>Evidence details</summary><div class="table-wrap"><table><thead><tr><th>Item <span class="info-tip" tabindex="0" data-tooltip="Short label for this detail row." aria-label="Short label for this detail row.">ⓘ</span></th><th>Details <span class="info-tip" tabindex="0" data-tooltip="Reader-facing value for this detail row." aria-label="Reader-facing value for this detail row.">ⓘ</span></th></tr></thead><tbody><tr><td>Fit status</td><td>Not reported</td></tr><tr><td>Evidence tier</td><td>Downweighted training</td></tr><tr><td>Source location</td><td>thesis page 42 method section 4.3.5; thesis pages 46-47 section 4.4.4; Figure 4-4</td></tr><tr><td>Extraction method</td><td>digitized_text_value</td></tr></tbody></table></div></details></td></tr></tbody></table></div>
             </article>
             
     </section>
-    <section class="section" id="variants">
+    <section class="section" id="condition-response"><h2>Condition response</h2><p class="empty">No formal dose-series condition-response feature is linked to this record.</p></section><section class="section" id="variants">
       <h2>Variants of this enzyme</h2>
-      <div class='content-card'><p class='card-note'>Delta tolerance is shown only within the linked WT-mutant series. Positive values mean the construct has a lower LTS_ref than the WT under the same series-level comparison frame.</p><div class="table-wrap"><table><thead><tr><th>Construct <span class="info-tip" tabindex="0" data-tooltip="Construct column." aria-label="Construct column.">ⓘ</span></th><th>Role <span class="info-tip" tabindex="0" data-tooltip="Role column." aria-label="Role column.">ⓘ</span></th><th>Site <span class="info-tip" tabindex="0" data-tooltip="Site column." aria-label="Site column.">ⓘ</span></th><th>Methanol tolerance <span class="info-tip" tabindex="0" data-tooltip="Reader badge summarizing whether the score stays near the tolerant or fragile end after uncertainty checks." aria-label="Reader badge summarizing whether the score stays near the tolerant or fragile end after uncertainty checks.">ⓘ</span></th><th>Delta tolerance vs WT <span class="info-tip" tabindex="0" data-tooltip="Delta tolerance vs WT column." aria-label="Delta tolerance vs WT column.">ⓘ</span></th></tr></thead><tbody><tr><td><a href="LMT_0001.html">UM-1 WT</a></td><td>Wild-type / canonical enzyme</td><td>WT reference</td><td><span class="badge tier tier-uncertain">Uncertain</span></td><td>WT reference</td></tr><tr><td><a href="LMT_0627.html">UM-1 G40D/T237R mutant</a></td><td>Mutant / engineered construct</td><td>Mutation site not parsed</td><td><span class="badge tier tier-more">More tolerant</span></td><td>1.015 [-1.961 to 3.834] (more tolerant than WT)</td></tr><tr><td><a href="LMT_0620.html">UM-1 G40L mutant</a></td><td>Mutant / engineered construct</td><td>Mutation site not parsed</td><td><span class="badge tier tier-more">More tolerant</span></td><td>0.928 [-2.003 to 3.798] (more tolerant than WT)</td></tr><tr><td><a href="LMT_0626.html">UM-1 T237R mutant</a></td><td>Mutant / engineered construct</td><td>Mutation site not parsed</td><td><span class="badge tier tier-more">More tolerant</span></td><td>0.984 [-1.936 to 3.927] (more tolerant than WT)</td></tr><tr><td><a href="LMT_0623.html">UM-1 T237A mutant</a></td><td>Mutant / engineered construct</td><td>Mutation site not parsed</td><td><span class="badge tier tier-more">More tolerant</span></td><td>0.941 [-2.015 to 3.85] (more tolerant than WT)</td></tr><tr><td><a href="LMT_0621.html">UM-1 G40F mutant</a></td><td>Mutant / engineered construct</td><td>Mutation site not parsed</td><td><span class="badge tier tier-more">More tolerant</span></td><td>0.952 [-2.005 to 3.882] (more tolerant than WT)</td></tr><tr><td><a href="LMT_0624.html">UM-1 T237F mutant</a></td><td>Mutant / engineered construct</td><td>Mutation site not parsed</td><td><span class="badge tier tier-more">More tolerant</span></td><td>0.89 [-2.065 to 3.823] (more tolerant than WT)</td></tr><tr><td><a href="LMT_0622.html">UM-1 V233F mutant</a></td><td>Mutant / engineered construct</td><td>Mutation site not parsed</td><td><span class="badge tier tier-more">More tolerant</span></td><td>0.951 [-2.049 to 3.903] (more tolerant than WT)</td></tr><tr><td><a href="LMT_0625.html">UM-1 T237L mutant</a></td><td>Mutant / engineered construct</td><td>Mutation site not parsed</td><td><span class="badge tier tier-more">More tolerant</span></td><td>0.949 [-2.057 to 3.925] (more tolerant than WT)</td></tr><tr><td><a href="LMT_0160.html">UM-1 TED mutant</a></td><td>Mutant / engineered construct</td><td>Mutation site not parsed</td><td><span class="badge tier tier-uncertain">Uncertain</span></td><td>0.074 [-3.137 to 3.263] (more tolerant than WT)</td></tr><tr><td><a href="LMT_0158.html">UM-1 SEE mutant</a></td><td>Mutant / engineered construct</td><td>Mutation site not parsed</td><td><span class="badge tier tier-uncertain">Uncertain</span></td><td>0.056 [-3.191 to 3.242] (more tolerant than WT)</td></tr><tr><td><a href="LMT_0159.html">UM-1 SKE mutant</a></td><td>Mutant / engineered construct</td><td>Mutation site not parsed</td><td><span class="badge tier tier-uncertain">Uncertain</span></td><td>0.053 [-3.232 to 3.259] (more tolerant than WT)</td></tr><tr><td><a href="LMT_0157.html">UM-1 Q0S mutant</a></td><td>Mutant / engineered construct</td><td>Mutation site not parsed</td><td><span class="badge tier tier-uncertain">Uncertain</span></td><td>0.06 [-3.245 to 3.327] (more tolerant than WT)</td></tr></tbody></table></div></div>
+      <div class='content-card'><p class='card-note'>Delta tolerance is shown only within the linked WT-mutant series. Positive values mean the construct has a lower MTS than the WT under the same series-level comparison frame.</p><div class="table-wrap"><table><thead><tr><th>Construct <span class="info-tip" tabindex="0" data-tooltip="Construct column." aria-label="Construct column.">ⓘ</span></th><th>Role <span class="info-tip" tabindex="0" data-tooltip="Role column." aria-label="Role column.">ⓘ</span></th><th>Site <span class="info-tip" tabindex="0" data-tooltip="Site column." aria-label="Site column.">ⓘ</span></th><th>Methanol tolerance <span class="info-tip" tabindex="0" data-tooltip="Reader badge summarizing whether the score stays near the tolerant or fragile end after uncertainty checks." aria-label="Reader badge summarizing whether the score stays near the tolerant or fragile end after uncertainty checks.">ⓘ</span></th><th>Delta tolerance vs WT <span class="info-tip" tabindex="0" data-tooltip="Delta tolerance vs WT column." aria-label="Delta tolerance vs WT column.">ⓘ</span></th></tr></thead><tbody><tr><td><a href="LMT_0001.html">UM-1 WT</a></td><td>Wild-type / canonical enzyme</td><td>WT reference</td><td><span class="badge tier tier-medium">Moderate evidence support</span></td><td>WT reference</td></tr><tr><td><a href="LMT_0158.html">UM-1 SEE mutant</a></td><td>Mutant / engineered construct</td><td>Mutation site not parsed</td><td><span class="badge tier tier-medium">Moderate evidence support</span></td><td>0.244 [-2.654 to 3.41] (more tolerant than WT)</td></tr><tr><td><a href="LMT_0157.html">UM-1 Q0S mutant</a></td><td>Mutant / engineered construct</td><td>Mutation site not parsed</td><td><span class="badge tier tier-medium">Moderate evidence support</span></td><td>-0.008 [-2.865 to 3.228] (less tolerant than WT)</td></tr><tr><td><a href="LMT_0160.html">UM-1 TED mutant</a></td><td>Mutant / engineered construct</td><td>Mutation site not parsed</td><td><span class="badge tier tier-medium">Moderate evidence support</span></td><td>0.006 [-2.949 to 3.269] (more tolerant than WT)</td></tr><tr><td><a href="LMT_0159.html">UM-1 SKE mutant</a></td><td>Mutant / engineered construct</td><td>Mutation site not parsed</td><td><span class="badge tier tier-medium">Moderate evidence support</span></td><td>0.207 [-2.826 to 3.45] (more tolerant than WT)</td></tr><tr><td><a href="LMT_0622.html">UM-1 V233F mutant</a></td><td>Mutant / engineered construct</td><td>Mutation site not parsed</td><td><span class="badge tier tier-less">Sparse evidence support</span></td><td>0.405 [-2.725 to 3.776] (more tolerant than WT)</td></tr><tr><td><a href="LMT_0627.html">UM-1 G40D/T237R mutant</a></td><td>Mutant / engineered construct</td><td>Mutation site not parsed</td><td><span class="badge tier tier-less">Sparse evidence support</span></td><td>0.418 [-2.822 to 3.8] (more tolerant than WT)</td></tr><tr><td><a href="LMT_0624.html">UM-1 T237F mutant</a></td><td>Mutant / engineered construct</td><td>Mutation site not parsed</td><td><span class="badge tier tier-less">Sparse evidence support</span></td><td>0.287 [-2.916 to 3.749] (more tolerant than WT)</td></tr><tr><td><a href="LMT_0621.html">UM-1 G40F mutant</a></td><td>Mutant / engineered construct</td><td>Mutation site not parsed</td><td><span class="badge tier tier-less">Sparse evidence support</span></td><td>0.365 [-2.869 to 3.82] (more tolerant than WT)</td></tr><tr><td><a href="LMT_0620.html">UM-1 G40L mutant</a></td><td>Mutant / engineered construct</td><td>Mutation site not parsed</td><td><span class="badge tier tier-less">Sparse evidence support</span></td><td>0.341 [-2.98 to 3.703] (more tolerant than WT)</td></tr><tr><td><a href="LMT_0626.html">UM-1 T237R mutant</a></td><td>Mutant / engineered construct</td><td>Mutation site not parsed</td><td><span class="badge tier tier-less">Sparse evidence support</span></td><td>0.425 [-2.706 to 4.001] (more tolerant than WT)</td></tr><tr><td><a href="LMT_0623.html">UM-1 T237A mutant</a></td><td>Mutant / engineered construct</td><td>Mutation site not parsed</td><td><span class="badge tier tier-less">Sparse evidence support</span></td><td>0.376 [-2.857 to 3.869] (more tolerant than WT)</td></tr><tr><td><a href="LMT_0625.html">UM-1 T237L mutant</a></td><td>Mutant / engineered construct</td><td>Mutation site not parsed</td><td><span class="badge tier tier-less">Sparse evidence support</span></td><td>0.344 [-2.835 to 4.019] (more tolerant than WT)</td></tr><tr><td><a href="LMT_0692.html">UM-1 MAS-1 D89G</a></td><td>Mutant / engineered construct</td><td>Mutation site not parsed</td><td><span class="badge tier tier-no-data info-tip" tabindex="0" data-tooltip="Records are linked, but there are no reliable public observations for a numeric MTS display." aria-label="Records are linked, but there are no reliable public observations for a numeric MTS display.">Linked records, no reliable public observation</span></td><td>No reliable public MTS estimate</td></tr><tr><td><a href="LMT_0693.html">UM-1 MAS-2 V90A</a></td><td>Mutant / engineered construct</td><td>Mutation site not parsed</td><td><span class="badge tier tier-no-data info-tip" tabindex="0" data-tooltip="Records are linked, but there are no reliable public observations for a numeric MTS display." aria-label="Records are linked, but there are no reliable public observations for a numeric MTS display.">Linked records, no reliable public observation</span></td><td>No reliable public MTS estimate</td></tr><tr><td><a href="LMT_0689.html">UM-1 MAS-3 A104V</a></td><td>Mutant / engineered construct</td><td>Mutation site not parsed</td><td><span class="badge tier tier-no-data info-tip" tabindex="0" data-tooltip="Records are linked, but there are no reliable public observations for a numeric MTS display." aria-label="Records are linked, but there are no reliable public observations for a numeric MTS display.">Linked records, no reliable public observation</span></td><td>No reliable public MTS estimate</td></tr><tr><td><a href="LMT_0691.html">UM-1 MAS-4 E232D</a></td><td>Mutant / engineered construct</td><td>Mutation site not parsed</td><td><span class="badge tier tier-no-data info-tip" tabindex="0" data-tooltip="Records are linked, but there are no reliable public observations for a numeric MTS display." aria-label="Records are linked, but there are no reliable public observations for a numeric MTS display.">Linked records, no reliable public observation</span></td><td>No reliable public MTS estimate</td></tr><tr><td><a href="LMT_0690.html">UM-1 MAS-5 V264I</a></td><td>Mutant / engineered construct</td><td>Mutation site not parsed</td><td><span class="badge tier tier-no-data info-tip" tabindex="0" data-tooltip="Records are linked, but there are no reliable public observations for a numeric MTS display." aria-label="Records are linked, but there are no reliable public observations for a numeric MTS display.">Linked records, no reliable public observation</span></td><td>No reliable public MTS estimate</td></tr></tbody></table></div></div>
     </section>
+    <section class="section mutant-numbering-panel" id="mutation-numbering"><h2>Mutation numbering & sequence verification</h2><p class='card-note'>This panel reports the signed P2 numbering interface. It verifies sequence numbering only; it does not establish mechanism or a joint mutational effect.</p><div class="table-wrap"><table><thead><tr><th>Item <span class="info-tip" tabindex="0" data-tooltip="Short label for this detail row." aria-label="Short label for this detail row.">ⓘ</span></th><th>Details <span class="info-tip" tabindex="0" data-tooltip="Reader-facing value for this detail row." aria-label="Reader-facing value for this detail row.">ⓘ</span></th></tr></thead><tbody><tr><td>Parent</td><td>LMT_0001</td></tr><tr><td>Reported mutation label</td><td>G40D;T237R</td></tr><tr><td>Public numbering status</td><td>exact_parent_numbering</td></tr><tr><td>WT residue check</td><td>pass_all_components</td></tr><tr><td>Reported WT residue</td><td>G;T</td></tr><tr><td>Observed parent residue</td><td>G;T</td></tr><tr><td>Sequence availability</td><td>reconstructed_exact_parent_numbering</td></tr><tr><td>Structure mapping relationship</td><td>PDB relation: unverified; no mutant-specific experimental structure is asserted here</td></tr><tr><td>InterPro</td><td>Not linked: this construct does not carry an exact UniProt relationship.</td></tr><tr><td>Claim ceiling</td><td>sequence_verified_numbering_only</td></tr></tbody></table></div><div class="sequence-verification-track" data-sequence-track="available"><h3>Verified sequence track</h3><p><strong>Parent length:</strong> 265 aa · <strong>Mature-chain boundary:</strong> Not reported_no_offset_applied</p><div class="table-wrap"><table><thead><tr><th>Position <span class="info-tip" tabindex="0" data-tooltip="Position column." aria-label="Position column.">ⓘ</span></th><th>WT residue <span class="info-tip" tabindex="0" data-tooltip="WT residue column." aria-label="WT residue column.">ⓘ</span></th><th>Variant residue <span class="info-tip" tabindex="0" data-tooltip="Variant residue column." aria-label="Variant residue column.">ⓘ</span></th><th>Parent observed <span class="info-tip" tabindex="0" data-tooltip="Parent observed column." aria-label="Parent observed column.">ⓘ</span></th></tr></thead><tbody><tr><td>40</td><td>G</td><td>D</td><td>G</td></tr><tr><td>237</td><td>T</td><td>R</td><td>T</td></tr></tbody></table></div><details><summary>Parent / joint-construct sequences</summary><p>Parent sequence</p><pre class='sequence-toggle'>ATATAATPAAEATSRGWNDYSCKPSAAHPRPVVLVHGTFGNSIDNWLVLAPYLVNRGYCVFSLDYGQLPGVPFFHGLGPIDKSAEQLDVFVDKVLDATGAPKADLVGHSQGGMMPNYYLKFLGGADKVNALVGIAPDNHGTTLLGLTKLLPFFPGVEKFISDNTPGLADQVAGSPFITKLTAGGDTVPGVRYTVIATKYDQVVTPYRTQYLDGPNVRNVLLQDLCPVDLSEHVAIGTIDRIAFHEVANALDPARATPTTCASVIG</pre><p>Joint construct sequence</p><pre class='sequence-toggle'>ATATAATPAAEATSRGWNDYSCKPSAAHPRPVVLVHGTFDNSIDNWLVLAPYLVNRGYCVFSLDYGQLPGVPFFHGLGPIDKSAEQLDVFVDKVLDATGAPKADLVGHSQGGMMPNYYLKFLGGADKVNALVGIAPDNHGTTLLGLTKLLPFFPGVEKFISDNTPGLADQVAGSPFITKLTAGGDTVPGVRYTVIATKYDQVVTPYRTQYLDGPNVRNVLLQDLCPVDLSEHVAIGRIDRIAFHEVANALDPARATPTTCASVIG</pre></details></div></section>
     <section class="section" id="identifiers">
       <h2>Identifiers</h2>
-      <details class='identifier-details' open><summary>Identifiers</summary><h3>Identity</h3><div class="table-wrap"><table><thead><tr><th>Item <span class="info-tip" tabindex="0" data-tooltip="Short label for this detail row." aria-label="Short label for this detail row.">ⓘ</span></th><th>Details <span class="info-tip" tabindex="0" data-tooltip="Reader-facing value for this detail row." aria-label="Reader-facing value for this detail row.">ⓘ</span></th></tr></thead><tbody><tr><td>Stable accession</td><td>LMT_0627</td></tr><tr><td>Canonical name</td><td>UM-1 G40D/T237R mutant</td></tr><tr><td>Display name</td><td>UM-1 G40D/T237R mutant</td></tr><tr><td>Source organism</td><td>Streptomyces sp.</td></tr><tr><td>Strain</td><td>W007</td></tr><tr><td>Expression host</td><td>Not reported</td></tr><tr><td>EC</td><td>EC 3.1.1.3</td></tr><tr><td>Role</td><td>Mutant / engineered construct</td></tr><tr><td>Parent construct</td><td>LMT_0001</td></tr><tr><td>Structure readiness</td><td>Sequence available (modelable)</td></tr></tbody></table></div><h3>Database and external identifiers</h3><div class="table-wrap"><table><thead><tr><th>Exact UniProt <span class="info-tip" tabindex="0" data-tooltip="Exact UniProt column." aria-label="Exact UniProt column.">ⓘ</span></th><th>Parent UniProt <span class="info-tip" tabindex="0" data-tooltip="Parent UniProt column." aria-label="Parent UniProt column.">ⓘ</span></th><th>PDB <span class="info-tip" tabindex="0" data-tooltip="PDB column." aria-label="PDB column.">ⓘ</span></th></tr></thead><tbody><tr><td>Not reported</td><td>Not reported</td><td>Not reported</td></tr></tbody></table></div><p class="identifier-footnote">Identifier note  <span class="info-tip" tabindex="0" data-tooltip="Short caveat for historical, parent-only, or alias identifiers; exact public identifiers remain in the table." aria-label="Short caveat for historical, parent-only, or alias identifiers; exact public identifiers remain in the table.">ⓘ</span>: 2 historical/deleted identifiers recorded</p><h3>Protein sequence</h3>Not available<h3>External links</h3><div class='external-links'><span class="external-link-button"><a href="https://www.ncbi.nlm.nih.gov/protein/MT_0001" target="_blank" rel="noopener noreferrer">NCBI protein MT_0001</a></span><span class="external-link-button"><a href="https://www.brenda-enzymes.org/enzyme.php?ecno=3.1.1.3" target="_blank" rel="noopener noreferrer">EC 3.1.1.3</a></span></div></details>
+      <details class='identifier-details' open><summary>Identifiers</summary><h3>Identity</h3><div class="table-wrap"><table><thead><tr><th>Item <span class="info-tip" tabindex="0" data-tooltip="Short label for this detail row." aria-label="Short label for this detail row.">ⓘ</span></th><th>Details <span class="info-tip" tabindex="0" data-tooltip="Reader-facing value for this detail row." aria-label="Reader-facing value for this detail row.">ⓘ</span></th></tr></thead><tbody><tr><td>Stable accession</td><td>LMT_0627</td></tr><tr><td>Canonical name</td><td>UM-1 G40D/T237R mutant</td></tr><tr><td>Display name</td><td>UM-1 G40D/T237R mutant</td></tr><tr><td>Source organism</td><td>Streptomyces sp.</td></tr><tr><td>Strain</td><td>W007</td></tr><tr><td>Expression host</td><td>Not reported</td></tr><tr><td>EC</td><td>EC 3.1.1.3</td></tr><tr><td>Role</td><td>Mutant / engineered construct</td></tr><tr><td>Parent construct</td><td>LMT_0001</td></tr><tr><td>Structure readiness</td><td>Sequence available (modelable)</td></tr></tbody></table></div><h3>Database and external identifiers</h3><div class="table-wrap"><table><thead><tr><th>UniProt <span class="info-tip" tabindex="0" data-tooltip="UniProt column." aria-label="UniProt column.">ⓘ</span></th><th>NCBI protein <span class="info-tip" tabindex="0" data-tooltip="NCBI protein column." aria-label="NCBI protein column.">ⓘ</span></th><th>RefSeq <span class="info-tip" tabindex="0" data-tooltip="RefSeq column." aria-label="RefSeq column.">ⓘ</span></th><th>PDB <span class="info-tip" tabindex="0" data-tooltip="PDB column." aria-label="PDB column.">ⓘ</span></th></tr></thead><tbody><tr><td>Not reported</td><td>Not reported</td><td>Not reported</td><td>Not reported</td></tr></tbody></table></div><p class="identifier-footnote">Identifier note  <span class="info-tip" tabindex="0" data-tooltip="Short caveat for historical, parent-only, or alias identifiers; exact public identifiers remain in the table." aria-label="Short caveat for historical, parent-only, or alias identifiers; exact public identifiers remain in the table.">ⓘ</span>: 2 historical/deleted identifiers recorded</p><h3>Protein sequence</h3>Not available<h3>External links</h3><div class='external-links'><span class="external-link-button"><a href="https://www.ncbi.nlm.nih.gov/protein/MT_0001" target="_blank" rel="noopener noreferrer">NCBI protein MT_0001</a></span><span class="external-link-button"><a href="https://www.brenda-enzymes.org/enzyme.php?ecno=3.1.1.3" target="_blank" rel="noopener noreferrer">EC 3.1.1.3</a></span></div></details>
     </section>
+    
+    <section class="section" id="related-resources">
+      <h2>Related resources</h2>
+      <p class="section-note">Links are generated only from exact, non-sentinel identifiers already present in this entry.</p>
+      <div class='resource-link-grid'><article class='resource-link-card'><p class='eyebrow'>Enzyme databases</p><h3><a href="https://www.brenda-enzymes.org/enzyme.php?ecno=3.1.1.3" target="_blank" rel="noopener noreferrer">BRENDA EC 3.1.1.3</a></h3><p>EC-number enzyme database entry</p></article></div>
+    </section>
+    
     <section class="section" id="sources">
       <h2>Sources</h2>
       <div class='source-columns'>
             <div class="source-column">
               <h3>Literature</h3>
               
-    <article class="content-card">
-      <h3>Local thesis source (missing DOI)</h3>
-      <div class="table-wrap"><table><thead><tr><th>Item <span class="info-tip" tabindex="0" data-tooltip="Short label for this detail row." aria-label="Short label for this detail row.">ⓘ</span></th><th>Details <span class="info-tip" tabindex="0" data-tooltip="Reader-facing value for this detail row." aria-label="Reader-facing value for this detail row.">ⓘ</span></th></tr></thead><tbody><tr><td>Year</td><td>2022</td></tr><tr><td>Journal</td><td>South China University of Technology master&#x27;s thesis</td></tr><tr><td>Measurement count</td><td>1</td></tr><tr><td>Protocol count</td><td>1</td></tr><tr><td>Source location</td><td>thesis page 42 method section 4.3.5; thesis pages 46-47 section 4.4.4; Figure 4-4</td></tr><tr><td>Extraction method</td><td>digitized_text_value</td></tr></tbody></table></div>
+    
+    <article class="content-card researcher-source-card">
+      <h3>Yang Yang (2022). Molecular modification and application of lipase MAS1 esterification product accumulation preference</h3>
+      <p><strong>Molecular modification and application of lipase MAS1 esterification product accumulation preference</strong></p>
+      <p>South China University of Technology · master&#x27;s thesis</p>
+      <p>1 released measurement row(s) linked to this record.</p>
+      <details class="reproducibility-details"><summary>Original title and reproducibility details</summary>
+        <p><strong>Original title:</strong> <span class="original-title-value">Available after opening this panel.</span></p>
+        <p><strong>Stable source ID:</strong> REF_P1A_UM1_FORMAL_09_YANG2022</p>
+        <p><strong>Verification:</strong> verified; thesis title page; submission date 2022-06-08</p>
+        <p><strong>Extraction method:</strong> digitized_text_value</p>
+        <p><strong>Evidence anchors:</strong> thesis page 42 method section 4.3.5; thesis pages 46-47 section 4.4.4; Figure 4-4</p>
+        <p><strong>Evidence IDs:</strong> EVID_LIT_002479</p>
+      </details>
+      <script>(function(){const details=document.currentScript.previousElementSibling;const value="脂肪酶MAS1酯化产物积累偏好性的分子改造及其应用研究";details.addEventListener('toggle',()=>{if(details.open)details.querySelector('.original-title-value').textContent=value;});}());</script>
     </article>
+    
     
             </div>
             
@@ -87,10 +124,10 @@
       <h2>Structure Viewer</h2>
       
     <div class="content-card structure-viewer-card" id="structure-viewer-lmt-0001">
-      <p><span class="badge confidence-high">Experimental structure</span> <span class="badge">Structure source: RCSB PDB</span> <span class="badge">Sequence available (modelable)</span></p>
+      <p><span class="badge confidence-high">Parent structure</span> <span class="badge">Structure source: RCSB PDB</span> <span class="badge">Sequence available (modelable)</span></p>
       <div
         class="structure-viewer"
-        data-molstar-viewer="ngl-lazy"
+        data-molstar-viewer="molstar-lazy"
         data-structure-kind="experimental_pdb"
         data-structure-url="https://files.rcsb.org/download/5H6B.pdb"
         data-structure-canonical-id="LMT_0001"
@@ -100,20 +137,18 @@
           <button class="button-link" type="button" data-load-structure>Load 3D viewer</button>
           <span class="card-note" data-structure-status>Viewer loads on demand.</span>
         </div>
-        <div class="structure-viewport" data-ngl-viewport role="img" aria-label="3D protein structure viewer"></div>
-        <div class="mutation-hover-tooltip" data-mutation-tooltip hidden></div>
+        <div class="structure-viewport" data-molstar-viewport role="img" aria-label="Mol* 3D protein structure viewer"></div>
       </div>
       
       <div class="structure-legend" aria-label="Structure viewer color legend">
-        <strong>Secondary structure coloring</strong>
-        <span class="structure-swatch helix">Helix</span>
-        <span class="structure-swatch sheet">Sheet</span>
-        <span class="structure-swatch coil">Coil</span>
-        <span class="structure-swatch mutation">Mutant residues highlighted in orange</span>
+        <strong>Mol* structure view</strong>
+        <span class="structure-swatch helix">Polymer cartoon</span>
+        <span class="structure-swatch sheet">Interactive selection</span>
+        <span class="structure-swatch mutation">Mapped mutation sites selected in Mol*</span>
       </div>
     
       <div class="mutation-context"><p><span class="badge v2">Mutation mapped onto parent WT scaffold, not an experimental mutant structure.</span></p><ul class="mutation-site-list"><li title="Residue 40: Gly→Asp">Gly40→Asp<span class="card-note">UM-1 5H6B self-mapping confirmed</span></li><li title="Residue 237: Thr→Arg">Thr237→Arg<span class="card-note">UM-1 5H6B self-mapping confirmed</span></li></ul></div>
-      <div class="table-wrap"><table><thead><tr><th>Item <span class="info-tip" tabindex="0" data-tooltip="Short label for this detail row." aria-label="Short label for this detail row.">ⓘ</span></th><th>Details <span class="info-tip" tabindex="0" data-tooltip="Reader-facing value for this detail row." aria-label="Reader-facing value for this detail row.">ⓘ</span></th></tr></thead><tbody><tr><td>Model source</td><td>RCSB PDB</td></tr><tr><td>PDB entry</td><td><a href="https://www.rcsb.org/structure/5H6B" target="_blank" rel="noopener noreferrer">RCSB 5H6B</a></td></tr><tr><td>Model version</td><td>RCSB_PDB</td></tr><tr><td>Resolution / confidence</td><td>resolution_Not reported</td></tr><tr><td>Caveat</td><td>Experimental structure linked from exact canonical PDB evidence; visualization only.</td></tr></tbody></table></div>
+      <div class="table-wrap"><table><thead><tr><th>Item <span class="info-tip" tabindex="0" data-tooltip="Short label for this detail row." aria-label="Short label for this detail row.">ⓘ</span></th><th>Details <span class="info-tip" tabindex="0" data-tooltip="Reader-facing value for this detail row." aria-label="Reader-facing value for this detail row.">ⓘ</span></th></tr></thead><tbody><tr><td>Model source</td><td>RCSB PDB</td></tr><tr><td>PDB entry</td><td><a href="https://www.rcsb.org/structure/5H6B" target="_blank" rel="noopener noreferrer">RCSB 5H6B</a></td></tr><tr><td>Model version</td><td>RCSB_PDB</td></tr><tr><td>Resolution / confidence</td><td>resolution_Not reported</td></tr><tr><td>Caveat</td><td>Parent structure used for this engineered construct; mutation sites are highlighted when mapping is available.</td></tr></tbody></table></div>
     </div>
     
     <script>
@@ -124,139 +159,106 @@
       const root = document.getElementById(containerId);
       if (!root) return;
       const button = root.querySelector('[data-load-structure]');
-      const viewport = root.querySelector('[data-ngl-viewport]');
+      const viewport = root.querySelector('[data-molstar-viewport]');
       const status = root.querySelector('[data-structure-status]');
-      const tooltip = root.querySelector('[data-mutation-tooltip]');
-      let nglPromise = null;
-      let lastPointerPosition = null;
-      function loadNgl() {
-        if (window.NGL) return Promise.resolve(window.NGL);
-        if (nglPromise) return nglPromise;
-        nglPromise = new Promise((resolve, reject) => {
+      let molstarPromise = null;
+      function loadMolstar() {
+        if (window.molstar && window.molstar.Viewer) return Promise.resolve(window.molstar);
+        if (molstarPromise) return molstarPromise;
+        molstarPromise = new Promise((resolve, reject) => {
+          if (!document.getElementById('lmt-molstar-css')) {
+            const stylesheet = document.createElement('link');
+            stylesheet.id = 'lmt-molstar-css';
+            stylesheet.rel = 'stylesheet';
+            stylesheet.href = 'https://cdn.jsdelivr.net/npm/molstar@5.4.0/build/viewer/molstar.css';
+            document.head.appendChild(stylesheet);
+          }
           const script = document.createElement('script');
-          script.src = 'https://cdn.jsdelivr.net/npm/ngl@2.0.0-dev.39/dist/ngl.js';
+          script.src = 'https://cdn.jsdelivr.net/npm/molstar@5.4.0/build/viewer/molstar.js';
           script.async = true;
-          script.onload = () => resolve(window.NGL);
-          script.onerror = () => reject(new Error('NGL viewer failed to load'));
+          script.onload = () => resolve(window.molstar);
+          script.onerror = () => reject(new Error('Mol* viewer failed to load'));
           document.head.appendChild(script);
         });
-        return nglPromise;
+        return molstarPromise;
       }
       function setStatus(message) {
         if (status) status.textContent = message;
       }
-      function updatePointerPosition(event) {
-        lastPointerPosition = {
-          clientX: event.clientX,
-          clientY: event.clientY,
-          pageX: event.pageX,
-          pageY: event.pageY
-        };
-      }
-      function finiteNumber(value) {
-        return Number.isFinite(Number(value));
-      }
-      function viewportFallbackPosition() {
-        const box = viewport.getBoundingClientRect();
-        return { x: box.left + box.width / 2, y: box.top + box.height / 2 };
-      }
-      function pointerPosition() {
-        if (lastPointerPosition && finiteNumber(lastPointerPosition.clientX) && finiteNumber(lastPointerPosition.clientY)) {
-          return { x: Number(lastPointerPosition.clientX), y: Number(lastPointerPosition.clientY) };
-        }
-        return null;
-      }
-      function tooltipPosition(pickingProxy) {
-        const pointer = pointerPosition();
-        if (pointer) return pointer;
-        const mouse = pickingProxy && pickingProxy.mouse;
-        if (mouse && finiteNumber(mouse.x) && finiteNumber(mouse.y)) {
-          return { x: Number(mouse.x), y: Number(mouse.y) };
-        }
-        if (window.event && finiteNumber(window.event.clientX) && finiteNumber(window.event.clientY)) {
-          return { x: Number(window.event.clientX), y: Number(window.event.clientY) };
-        }
-        return viewportFallbackPosition();
-      }
-      function showMutationTooltip(hit, pickingProxy) {
-        if (!tooltip || !hit) return;
-        const position = tooltipPosition(pickingProxy);
-        const x = Math.max(12, Math.min(position.x + 14, window.innerWidth - 24));
-        const y = Math.max(12, Math.min(position.y + 14, window.innerHeight - 24));
-        tooltip.textContent = hit.hoverText || ('Residue ' + hit.residueNumber);
-        tooltip.style.left = x + 'px';
-        tooltip.style.top = y + 'px';
-        tooltip.style.display = 'block';
-        tooltip.hidden = false;
-        tooltip.classList.add('is-visible');
-      }
-      function hideMutationTooltip() {
-        if (!tooltip) return;
-        tooltip.hidden = true;
-        tooltip.style.display = 'none';
-        tooltip.classList.remove('is-visible');
-      }
       if (button && viewport) {
-        viewport.addEventListener('pointermove', updatePointerPosition, false);
-        viewport.addEventListener('mouseleave', () => {
-          hideMutationTooltip();
-        }, false);
         button.addEventListener('click', () => {
           button.disabled = true;
-          setStatus('Loading 3D viewer...');
-          loadNgl()
-            .then(() => {
-              const stage = new window.NGL.Stage(viewport, { tooltip: false });
-              window.addEventListener('resize', () => stage.handleResize(), false);
-              return stage.loadFile(modelUrl).then((component) => {
-                const helixColor = 0x6fa8b7;
-                const sheetColor = 0x8abf9a;
-                const coilColor = 0xb8c2cc;
-                const mutationOrange = '#ff7a00';
-                const secondaryStructureScheme = window.NGL.ColormakerRegistry.addScheme(function() {
-                  this.atomColor = function(atom) {
-                    const secondary = String(atom.sstruc || '').toLowerCase();
-                    if (secondary.includes('h')) return helixColor;
-                    if (secondary.includes('e') || secondary.includes('s')) return sheetColor;
-                    return coilColor;
-                  };
-                }, 'LMT secondary structure');
-                component.addRepresentation('cartoon', {
-                  color: secondaryStructureScheme,
-                  opacity: 0.94,
-                  aspectRatio: 4,
-                  radius: 0.22,
-                  smoothSheet: true
-                });
-                if (mutationSites.length) {
-                  const selection = mutationSites.map((site) => String(site.selection || site.residueNumber)).join(' or ');
-                  component.addRepresentation('ball+stick', {
-                    sele: '(' + selection + ') and protein',
-                    color: mutationOrange,
-                    radiusScale: 2.1,
-                    aspectRatio: 1.6,
-                    multipleBond: true
-                  });
-                  stage.signals.hovered.add((pickingProxy) => {
-                    const atom = pickingProxy && pickingProxy.atom;
-                    const hit = atom
-                      ? mutationSites.find((site) => Number(site.residueNumber) === Number(atom.resno))
-                      : null;
-                    if (hit) {
-                      showMutationTooltip(hit, pickingProxy);
-                    } else {
-                      hideMutationTooltip();
+          setStatus('Loading Mol* 3D viewer...');
+          loadMolstar()
+            .then((molstar) => molstar.Viewer.create(viewport, {
+              layoutIsExpanded: false,
+              layoutShowControls: false,
+              layoutShowSequence: false,
+              layoutShowLog: false,
+              viewportShowExpand: false,
+              viewportShowSelectionMode: false,
+              viewportShowAnimation: false,
+              viewportBackgroundColor: '#eef3f6'
+            }))
+            .then((viewer) => {
+              const format = /\.pdb(?:$|\?)/i.test(modelUrl) ? 'pdb' : 'mmcif';
+              const mutationComponents = mutationSites
+                .map((site) => Number(site.residueNumber))
+                .filter((residueNumber) => Number.isFinite(residueNumber))
+                .map((residueNumber) => ({
+                  kind: 'component',
+                  params: { selector: { auth_seq_id: residueNumber } },
+                  children: [
+                    {
+                      kind: 'representation',
+                      params: { type: 'ball_and_stick' },
+                      children: [{ kind: 'color', params: { color: '#ff7a00' } }]
                     }
-                  });
+                  ]
+                }));
+              const mvsState = {
+                metadata: { title: 'LMT-Atlas structure view', version: '1', timestamp: new Date().toISOString() },
+                root: {
+                  kind: 'root',
+                  children: [
+                    {
+                      kind: 'download',
+                      params: { url: modelUrl },
+                      children: [{
+                        kind: 'parse',
+                        params: { format },
+                        children: [{
+                          kind: 'structure',
+                          params: { type: 'model' },
+                          children: [
+                            {
+                              kind: 'component',
+                              params: { selector: 'polymer' },
+                              children: [{
+                                kind: 'representation',
+                                params: { type: 'cartoon' },
+                                children: [{ kind: 'color', params: { color: '#6fa8b7' } }]
+                              }]
+                            },
+                            ...mutationComponents
+                          ]
+                        }]
+                      }]
+                    },
+                    { kind: 'canvas', params: { background_color: '#eef3f6' } }
+                  ]
                 }
-                component.autoView();
-                setStatus('3D viewer loaded.');
-              });
+              };
+              return viewer.loadMvsData(JSON.stringify(mvsState), 'mvsj').then(() => viewer);
+            })
+            .then((viewer) => {
+              root.dataset.mutationAnnotationCount = String(mutationSites.length);
+              window.addEventListener('resize', () => viewer.handleResize(), false);
+              setStatus(`Mol* 3D viewer loaded; ${mutationSites.length} mapped mutation site(s) annotated.`);
             })
             .catch((error) => {
               button.disabled = false;
-              hideMutationTooltip();
-              setStatus(error && error.message ? error.message : '3D viewer failed to load.');
+              setStatus(error && error.message ? error.message : 'Mol* 3D viewer failed to load.');
             });
         });
       }
@@ -273,15 +275,15 @@
       <p class="card-note">Exports this construct's measurement-level rows; identical to the matching rows in the full measurement.csv bundle.</p>
     </div>
     <script>
-    window.LMT_ENTRY_ROWS = [{"canonical_enzyme_id": "LMT_0627", "construct_display_name": "UM-1 G40D/T237R mutant", "source_type": "literature", "doi_or_patent_number": "", "methanol_conc_percent": "60", "incubation_time_h": "24", "incubation_temp_C": "4", "activity_assay_method": "titrimetric olive-oil hydrolysis residual activity assay after solvent preincubation", "assay_substrate": "olive oil emulsion", "residual_activity_percent": "99.84", "LTS_ref": "-0.111", "LTS_ref_ci_low": "-2.062", "LTS_ref_ci_high": "1.776", "confidence_LTS": "0.046", "confidence_LTS_adjusted": "", "enzyme_form": "free", "fit_status": "partial_pooled_low_n", "evidence_confidence_tier": "downweighted_train", "provenance_anchor": "thesis page 42 method section 4.3.5; thesis pages 46-47 section 4.4.4; Figure 4-4"}];
+    window.LMT_ENTRY_ROWS = [{"canonical_enzyme_id": "LMT_0627", "construct_display_name": "UM-1 G40D/T237R mutant", "source_type": "literature", "doi_or_patent_number": "REF_P1A_UM1_FORMAL_09_YANG2022", "methanol_conc_percent": "60", "incubation_time_h": "24", "incubation_temp_C": "4", "activity_assay_method": "titrimetric olive-oil hydrolysis residual activity assay after solvent preincubation", "assay_substrate": "olive oil emulsion", "residual_activity_percent": "99.84", "LTS_ref": "", "LTS_ref_ci_low": "", "LTS_ref_ci_high": "", "enzyme_form": "free", "fit_status": "", "evidence_confidence_tier": "downweighted_train", "provenance_anchor": "thesis page 42 method section 4.3.5; thesis pages 46-47 section 4.4.4; Figure 4-4"}];
     (function() {
-      const columns = ["canonical_enzyme_id", "construct_display_name", "source_type", "doi_or_patent_number", "methanol_conc_percent", "incubation_time_h", "incubation_temp_C", "activity_assay_method", "assay_substrate", "residual_activity_percent", "LTS_ref", "LTS_ref_ci_low", "LTS_ref_ci_high", "confidence_LTS", "confidence_LTS_adjusted", "enzyme_form", "fit_status", "evidence_confidence_tier", "provenance_anchor"];
+      const columns = ["canonical_enzyme_id", "construct_display_name", "source_type", "doi_or_patent_number", "methanol_conc_percent", "incubation_time_h", "incubation_temp_C", "activity_assay_method", "assay_substrate", "residual_activity_percent", "LTS_ref", "LTS_ref_ci_low", "LTS_ref_ci_high", "enzyme_form", "fit_status", "evidence_confidence_tier", "provenance_anchor"];
       const canonicalId = "LMT_0627";
       const filename = "lmt_atlas_LMT_0627.csv";
       const rows = window.LMT_ENTRY_ROWS || [];
       const button = document.getElementById('download-entry-csv');
       function csvEscape(value) {
-        const text = String(value || '');
+        const text = String(value ?? '');
         if (/[",\n]/.test(text)) return '"' + text.replace(/"/g, '""') + '"';
         return text;
       }
@@ -328,12 +330,17 @@
       <a href="../glossary.html">Glossary</a>
       <a href="../downloads.html">Downloads</a>
       <a href="../about.html">Suggested citation and license</a>
+      <a href="../known_limitations.html">Known limitations</a>
+      <a href="../related_databases.html">Related databases</a>
       <a href="../contribute.html">Contribute / Report error</a>
-      <span>Web v2.1 · data v2.0 · released 2026-06-25</span>
+      <span>Web v3.0 · data v3.0 · built 2026-10-04</span>
       <span>Contact: Lvyziyer1@163.com</span>
     </footer>
     
     
   </div>
+<!-- WEBR8PUB1 publication links start -->
+<aside class="publication-links" aria-label="Publication identifiers">Public site: <a href="https://lvyziyer1-ui.github.io/lmt-atlas/">https://lvyziyer1-ui.github.io/lmt-atlas/</a> · Version DOI: <a href="https://doi.org/10.5281/zenodo.23219799">10.5281/zenodo.23219799</a></aside>
+<!-- WEBR8PUB1 publication links end -->
 </body>
 </html>

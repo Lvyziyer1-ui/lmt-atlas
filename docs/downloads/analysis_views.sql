@@ -1,0 +1,16 @@
+DROP VIEW IF EXISTS rank_eligible_public_mts;
+CREATE VIEW rank_eligible_public_mts AS SELECT * FROM public_mts_governance WHERE upper(rank_eligible)='TRUE';
+DROP VIEW IF EXISTS condition_response_series;
+CREATE VIEW condition_response_series AS SELECT * FROM condition_response_features;
+DROP VIEW IF EXISTS incomparable_missing_reason_summary;
+CREATE VIEW incomparable_missing_reason_summary AS SELECT coalesce(nullif(missing_state,''),'complete_or_no_missing_state') AS missing_reason, protocol_type, count(*) AS measurement_count FROM reporting_completeness GROUP BY 1,2;
+DROP VIEW IF EXISTS provenance_reporting_completeness;
+CREATE VIEW provenance_reporting_completeness AS SELECT * FROM reporting_completeness;
+DROP VIEW IF EXISTS strict_public_measurements;
+CREATE VIEW strict_public_measurements AS SELECT e.*, c.strict_condition_contract_key, c.exact_measurement_context_key, c.comparability_exclusion_reason FROM evidence_measurement e JOIN measurement_comparability c ON e.evidence_id=c.measurement_id WHERE c.strict_public_comparable='yes';
+DROP VIEW IF EXISTS exact_measurement_context;
+CREATE VIEW exact_measurement_context AS SELECT e.*, c.strict_condition_contract_key, c.exact_measurement_context_key, c.strict_public_comparable, c.limited_scope FROM evidence_measurement e JOIN measurement_comparability c ON e.evidence_id=c.measurement_id WHERE c.exact_measurement_context_key<>'';
+DROP VIEW IF EXISTS same_source_parent_mutant_candidates;
+CREATE VIEW same_source_parent_mutant_candidates AS SELECT DISTINCT child.canonical_enzyme_id AS child_id, child.parent_canonical_id AS parent_id, child_measurement.source_key FROM variant_summary child JOIN evidence_measurement child_measurement ON child_measurement.canonical_enzyme_id=child.canonical_enzyme_id JOIN evidence_measurement parent_measurement ON parent_measurement.canonical_enzyme_id=child.parent_canonical_id AND parent_measurement.source_key=child_measurement.source_key WHERE coalesce(child.parent_canonical_id,'')<>'';
+DROP VIEW IF EXISTS same_source_same_strict_contract_candidates;
+CREATE VIEW same_source_same_strict_contract_candidates AS SELECT DISTINCT p.child_id,p.parent_id,p.source_key,child_contract.strict_condition_contract_key FROM same_source_parent_mutant_candidates p JOIN measurement_comparability child_contract ON child_contract.canonical_enzyme_id=p.child_id AND child_contract.source_key=p.source_key AND child_contract.strict_public_comparable='yes' JOIN measurement_comparability parent_contract ON parent_contract.canonical_enzyme_id=p.parent_id AND parent_contract.source_key=p.source_key AND parent_contract.strict_condition_contract_key=child_contract.strict_condition_contract_key AND parent_contract.strict_public_comparable='yes' WHERE child_contract.strict_condition_contract_key<>'';

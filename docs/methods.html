@@ -4,33 +4,40 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>LMT-Atlas Documentation</title>
+  <link rel="icon" href="./static/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./static/styles.css">
+<!-- WEBR8PUB1 publication metadata start -->
+<meta name="citation_doi" content="10.5281/zenodo.23219799">
+<meta name="lmt-atlas-site-url" content="https://lvyziyer1-ui.github.io/lmt-atlas/">
+<meta name="lmt-atlas-zenodo-record" content="https://zenodo.org/records/23219799">
+<!-- WEBR8PUB1 publication metadata end -->
 </head>
 <body>
-  <nav class="site-nav" aria-label="Primary navigation"><a href="index.html">Home</a><a href="search.html">Search</a><a href="organisms.html">Browse by Organism</a><a href="research.html">Research / Methods</a><a href="downloads.html">Downloads</a><a href="methods.html" aria-current='page'>Documentation</a><a href="about.html">About</a><a href="glossary.html">Glossary</a><a href="contribute.html">Contribute</a><a href="known_limitations.html">Known Limitations</a></nav>
+  <nav class="site-nav" aria-label="Primary navigation"><a href="index.html">Home</a><a href="organisms.html">Browse</a><a href="search.html">Search</a><a href="statistics.html">Statistics</a><a href="downloads.html">Downloads</a><a href="methods.html" aria-current='page'>Documentation</a></nav>
   <div class="shell">
     
     <header class="hero">
       <div>
         <p class="eyebrow">LMT-Atlas</p>
         <h1>Documentation</h1>
-        <p class="lede">Methods, definitions, and practical guidance for using the LMT-Atlas v2.0 static release without rewriting source evidence tables.</p>
+        <p class="lede">Methods, definitions, and practical guidance for using the LMT-Atlas v3.0 static release without rewriting source evidence tables.</p>
       </div></header>
     <section class="section">
       <h2>How To Use This Database</h2>
       <div class="content-card">
         <ul class="flat-list">
-          <li>Use Search for enzyme names, species, UniProt, PDB, DOI, patent numbers, and exact provenance IDs.</li>
+          <li>Use Search for enzyme names, species, UniProt, PDB, NCBI protein, GenBank, RefSeq, DOI, patent numbers, and exact provenance IDs.</li>
           <li>Use Search to filter the full canonical enzyme/construct identity index.</li>
+          <li>Use <a href="statistics.html">Statistics</a> for current display-layer distributions and <a href="related_databases.html">Related databases</a> for cross-resource identifier mapping.</li>
           <li>Read the methanol-tolerance score, 95% interval, confidence, and fit status as the primary tolerance summary.</li>
-          <li>Read the public tolerance badge as a coarse reader summary: More tolerant 37, Less tolerant 38, Uncertain 365.</li>
+          <li>Read the public display tier as a coarse reader summary: Evidence-rich support 126, Moderate evidence support 104, Sparse evidence support 201, Evidence absent 180.</li>
           <li>Additional archive labels remain available only in downloads; they are not used for headlines or Search filtering.</li>
           <li>Use the Assay Evidence Matrix on linked entries to inspect methanol concentration, incubation time, residual activity, and protocol grouping.</li>
           <li>Because assay conditions are heterogeneous, filter by temperature, method, concentration, and time before comparing entries. Raw residual activity across conditions is not directly comparable.</li>
           <li>Separate literature evidence, patent evidence, and process-confounded evidence when interpreting the source mix.</li>
           <li>Download full tables or use the Export Wizard on Search to export the current filtered subset as continuous-score rows or conservative tiered labels.</li>
         </ul>
-        <p>Legacy representative enzyme page index: <a href="enzyme_pages/index.html">enzyme_pages/index.html</a>.</p>
+        <p>All public records now resolve to canonical construct entry pages.</p>
       </div>
     </section>
     <section class="section">
@@ -47,12 +54,11 @@
     </section>
     <section class="section">
       <h2>Official Score Display</h2>
-      <div class="release-banner" role="note"><strong>Continuous methanol tolerance score primary.</strong> Public pages use the frozen methanol-tolerance score (internal field LTS_ref) with an uncertainty range and a confidence badge as the main tolerance summary. Lower number = more methanol tolerant. Internal archive fields remain available in CSV and SQLite downloads for reproducibility.</div>
-        <p>The web headline uses frozen score, interval, confidence, and fit-status fields. The discrete Search view uses the public More tolerant / Uncertain / Less tolerant badge.</p>
-      <p>The public badge is a coarse confidence tier with More tolerant / Less tolerant / Uncertain counts of 37 / 38 / 365. It complements the continuous score and should not be read as an absolute interval classification.</p>
+      <div class="release-banner" role="note"><strong>MTS is the public tolerance metric.</strong> Public pages use the frozen Methanol Tolerance Score (MTS) with an uncertainty range and a confidence badge as the main tolerance summary. Lower number = more methanol tolerant. Internal archive fields remain available in CSV and SQLite downloads for reproducibility.</div>
+      <div class="headline-explainers" aria-label="How to compare entries"><p>This score is a calculated value, not a single experimental readout.</p><p>Measurements collected at different methanol concentrations, exposure times, and temperatures are normalized to the fixed reference conditions before scores are compared.</p><p>Reference conditions: 50% methanol / about 2 h / 25 °C</p><p>Lower number = more methanol tolerant.</p><p>Every score is shown with an uncertainty range and an observation-support tier; a lower support tier means less evidence, not lower methanol tolerance.</p><p>The public display tier is a reader summary with Evidence-rich support 126, Moderate evidence support 104, Sparse evidence support 201, Evidence absent 180.</p><p>Evidence-rich support means relatively many reliable observations.</p><p>Moderate evidence support means several reliable observations.</p><p>Sparse evidence support means only a few reliable observations.</p><p>Evidence absent means the row is visible but lacks reliable methanol observations.</p></div>
       <ul class="flat-list">
-        <li><strong>Public badge</strong>: reader-facing confidence tier used for headline counts, Search filters, and table scanning.</li>
-        <li><strong>Archive labels</strong>: retained in downloads/SQLite for audit; many rows are unclear because confidence is low, the activity baseline is unreliable, sensitivity is unstable, or support is otherwise insufficient.</li>
+        <li><strong>Display tier</strong>: reader-facing support tier used for headline counts, Search filters, and table scanning.</li>
+        <li><strong>Archive labels</strong>: retained in downloads/SQLite for audit; many rows have wide intervals or low support because the measurement set is sparse, heterogeneous, or sensitivity-dependent.</li>
       </ul>
     </section>
     <section class="section">
@@ -80,25 +86,30 @@
     </section>
     <section class="section">
       <h2>Reviewer checklist</h2>
-      <p>Release review checks cover representative page closure status, source-table immutability for derived pages, protocol-level disposition completeness, and integrity validation of the atlas source tables after each rebuild.</p>
+      <p>Release review checks cover canonical entry closure, public-governance consistency, protocol-level disposition completeness, and integrity validation of the atlas source tables after each rebuild.</p>
     </section>
     <section class="section">
       <h2>Release Boundaries</h2>
-      <p>This release uses five manually reviewed representative enzyme pages: CALB, TLL, RML, BCL, and UM-1. The rest of the atlas is available at construct-level through the variant summary, evidence table, and downloads, but does not yet have hand-curated enzyme-species narrative pages.</p>
+      <p>This release uses one canonical construct-entry route for the full object set. Historical benchmark pages remain archival inputs and are not published.</p>
       <p>Evidence strength is expressed uniformly through confidence, uncertainty ranges, and fit status instead of entry-specific warning text.</p>
     </section>
     
-    <footer class="site-footer">
+    <section class="section strict-boundary-note"><h2>Strict comparison boundary</h2><p>Strict comparability is limited to released measurements that satisfy the strict condition contract and exact measurement context. Heterogeneous observations remain available with explicit warning and manual_review states.</p></section><footer class="site-footer">
       <a href="documentation.html">Documentation</a>
       <a href="glossary.html">Glossary</a>
       <a href="downloads.html">Downloads</a>
       <a href="about.html">Suggested citation and license</a>
+      <a href="known_limitations.html">Known limitations</a>
+      <a href="related_databases.html">Related databases</a>
       <a href="contribute.html">Contribute / Report error</a>
-      <span>Web v2.1 · data v2.0 · released 2026-06-25</span>
+      <span>Web v3.0 · data v3.0 · built 2026-10-04</span>
       <span>Contact: Lvyziyer1@163.com</span>
     </footer>
     
     
   </div>
+<!-- WEBR8PUB1 publication links start -->
+<aside class="publication-links" aria-label="Publication identifiers">Public site: <a href="https://lvyziyer1-ui.github.io/lmt-atlas/">https://lvyziyer1-ui.github.io/lmt-atlas/</a> · Version DOI: <a href="https://doi.org/10.5281/zenodo.23219799">10.5281/zenodo.23219799</a></aside>
+<!-- WEBR8PUB1 publication links end -->
 </body>
 </html>
