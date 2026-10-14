@@ -1,6 +1,6 @@
 {
-  "title": "LMT-Atlas v3.0",
-  "description": "Static LMT-Atlas release with a downloadable SQLite database, CSV tables, browser-side Datasette Lite access, and a local Datasette fallback.",
+  "title": "MeTLA v3.0",
+  "description": "Static MeTLA release with a downloadable SQLite database, CSV tables, browser-side Datasette Lite access, and a local Datasette fallback.",
   "license": "Data: CC-BY-4.0; code: MIT",
   "tables": {
     "homepage_stats": {
@@ -64,7 +64,7 @@
   },
   "databases": {
     "lmt_atlas": {
-      "title": "LMT-Atlas",
+      "title": "MeTLA",
       "description": "Static v3.0 database bundle built 2026-10-04.",
       "queries": {
         "homepage_stats": {
@@ -130,9 +130,9 @@
   },
   "publication": {
     "site_url": "https://lvyziyer1-ui.github.io/lmt-atlas/",
-    "version_doi": "10.5281/zenodo.23219799",
-    "doi_url": "https://doi.org/10.5281/zenodo.23219799",
-    "zenodo_record_url": "https://zenodo.org/records/23219799",
+    "version_doi": "10.5281/zenodo.23353309",
+    "doi_url": "https://doi.org/10.5281/zenodo.23353309",
+    "zenodo_record_url": "https://zenodo.org/records/23353309",
     "data_version": "v3.0"
   }
 }

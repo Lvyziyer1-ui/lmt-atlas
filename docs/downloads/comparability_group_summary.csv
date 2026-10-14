@@ -4,7 +4,7 @@ SCG_02171d7e22f10870a372,4,4,2,1,0,50|60,unknown,yes,mixed_or_limited,"counts re
 SCG_02d9c347e8ba6cc16dd3,1,1,1,1,1,30,v/v,yes,all,"counts report measurements, protocols, constructs, and sources separately; none are assumed independent"
 SCG_0460889e5f8c9402fa87,9,1,1,1,9,10|20|30|40|50|60|70|80|90,v/v,yes,all,"counts report measurements, protocols, constructs, and sources separately; none are assumed independent"
 SCG_053716d16707ea175a46,6,6,6,1,0,50,unknown,yes,mixed_or_limited,"counts report measurements, protocols, constructs, and sources separately; none are assumed independent"
-SCG_0a2ed6bf00c33e4cde27,10,10,9,2,10,50|60,v/v,yes,all,"counts report measurements, protocols, constructs, and sources separately; none are assumed independent"
+SCG_0a2ed6bf00c33e4cde27,10,10,9,2,10,30|50,v/v,yes,all,"counts report measurements, protocols, constructs, and sources separately; none are assumed independent"
 SCG_0a90fd64404c49c322e0,4,2,2,1,4,1|10,v/v,yes,all,"counts report measurements, protocols, constructs, and sources separately; none are assumed independent"
 SCG_0e1248f30f430b7534c7,2,1,1,1,2,25|50,v/v,yes,all,"counts report measurements, protocols, constructs, and sources separately; none are assumed independent"
 SCG_0f26980e1ced96697812,1,1,1,1,0,70,unknown,yes,mixed_or_limited,"counts report measurements, protocols, constructs, and sources separately; none are assumed independent"

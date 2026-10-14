@@ -518,6 +518,8 @@ code {
 }
 .badge.tier, .badge.confidence {
   min-width: 88px;
+  width: max-content;
+  max-width: 100%;
   text-align: center;
   font-weight: 700;
 }
