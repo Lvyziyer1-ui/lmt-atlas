@@ -925,26 +925,39 @@
         if (sortDirection === 'desc') cmp = -cmp;
         return cmp || (sortValue(a, 'LTS_ref') - sortValue(b, 'LTS_ref')) || a.canonical_enzyme_id.localeCompare(b.canonical_enzyme_id);
       }
+      // A125-BUGFIX (2026-10-15): this summary echoed raw <select> values, so an
+      // Advanced filter printed the internal code ("LTS role = main_candidate").
+      // Map codes to the same labels the dropdown shows.
+      const READINESS_LABELS = {"structure_ready": "Experimental structure available", "sequence_ready": "Sequence available (modelable)", "not_ready": "No usable sequence yet", "needs_review": "Identity under review", "phenotype_ready": "Phenotype supported (no sequence)", "needs_manual_check": "Structure readiness not assessed", "queued": "Queued for structure modelling", "ready": "Ready for structure modelling", "parent_scaffold_only": "Parent scaffold only (no own sequence)"};
+      const PROTOCOL_LABELS = {"one_shot_exposure": "One-shot exposure", "preincubation": "Preincubation", "in_assay_challenge": "In-assay challenge", "stepwise_addition": "Stepwise addition", "other_reported_protocol": "Other reported protocol", "unresolved_protocol": "Protocol unresolved"};
+      const MODEL_ROLE_LABELS = {"main_candidate": "Used in primary score model", "downweighted_candidate": "Limited model use", "holdout_or_sensitivity": "Not used for score fitting", "no_current_lts_role": "No current score-model role"};
+      const SOURCE_DISPLAY_LABELS = {"literature": "Literature", "patent": "Patent", "literature+patent": "Literature + patent", "no linked evidence": "No linked evidence", "no_measurements": "No measurements"};
+      function filterLabel(value, labelMap) {
+        return (labelMap && labelMap[value]) || String(value);
+      }
       function renderActiveFilters() {
         const active = [];
         if (input.value.trim()) active.push('search = "' + input.value.trim() + '"');
         if (filters.species.value) active.push('species = ' + filters.species.value);
-        if (filters.sourceType.value) active.push('source type = ' + filters.sourceType.value);
+        if (filters.sourceType.value) active.push('source type = ' + filterLabel(filters.sourceType.value, SOURCE_DISPLAY_LABELS));
         if (filters.displayTier.value) active.push('display support = ' + tierLabel(filters.displayTier.value));
-        if (filters.structureReadiness.value) active.push('structure readiness = ' + filters.structureReadiness.value);
-        if (filters.ltsRole.value) active.push('LTS role = ' + filters.ltsRole.value);
+        if (filters.structureReadiness.value) active.push('structure readiness = ' + filterLabel(filters.structureReadiness.value, READINESS_LABELS));
+        if (filters.ltsRole.value) active.push('score-model use = ' + filterLabel(filters.ltsRole.value, MODEL_ROLE_LABELS));
         const excludedLtsRoles = selectedValues(filters.excludedLtsRoles);
-        if (excludedLtsRoles.size) active.push('excluded LTS roles = ' + Array.from(excludedLtsRoles).join('|'));
+        if (excludedLtsRoles.size) active.push('excluded score-model roles = ' + Array.from(excludedLtsRoles).map((value) => filterLabel(value, MODEL_ROLE_LABELS)).join(', '));
         if (filters.evidenceLinked.value === 'yes') active.push('construct-level LTS = yes');
         if (filters.minMethanol.value !== '') active.push('methanol min = ' + filters.minMethanol.value);
         if (filters.maxMethanol.value !== '') active.push('methanol max = ' + filters.maxMethanol.value);
         if (filters.minTime.value !== '') active.push('time min = ' + filters.minTime.value);
         if (filters.maxTime.value !== '') active.push('time max = ' + filters.maxTime.value);
         if (filters.temp.value.trim()) active.push('temperature contains = ' + filters.temp.value.trim());
-        if (filters.protocolType.value) active.push('protocol = ' + filters.protocolType.value);
+        if (filters.protocolType.value) active.push('protocol = ' + filterLabel(filters.protocolType.value, PROTOCOL_LABELS));
         if (filters.completenessMin.value !== '') active.push('completeness min = ' + filters.completenessMin.value);
         const excludedGroups = selectedValues(filters.excludedSourceGroups);
-        if (excludedGroups.size) active.push('excluded source groups = ' + Array.from(excludedGroups).join('|'));
+        if (excludedGroups.size) {
+          const groupLabels = Object.fromEntries(window.LMT_SEARCH_SOURCE_GROUPS.map((row) => [row.source_group_id, row.source_group_label]));
+          active.push('excluded source groups = ' + Array.from(excludedGroups).map((value) => filterLabel(value, groupLabels)).join(', '));
+        }
         if (active.length) {
           activeFilterText.textContent = active.join('; ');
           activeFilterSummary.hidden = false;
