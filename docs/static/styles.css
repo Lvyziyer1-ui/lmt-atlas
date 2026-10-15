@@ -1242,4 +1242,20 @@ tbody tr:nth-child(even) td { background: #fbfcfd; }
   .filter-actions > *, .hero-actions > * { flex: 1 1 auto; text-align: center; }
   .table-wrap, .table-scroll, .measurements-scroll { max-width: 100%; }
 }
+
+/* Enzyme hierarchy styles for search results */
+.role-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  margin-left: 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  vertical-align: middle;
+}
+.role-wt { background: #e2f3f9; color: #0b84b3; }
+.role-wt-form { background: #dff2f0; color: #0b6f75; }
+.role-variant { background: #f3e8d5; color: #c98200; }
+.role-modified { background: #f3e0dd; color: #cf5b4d; }
+.hierarchical-child td:first-child { padding-left: 24px; }
     

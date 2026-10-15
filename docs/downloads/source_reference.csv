@@ -1,5 +1,4 @@
 source_key,source_type,doi,patent_publication_number,patent_family_id,source_url,publication_year,publication_year_extracted,publication_year_verified,author_display,title_en,title_original,source_kind,institution_or_journal,journal_or_assignee,citation_short,verification_anchor,display_status,evidence_row_count,protocol_unit_count,variant_count,representative_pages
-10.1002/bab.1338,literature,10.1002/bab.1338,,,,2015,2015,2015,,,,literature,Biotechnology and Applied Biochemistry,Biotechnology and Applied Biochemistry,(2015),,identifier_only,1,1,1,
 10.1002/bab.1381,literature,10.1002/bab.1381,,,,2016,2016,2016,,,,literature,Biotechnology and Applied Biochemistry,Biotechnology and Applied Biochemistry,(2016),,identifier_only,2,1,1,
 10.1002/biot.201500305,literature,10.1002/biot.201500305,,,,2016,2016,2016,,,,literature,Biotechnology Journal,Biotechnology Journal,(2016),,identifier_only,2,1,1,
 10.1002/cctc.201901369,literature,10.1002/cctc.201901369,,,,2020,2020,2020,,,,literature,ChemCatChem,ChemCatChem,(2020),,identifier_only,42,14,14,
