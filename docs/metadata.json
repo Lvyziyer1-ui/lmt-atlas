@@ -1,11 +1,11 @@
 {
-  "title": "MeTLA v3.0",
+  "title": "MeTLA v3.1",
   "description": "Static MeTLA release with a downloadable SQLite database, CSV tables, browser-side Datasette Lite access, and a local Datasette fallback.",
   "license": "Data: CC-BY-4.0; code: MIT",
   "tables": {
     "homepage_stats": {
       "title": "Homepage Stats",
-      "description": "Top-level counts for the v3.0 static release homepage."
+      "description": "Top-level counts for the v3.1 static release homepage."
     },
     "variant_summary": {
       "title": "Variant Summary",
@@ -65,7 +65,7 @@
   "databases": {
     "lmt_atlas": {
       "title": "MeTLA",
-      "description": "Static v3.0 database bundle built 2026-10-04.",
+      "description": "Static v3.1 database bundle built 2026-10-15.",
       "queries": {
         "homepage_stats": {
           "title": "Homepage Stats",
@@ -107,7 +107,7 @@
       "tables": {
         "homepage_stats": {
           "title": "Homepage Stats",
-          "description": "Top-level counts for the v3.0 static release homepage."
+          "description": "Top-level counts for the v3.1 static release homepage."
         },
         "variant_summary": {
           "title": "Variant Summary",
@@ -130,9 +130,9 @@
   },
   "publication": {
     "site_url": "https://lvyziyer1-ui.github.io/lmt-atlas/",
-    "version_doi": "10.5281/zenodo.23353309",
-    "doi_url": "https://doi.org/10.5281/zenodo.23353309",
-    "zenodo_record_url": "https://zenodo.org/records/23353309",
-    "data_version": "v3.0"
+    "version_doi": "10.5281/zenodo.23391229",
+    "doi_url": "https://doi.org/10.5281/zenodo.23391229",
+    "zenodo_record_url": "https://zenodo.org/records/23391229",
+    "data_version": "v3.1"
   }
 }
