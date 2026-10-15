@@ -527,6 +527,11 @@ code {
 .badge.tier-less { color: #7b3028; border-color: #d69b91; background: #fff0ee; }
 .badge.tier-uncertain { color: var(--warning); border-color: #d6aa58; background: #fff7df; }
 .badge.tier-no-data { color: #5b6870; border-color: #b8c3ca; background: #f1f4f6; }
+/* WEBBUGFIX (2026-10-14): rank-stability badge, distinct from evidence-support tier. */
+.badge.rank-tolerant { color: #07545b; border-color: #6aa88f; background: #e2f4ea; }
+.badge.rank-fragile { color: #7b3028; border-color: #d69b91; background: #fff0ee; }
+.badge.rank-mid { color: #5b6870; border-color: #b8c3ca; background: #f1f4f6; }
+.badge.rank-unassessed { color: #6b7280; border-color: #d1d5db; background: #f9fafb; }
 .badge.confidence-high { color: var(--accent); border-color: #8ec6ae; background: #edf8f2; }
 .badge.confidence-medium { color: var(--warning); border-color: #d6aa58; background: #fff7df; }
 .badge.confidence-low { color: var(--danger); border-color: #d69b91; background: #fff0ee; }
