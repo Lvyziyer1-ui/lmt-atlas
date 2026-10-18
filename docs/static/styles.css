@@ -536,9 +536,18 @@ code {
 .badge.confidence-medium { color: var(--warning); border-color: #d6aa58; background: #fff7df; }
 .badge.confidence-low { color: var(--danger); border-color: #d69b91; background: #fff0ee; }
 .badge.v2 { color: var(--warning); border-color: #d6aa58; background: #fff7df; }
+/* WEBTIPFIX (2026-10-18): the tooltip anchor and the round info glyph are two
+   separate classes now. .has-tip only anchors the tooltip, so a badge that
+   carries one keeps its pill geometry; .info-tip adds the 1rem circle and is
+   for the bare glyph alone. Before the split, `badge ... info-tip` labels were
+   forced into a 16px circle and their text spilled over neighbouring rows. */
+.has-tip,
 .info-tip {
   position: relative;
   z-index: 20;
+  cursor: help;
+}
+.info-tip {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -548,10 +557,11 @@ code {
   border-radius: 50%;
   color: var(--brand);
   font-size: 0.78rem;
-  cursor: help;
 }
 .info-tip:hover::after,
-.info-tip:focus::after {
+.info-tip:focus::after,
+.has-tip:hover::after,
+.has-tip:focus::after {
   content: attr(data-tooltip);
   position: absolute;
   z-index: 1000;
@@ -573,7 +583,9 @@ code {
   box-shadow: var(--shadow);
 }
 .info-tip:hover::before,
-.info-tip:focus::before {
+.info-tip:focus::before,
+.has-tip:hover::before,
+.has-tip:focus::before {
   content: "";
   position: absolute;
   left: 50%;

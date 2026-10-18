@@ -898,13 +898,13 @@
       }
       function rankTierBadgeHtml(value) {
         const tip = "Rank-stability verdict: whether the construct stays in the tolerant top decile (or fragile bottom decile) across every rule-downweight sensitivity set and the MCMC cross-check. Independent of how much evidence backs the score.";
-        return `<span class="badge rank ${escapeHtml(rankTierClass(value))}" tabindex="0" data-tooltip="${escapeHtml(tip)}">${escapeHtml(rankTierLabel(value))}</span>`;
+        return `<span class="badge rank ${escapeHtml(rankTierClass(value))} has-tip" tabindex="0" data-tooltip="${escapeHtml(tip)}" aria-label="${escapeHtml(tip)}">${escapeHtml(rankTierLabel(value))}</span>`;
       }
       function tierBadgeHtml(value) {
         const className = tierClass(value);
         const label = tierLabel(value);
         if (!value) {
-          return `<span class="badge tier tier-no-data info-tip" tabindex="0" data-tooltip="Records are linked, but there are no reliable public observations for a numeric MTS display." aria-label="Records are linked, but there are no reliable public observations for a numeric MTS display.">${escapeHtml(label)}</span>`;
+          return `<span class="badge tier tier-no-data has-tip" tabindex="0" data-tooltip="Records are linked, but there are no reliable public observations for a numeric MTS display." aria-label="Records are linked, but there are no reliable public observations for a numeric MTS display.">${escapeHtml(label)}</span>`;
         }
         return `<span class="badge tier ${escapeHtml(className)}">${escapeHtml(label)}</span>`;
       }
